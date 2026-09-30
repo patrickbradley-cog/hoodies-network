@@ -1,0 +1,920 @@
+public final class com.gap.hoodies_network.BuildConfig {
+  public static final boolean DEBUG;
+  public static final java.lang.String LIBRARY_PACKAGE_NAME;
+  public static final java.lang.String BUILD_TYPE;
+  public com.gap.hoodies_network.BuildConfig();
+}
+public final class com.gap.hoodies_network.cache.EncryptedCache$Companion {
+  public final byte[] runAES(byte[], byte[], int);
+  public final byte[] genIV();
+  public com.gap.hoodies_network.cache.EncryptedCache$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.cache.EncryptedCache {
+  public static final com.gap.hoodies_network.cache.EncryptedCache$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.cache.EncryptedCache(com.gap.hoodies_network.cache.configuration.CacheEnabled, com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor);
+  public com.gap.hoodies_network.cache.EncryptedCache(com.gap.hoodies_network.cache.configuration.CacheEnabled, com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public final com.gap.hoodies_network.cache.configuration.CacheEnabled getCacheConfig();
+  public final void setCacheConfig(com.gap.hoodies_network.cache.configuration.CacheEnabled);
+  public final com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor getEncryptionDecryptionInterceptor();
+  public final void setEncryptionDecryptionInterceptor(com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor);
+  public final void cacheRequestResult(byte[], com.gap.hoodies_network.request.Request<?>);
+  public final void getCachedData(com.gap.hoodies_network.request.Request<java.lang.Object>);
+  public final boolean isDataStale(com.gap.hoodies_network.request.Request<java.lang.Object>);
+  public com.gap.hoodies_network.cache.EncryptedCache();
+  public static final com.gap.hoodies_network.cache.persistentstorage.CacheDao access$getDb$p(com.gap.hoodies_network.cache.EncryptedCache);
+  public static final long access$getCurrentSeconds(com.gap.hoodies_network.cache.EncryptedCache);
+}
+public interface com.gap.hoodies_network.cache.configuration.CacheConfiguration {
+}
+public final class com.gap.hoodies_network.cache.configuration.CacheDisabled implements com.gap.hoodies_network.cache.configuration.CacheConfiguration {
+  public static final int $stable;
+  public com.gap.hoodies_network.cache.configuration.CacheDisabled();
+}
+public final class com.gap.hoodies_network.cache.configuration.CacheEnabled implements com.gap.hoodies_network.cache.configuration.CacheConfiguration {
+  public static final int $stable;
+  public com.gap.hoodies_network.cache.configuration.CacheEnabled(java.time.Duration, boolean, android.content.Context);
+  public com.gap.hoodies_network.cache.configuration.CacheEnabled(java.time.Duration, boolean, android.content.Context, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public final java.time.Duration getStaleDataThreshold();
+  public final boolean getEncryptionEnabled();
+  public final android.content.Context getApplicationContext();
+}
+public interface com.gap.hoodies_network.cache.persistentstorage.CacheDao {
+  public abstract void insert(com.gap.hoodies_network.cache.persistentstorage.CachedData...);
+  public abstract java.util.List<com.gap.hoodies_network.cache.persistentstorage.CachedData> getByIv(java.lang.String);
+  public abstract com.gap.hoodies_network.cache.persistentstorage.CachedData get(java.lang.String, int);
+  public abstract void delete(java.lang.String, int);
+}
+public final class com.gap.hoodies_network.cache.persistentstorage.CacheDao_Impl implements com.gap.hoodies_network.cache.persistentstorage.CacheDao {
+  public com.gap.hoodies_network.cache.persistentstorage.CacheDao_Impl(androidx.room.RoomDatabase);
+  public void insert(com.gap.hoodies_network.cache.persistentstorage.CachedData...);
+  public void delete(java.lang.String, int);
+  public java.util.List<com.gap.hoodies_network.cache.persistentstorage.CachedData> getByIv(java.lang.String);
+  public com.gap.hoodies_network.cache.persistentstorage.CachedData get(java.lang.String, int);
+  public static java.util.List<java.lang.Class<?>> getRequiredConverters();
+}
+public abstract class com.gap.hoodies_network.cache.persistentstorage.CacheDatabase extends androidx.room.RoomDatabase {
+  public static final int $stable;
+  public com.gap.hoodies_network.cache.persistentstorage.CacheDatabase();
+  public abstract com.gap.hoodies_network.cache.persistentstorage.CacheDao cacheDao();
+}
+public final class com.gap.hoodies_network.cache.persistentstorage.CacheDatabase_Impl extends com.gap.hoodies_network.cache.persistentstorage.CacheDatabase {
+  public com.gap.hoodies_network.cache.persistentstorage.CacheDatabase_Impl();
+  public void clearAllTables();
+  public java.util.Set<java.lang.Class<? extends androidx.room.migration.AutoMigrationSpec>> getRequiredAutoMigrationSpecs();
+  public java.util.List<androidx.room.migration.Migration> getAutoMigrations(java.util.Map<java.lang.Class<? extends androidx.room.migration.AutoMigrationSpec>, androidx.room.migration.AutoMigrationSpec>);
+  public com.gap.hoodies_network.cache.persistentstorage.CacheDao cacheDao();
+}
+public final class com.gap.hoodies_network.cache.persistentstorage.CachedData {
+  public static final int $stable;
+  public com.gap.hoodies_network.cache.persistentstorage.CachedData(int, java.lang.String, int, long, java.lang.String, java.lang.String);
+  public final int getId();
+  public final java.lang.String getUrl();
+  public final int getBodyHash();
+  public final long getCachedAt();
+  public final java.lang.String getData();
+  public final void setData(java.lang.String);
+  public final java.lang.String getIv();
+  public final void setIv(java.lang.String);
+  public final int component1();
+  public final java.lang.String component2();
+  public final int component3();
+  public final long component4();
+  public final java.lang.String component5();
+  public final java.lang.String component6();
+  public final com.gap.hoodies_network.cache.persistentstorage.CachedData copy(int, java.lang.String, int, long, java.lang.String, java.lang.String);
+  public static com.gap.hoodies_network.cache.persistentstorage.CachedData copy$default(com.gap.hoodies_network.cache.persistentstorage.CachedData, int, java.lang.String, int, long, java.lang.String, java.lang.String, int, java.lang.Object);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+public final class com.gap.hoodies_network.config.HeaderKeyValuesKt {
+  public static final java.lang.String CONTENT_TYPE_KEY;
+  public static final java.lang.String MULTIDB_ENABLED;
+  public static final java.lang.String ACCEPT_LANGUAGE;
+  public static final java.lang.String AUTHORIZATION_KEY;
+  public static final java.lang.String MULTIDB_ENABLED_VALUE;
+  public static final java.lang.String ACCEPT_LANGUAGE_VALUE;
+  public static final java.lang.String APPLICATION_JSON;
+  public static final java.lang.String CLIENT_ID_VALUE;
+  public static final java.lang.String CLIENT_OS_VALUE;
+  public static final java.lang.String SESSION_ID_KEY;
+  public static final java.lang.String CLIENT_OS;
+  public static final java.lang.String CLIENT_ID;
+  public static final java.lang.String FORM_URL_ENCODED;
+}
+public final class com.gap.hoodies_network.config.HttpClientConfig$Companion {
+  public final java.time.Duration getConnectTimeOutDuration();
+  public final java.time.Duration getReadTimeoutDuration();
+  public final void setConnectTimeOut(java.time.Duration);
+  public final void setReadTimeOut(java.time.Duration);
+  public final void setFactoryDefaultConfiguration();
+  public com.gap.hoodies_network.config.HttpClientConfig$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.config.HttpClientConfig {
+  public static final com.gap.hoodies_network.config.HttpClientConfig$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.config.HttpClientConfig();
+  public static final int access$getSocketConnectTimeout$cp();
+  public static final int access$getSocketReadTimeout$cp();
+  public static final void access$setSocketConnectTimeout$cp(int);
+  public static final void access$setSocketReadTimeout$cp(int);
+}
+public final class com.gap.hoodies_network.config.IsOnlineKt {
+  public static final boolean isOnline(android.content.Context);
+}
+public final class com.gap.hoodies_network.config.UrlResolver$Companion {
+  public final java.lang.String resolveHttpProtocol(java.net.URL);
+  public final java.lang.String resolveUrl(java.lang.String) throws java.net.MalformedURLException;
+  public final java.lang.String validateUrl(java.lang.String);
+  public final java.lang.String getProtocol(java.lang.String);
+  public com.gap.hoodies_network.config.UrlResolver$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.config.UrlResolver {
+  public static final com.gap.hoodies_network.config.UrlResolver$Companion Companion;
+  public static final int $stable;
+  public static final java.lang.String PROTOCOL_HTTPS;
+  public com.gap.hoodies_network.config.UrlResolver();
+  public static final java.lang.String access$getMProtocol$cp();
+  public static final void access$setMProtocol$cp(java.lang.String);
+}
+public final class com.gap.hoodies_network.connection.BaseNetwork$Companion {
+  public static final java.util.List access$convertHeaders(com.gap.hoodies_network.connection.BaseNetwork$Companion, java.util.Map);
+  public com.gap.hoodies_network.connection.BaseNetwork$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.connection.BaseNetwork implements com.gap.hoodies_network.connection.Network {
+  public static final com.gap.hoodies_network.connection.BaseNetwork$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.connection.BaseNetwork(java.lang.String, javax.net.ssl.SSLSocketFactory);
+  public com.gap.hoodies_network.core.Response<java.lang.Object> executeRequest(com.gap.hoodies_network.request.Request<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+}
+public interface com.gap.hoodies_network.connection.Network {
+  public abstract com.gap.hoodies_network.core.Response<java.lang.Object> executeRequest(com.gap.hoodies_network.request.Request<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+}
+public final class com.gap.hoodies_network.connection.queue.NetworkHandler {
+  public static final int $stable;
+  public com.gap.hoodies_network.connection.queue.NetworkHandler(com.gap.hoodies_network.delivery.ResponseDelivery);
+  public final void executeRequest(com.gap.hoodies_network.request.Request<java.lang.Object>, com.gap.hoodies_network.connection.Network);
+}
+public final class com.gap.hoodies_network.connection.queue.QueueHandler extends java.lang.Thread {
+  public static final int $stable;
+  public com.gap.hoodies_network.connection.queue.QueueHandler(java.util.concurrent.BlockingQueue<com.gap.hoodies_network.request.Request<java.lang.Object>>, com.gap.hoodies_network.connection.queue.NetworkHandler, com.gap.hoodies_network.connection.Network);
+  public void run();
+  public final void quit();
+}
+public final class com.gap.hoodies_network.connection.queue.RequestQueue$Companion {
+  public final com.gap.hoodies_network.connection.queue.RequestQueue getInstance();
+  public final com.gap.hoodies_network.connection.queue.RequestQueue getInstance(java.lang.String, javax.net.ssl.SSLSocketFactory);
+  public com.gap.hoodies_network.connection.queue.RequestQueue$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.connection.queue.RequestQueue {
+  public static final com.gap.hoodies_network.connection.queue.RequestQueue$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.connection.queue.RequestQueue(java.lang.String, javax.net.ssl.SSLSocketFactory);
+  public final void enqueue(com.gap.hoodies_network.request.Request<java.lang.Object>);
+  public final com.gap.hoodies_network.request.Request<java.lang.Object> dequeue();
+  public final boolean hasItems();
+  public final int size();
+  public static final com.gap.hoodies_network.connection.queue.RequestQueue access$getRequestQueue$cp();
+  public static final void access$setRequestQueue$cp(com.gap.hoodies_network.connection.queue.RequestQueue);
+}
+public class com.gap.hoodies_network.cookies.CookieJar extends java.net.CookieManager {
+  public static final int $stable;
+  public com.gap.hoodies_network.cookies.CookieJar(java.net.CookieStore);
+  public com.gap.hoodies_network.cookies.CookieJar(java.net.CookieStore, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public final java.util.List<java.net.HttpCookie> getCookiesForHost(java.net.URI);
+  public final java.util.List<java.net.HttpCookie> getAllCookies();
+  public final java.util.List<java.net.URI> getAllHosts();
+  public final void setCookiesForHost(java.net.URI, java.util.List<java.net.HttpCookie>);
+  public final void addCookieForHost(java.net.URI, java.net.HttpCookie);
+  public final void removeAllCookies();
+  public com.gap.hoodies_network.cookies.CookieJar();
+}
+public final class com.gap.hoodies_network.cookies.PersistentCookieJar extends com.gap.hoodies_network.cookies.CookieJar {
+  public static final int $stable;
+  public com.gap.hoodies_network.cookies.PersistentCookieJar(java.lang.String, android.content.Context);
+}
+public final class com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie {
+  public static final int $stable;
+  public com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie(int, java.lang.String, java.lang.String, java.lang.String, int);
+  public final int getId();
+  public final java.lang.String getHost();
+  public final java.lang.String getCookie();
+  public final java.lang.String getIv();
+  public final int getHash();
+  public final int component1();
+  public final java.lang.String component2();
+  public final java.lang.String component3();
+  public final java.lang.String component4();
+  public final int component5();
+  public final com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie copy(int, java.lang.String, java.lang.String, java.lang.String, int);
+  public static com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie copy$default(com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie, int, java.lang.String, java.lang.String, java.lang.String, int, int, java.lang.Object);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+public interface com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDao {
+  public abstract java.util.List<com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie> getAll();
+  public abstract java.util.List<com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie> getByHost(java.lang.String);
+  public abstract java.util.List<com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie> getByIv(java.lang.String);
+  public abstract void deleteAll();
+  public abstract int deleteByHash(int);
+  public abstract java.util.List<java.lang.String> getAllHosts();
+  public abstract void insert(com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie...);
+}
+public final class com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDao_Impl implements com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDao {
+  public com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDao_Impl(androidx.room.RoomDatabase);
+  public void insert(com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie...);
+  public void deleteAll();
+  public int deleteByHash(int);
+  public java.util.List<com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie> getAll();
+  public java.util.List<com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie> getByHost(java.lang.String);
+  public java.util.List<com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie> getByIv(java.lang.String);
+  public java.util.List<java.lang.String> getAllHosts();
+  public static java.util.List<java.lang.Class<?>> getRequiredConverters();
+}
+public abstract class com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDatabase extends androidx.room.RoomDatabase {
+  public static final int $stable;
+  public com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDatabase();
+  public abstract com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDao encryptedCookieDao();
+}
+public final class com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDatabase_Impl extends com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDatabase {
+  public com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDatabase_Impl();
+  public void clearAllTables();
+  public java.util.Set<java.lang.Class<? extends androidx.room.migration.AutoMigrationSpec>> getRequiredAutoMigrationSpecs();
+  public java.util.List<androidx.room.migration.Migration> getAutoMigrations(java.util.Map<java.lang.Class<? extends androidx.room.migration.AutoMigrationSpec>, androidx.room.migration.AutoMigrationSpec>);
+  public com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDao encryptedCookieDao();
+}
+public final class com.gap.hoodies_network.cookies.persistentstorage.EncryptedDaoWrapperForCookies$CookieAndId {
+  public static final int $stable;
+  public com.gap.hoodies_network.cookies.persistentstorage.EncryptedDaoWrapperForCookies$CookieAndId(java.net.HttpCookie, int);
+  public final java.net.HttpCookie getCookie();
+  public final int getId();
+  public final java.net.HttpCookie component1();
+  public final int component2();
+  public final com.gap.hoodies_network.cookies.persistentstorage.EncryptedDaoWrapperForCookies$CookieAndId copy(java.net.HttpCookie, int);
+  public static com.gap.hoodies_network.cookies.persistentstorage.EncryptedDaoWrapperForCookies$CookieAndId copy$default(com.gap.hoodies_network.cookies.persistentstorage.EncryptedDaoWrapperForCookies$CookieAndId, java.net.HttpCookie, int, int, java.lang.Object);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+public final class com.gap.hoodies_network.cookies.persistentstorage.EncryptedDaoWrapperForCookies {
+  public static final int $stable;
+  public com.gap.hoodies_network.cookies.persistentstorage.EncryptedDaoWrapperForCookies(java.lang.String, android.content.Context);
+  public final java.util.List<java.net.HttpCookie> getAll();
+  public final java.util.List<java.net.HttpCookie> getByHost(java.net.URI);
+  public final void deleteAll();
+  public final boolean deleteCookie(java.net.HttpCookie);
+  public final java.util.List<java.net.URI> getAllHosts();
+  public final void insert(java.net.URI, java.net.HttpCookie);
+}
+public final class com.gap.hoodies_network.cookies.persistentstorage.PersistentCookieStore implements java.net.CookieStore {
+  public com.gap.hoodies_network.cookies.persistentstorage.PersistentCookieStore(java.lang.String, android.content.Context);
+  public void add(java.net.URI, java.net.HttpCookie);
+  public java.util.List<java.net.HttpCookie> get(java.net.URI);
+  public java.util.List<java.net.HttpCookie> getCookies();
+  public java.util.List<java.net.URI> getURIs();
+  public boolean remove(java.net.URI, java.net.HttpCookie);
+  public boolean removeAll();
+}
+public final class com.gap.hoodies_network.core.Failure<E> extends com.gap.hoodies_network.core.Result {
+  public static final int $stable;
+  public com.gap.hoodies_network.core.Failure(E);
+  public final E getReason();
+  public final E component1();
+  public final com.gap.hoodies_network.core.Failure<E> copy(E);
+  public static com.gap.hoodies_network.core.Failure copy$default(com.gap.hoodies_network.core.Failure, java.lang.Object, int, java.lang.Object);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkClient$Builder {
+  public static final int $stable;
+  public com.gap.hoodies_network.core.HoodiesNetworkClient$Builder();
+  public final java.lang.String getBaseUrl$Hoodies_Network_release();
+  public final void setBaseUrl$Hoodies_Network_release(java.lang.String);
+  public final java.util.HashMap<java.lang.String, java.lang.String> getDefaultHeaders$Hoodies_Network_release();
+  public final java.util.List<com.gap.hoodies_network.interceptor.Interceptor> getInterceptors$Hoodies_Network_release();
+  public final com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor getEncryptionDecryptionInterceptor$Hoodies_Network_release();
+  public final void setEncryptionDecryptionInterceptor$Hoodies_Network_release(com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor);
+  public final boolean getRetryOnConnectionFailure$Hoodies_Network_release();
+  public final void setRetryOnConnectionFailure$Hoodies_Network_release(boolean);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount getMaxRetryAttempts$Hoodies_Network_release();
+  public final void setMaxRetryAttempts$Hoodies_Network_release(com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount);
+  public final java.net.CookieManager getCookieManager$Hoodies_Network_release();
+  public final void setCookieManager$Hoodies_Network_release(java.net.CookieManager);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$Builder baseUrl(java.lang.String);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$Builder addInterceptor(com.gap.hoodies_network.interceptor.Interceptor);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$Builder addEncryptionDecryptionInterceptor(com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$Builder addHeader(java.lang.String, java.lang.String);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$Builder addHeaders(java.util.HashMap<java.lang.String, java.lang.String>);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$Builder enableCookiesWithCookieJar(com.gap.hoodies_network.cookies.CookieJar);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$Builder retryOnConnectionFailure(boolean, com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient build();
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod extends java.lang.Enum<com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod> {
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod GET;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod POST;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod PUT;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod DELETE;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod PATCH;
+  public final java.lang.String getValue();
+  public static com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod[] values();
+  public static com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod valueOf(java.lang.String);
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount$Companion$WhenMappings {
+  public static final int[] $EnumSwitchMapping$0;
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount$Companion {
+  public final int parseToInt(com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount);
+  public com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount extends java.lang.Enum<com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount> {
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount$Companion Companion;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount RETRY_NEVER;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount RETRY_ONCE;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount RETRY_TWICE;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount RETRY_THRICE;
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount RETRY_MAX;
+  public static com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount[] values();
+  public static com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount valueOf(java.lang.String);
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkClient implements com.gap.hoodies_network.core.IHoodiesNetworkClientRaw {
+  public static final int $stable;
+  public com.gap.hoodies_network.core.HoodiesNetworkClient(com.gap.hoodies_network.core.HoodiesNetworkClient$Builder);
+  public final com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined getNonInlinedClient();
+  public final java.util.List<com.gap.hoodies_network.interceptor.Interceptor> getInterceptors();
+  public final <RESULT> java.lang.Object get(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object get$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object getHtml(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object getHtml$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public java.lang.Object getImage(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<android.graphics.Bitmap, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public final <RESULT> java.lang.Object postMultipartFiles(java.lang.String, java.util.List<? extends java.io.File>, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object postMultipartFiles$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.util.List, java.util.HashMap, java.lang.String, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object getUrlQueryParam(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object getUrlQueryParam$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.util.HashMap, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object getUrlQueryParamEncoded(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object getUrlQueryParamEncoded$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.util.HashMap, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object post(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <BODY, RESULT> java.lang.Object post(java.lang.String, BODY, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.lang.Object, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object post(java.lang.String, org.json.JSONObject, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, org.json.JSONObject, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object post(java.lang.String, org.json.JSONArray, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, org.json.JSONArray, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object patch(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <BODY, RESULT> java.lang.Object patch(java.lang.String, BODY, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.lang.Object, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object patch(java.lang.String, org.json.JSONObject, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, org.json.JSONObject, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object patch(java.lang.String, org.json.JSONArray, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, org.json.JSONArray, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <BODY, RESULT> java.lang.Object put(java.lang.String, BODY, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object put$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.lang.Object, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final <RESULT> java.lang.Object delete(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<? extends RESULT, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object delete$default(com.gap.hoodies_network.core.HoodiesNetworkClient, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.util.HashMap<java.lang.String, java.lang.String> getRequestHeaders();
+  public java.lang.Object getRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object getRawUrlQueryParam(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object getRawUrlQueryParamEncoded(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object postRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object postRaw(java.lang.String, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object postRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object patchRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object patchRaw(java.lang.String, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object patchRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object putRaw(java.lang.String, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public java.lang.Object deleteRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined {
+  public static final int $stable;
+  public com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined(com.gap.hoodies_network.core.HoodiesNetworkClient$Builder);
+  public final java.net.CookieManager getCookieManager();
+  public static void getCookieManager$annotations();
+  public final java.lang.String getBaseUrl();
+  public static void getBaseUrl$annotations();
+  public final com.gap.hoodies_network.core.HoodiesNetworkClient$RetryCount getMaxRetryLimit();
+  public static void getMaxRetryLimit$annotations();
+  public final java.util.HashMap<java.lang.String, java.lang.String> getDefaultHeaders();
+  public static void getDefaultHeaders$annotations();
+  public final java.util.List<com.gap.hoodies_network.interceptor.Interceptor> getInterceptors();
+  public static void getInterceptors$annotations();
+  public final com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor getEncryptionDecryptionInterceptor();
+  public static void getEncryptionDecryptionInterceptor$annotations();
+  public final boolean getRetryOnConnectionFailure();
+  public static void getRetryOnConnectionFailure$annotations();
+  public final com.google.gson.Gson getGson();
+  public static void getGson$annotations();
+  public final java.lang.Object get(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object get$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object getHtml(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object getHtml$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object getImage(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<android.graphics.Bitmap, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object getImage$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.HashMap, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object postMultipartFiles(java.lang.String, java.util.List<? extends java.io.File>, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.lang.reflect.Type, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object postMultipartFiles$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.List, java.util.HashMap, java.lang.String, java.lang.reflect.Type, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object getUrlQueryParam(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object getUrlQueryParam$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.util.HashMap, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object getUrlQueryParamEncoded(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object getUrlQueryParamEncoded$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.util.HashMap, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object post(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object post(java.lang.String, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.Object, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object post(java.lang.String, org.json.JSONObject, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, org.json.JSONObject, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object post(java.lang.String, org.json.JSONArray, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object post$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, org.json.JSONArray, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object patch(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object patch(java.lang.String, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.Object, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object patch(java.lang.String, org.json.JSONObject, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, org.json.JSONObject, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object patch(java.lang.String, org.json.JSONArray, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object patch$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, org.json.JSONArray, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object put(java.lang.String, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object put$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.Object, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object delete(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object delete$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendRequest(java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendRequestHtml(java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendRequestHtml$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendImageRequest(java.lang.String, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, java.util.HashMap<java.lang.String, java.lang.String>, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendImageRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, java.util.HashMap, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendFileUploadRequest(java.lang.String, java.util.List<? extends java.io.File>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendFileUploadRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.util.List, java.lang.String, java.util.HashMap, java.lang.reflect.Type, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendJsonObjectRequest(java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONObject, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendJsonObjectRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONObject, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendJsonArrayRequest(java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONArray, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendJsonArrayRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONArray, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendUrlQueryParamEncodedRequest(com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendUrlQueryParamEncodedRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final java.lang.Object sendUrlQueryRequest(com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static java.lang.Object sendUrlQueryRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap, java.lang.String, java.util.HashMap, java.lang.reflect.Type, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final void sendRequest(java.lang.String, com.gap.hoodies_network.request.Request<java.lang.Object>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, com.gap.hoodies_network.cache.configuration.CacheConfiguration);
+  public final com.gap.hoodies_network.request.StringRequest getRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.StringRequest getRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.StringRequest getRequestHtml(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static com.gap.hoodies_network.request.StringRequest getRequestHtml$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.StringRequest getRequestFormUrlEncoded(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.StringRequest getRequestFormUrlEncoded$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.StringRequest getRequestUrlQueryParam(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.StringRequest getRequestUrlQueryParam$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.StringRequest getRequestUrlQueryParamEncoded(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.StringRequest getRequestUrlQueryParamEncoded$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.StringRequest getRequestRegular(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.StringRequest getRequestRegular$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.StringRequest getRegularRequestHtml(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static com.gap.hoodies_network.request.StringRequest getRegularRequestHtml$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.lang.Object, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.ImageRequest getImageRequest(java.lang.String, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public static com.gap.hoodies_network.request.ImageRequest getImageRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.FileUploadRequest getFileUploadRequest(java.lang.String, java.lang.String, java.util.List<? extends java.io.File>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.FileUploadRequest getFileUploadRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, java.util.List, java.lang.String, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.json.JsonObjectRequest getJsonObjectRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONObject, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.json.JsonObjectRequest getJsonObjectRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONObject, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.json.JsonArrayRequest getJsonArrayRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONArray, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.json.JsonArrayRequest getJsonArrayRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, org.json.JSONArray, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final kotlin.jvm.functions.Function1<com.gap.hoodies_network.core.Response<java.lang.Object>, kotlin.Unit> successCallback(java.lang.String, com.google.gson.Gson, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public final kotlin.jvm.functions.Function1<android.graphics.Bitmap, kotlin.Unit> successCallbackImage(java.lang.String, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<android.graphics.Bitmap, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public final kotlin.jvm.functions.Function1<com.gap.hoodies_network.core.Response<java.lang.Object>, kotlin.Unit> successCallbackHtml(java.lang.String, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public final void safeResume(java.lang.String, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>);
+  public final kotlin.jvm.functions.Function1<com.gap.hoodies_network.core.HoodiesNetworkError, kotlin.Unit> failureCallback(java.lang.String, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public final void isRetryAttempts(java.lang.String, int, com.gap.hoodies_network.core.HoodiesNetworkError, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public final com.gap.hoodies_network.request.StringRequest getStringRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.StringRequest getStringRequest$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final com.gap.hoodies_network.request.StringRequest getStringRequestEncoded(java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, java.lang.reflect.Type);
+  public static com.gap.hoodies_network.request.StringRequest getStringRequestEncoded$default(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, java.util.HashMap, java.util.HashMap, kotlinx.coroutines.CancellableContinuation, java.lang.reflect.Type, int, java.lang.Object);
+  public final java.util.HashMap<java.lang.String, java.lang.String> getRequestHeaders();
+  public final void getFailureCallback(java.lang.String, kotlinx.coroutines.CancellableContinuation<? super com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>>, com.gap.hoodies_network.core.HoodiesNetworkError);
+  public static final com.gap.hoodies_network.connection.queue.RequestQueue access$getRequestQueue$p(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined);
+  public static final java.util.LinkedHashMap access$getRetryRequests$p(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined);
+  public static final void access$deliverSuccess(com.gap.hoodies_network.core.HoodiesNetworkClientNonInlined, java.lang.String, java.lang.Object, kotlinx.coroutines.CancellableContinuation, com.gap.hoodies_network.core.Response);
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkError extends java.lang.Exception {
+  public static final int $stable;
+  public com.gap.hoodies_network.core.HoodiesNetworkError(java.lang.String, int, java.lang.Throwable);
+  public com.gap.hoodies_network.core.HoodiesNetworkError(java.lang.String, int, java.lang.Throwable, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public java.lang.String getMessage();
+  public final int getCode();
+  public final void setCode(int);
+  public java.lang.Throwable getCause();
+  public void setCause(java.lang.Throwable);
+  public final java.lang.String component1();
+  public final int component2();
+  public final java.lang.Throwable component3();
+  public final com.gap.hoodies_network.core.HoodiesNetworkError copy(java.lang.String, int, java.lang.Throwable);
+  public static com.gap.hoodies_network.core.HoodiesNetworkError copy$default(com.gap.hoodies_network.core.HoodiesNetworkError, java.lang.String, int, java.lang.Throwable, int, java.lang.Object);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+public final class com.gap.hoodies_network.core.HoodiesNetworkErrorDescriptionKt {
+  public static final int UNKNOWN_ERROR_CODE;
+  public static final int OUT_OF_MEMORY_ERROR_CODE;
+  public static final int JSON_SYNTAX_ERROR_CODE;
+  public static final int EXCEPTION_ERROR_CODE;
+  public static final int UNSUPPORTED_ENCODING_ERROR_CODE;
+  public static final int JSON_ERROR_CODE;
+  public static final int NULL_POINTER_ERROR_CODE;
+}
+public final class com.gap.hoodies_network.core.IHoodiesNetworkClientRaw$DefaultImpls {
+  public static java.lang.Object getRaw$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object getRawUrlQueryParam$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.util.HashMap, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object getRawUrlQueryParamEncoded$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.util.HashMap, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object postRaw$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object postRaw$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object patchRaw$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object patchRaw$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object putRaw$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object deleteRaw$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.util.HashMap, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public static java.lang.Object getImage$default(com.gap.hoodies_network.core.IHoodiesNetworkClientRaw, java.lang.String, java.util.HashMap, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation, int, java.lang.Object);
+}
+public interface com.gap.hoodies_network.core.IHoodiesNetworkClientRaw {
+  public abstract java.lang.Object getRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object getRawUrlQueryParam(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object getRawUrlQueryParamEncoded(java.util.HashMap<java.lang.String, java.lang.String>, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object postRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object postRaw(java.lang.String, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object postRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object patchRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object patchRaw(java.lang.String, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object patchRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object putRaw(java.lang.String, java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object deleteRaw(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+  public abstract java.lang.Object getImage(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, com.gap.hoodies_network.cache.configuration.CacheConfiguration, kotlin.coroutines.Continuation<? super com.gap.hoodies_network.core.Result<android.graphics.Bitmap, com.gap.hoodies_network.core.HoodiesNetworkError>>);
+}
+public interface com.gap.hoodies_network.core.Response$BitmapResponseListener {
+  public abstract void onResponse(android.graphics.Bitmap);
+  public abstract void onError(com.gap.hoodies_network.core.HoodiesNetworkError);
+}
+public final class com.gap.hoodies_network.core.Response$Companion {
+  public final java.util.Map<java.lang.String, java.lang.String> toHeaderMap(java.util.List<com.gap.hoodies_network.header.Header>);
+  public com.gap.hoodies_network.core.Response$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public interface com.gap.hoodies_network.core.Response$ErrorListener {
+  public abstract void onErrorResponse(com.gap.hoodies_network.core.HoodiesNetworkError);
+}
+public interface com.gap.hoodies_network.core.Response$ResponseListener {
+  public abstract void onResponse(com.gap.hoodies_network.core.Response<java.lang.Object>);
+}
+public final class com.gap.hoodies_network.core.Response<T> {
+  public static final com.gap.hoodies_network.core.Response$Companion Companion;
+  public static final int $stable;
+  public final int getStatusCode();
+  public final void setStatusCode(int);
+  public final long getNetworkTimeMs();
+  public final void setNetworkTimeMs(long);
+  public final T getResult();
+  public final void setResult(T);
+  public final java.lang.String getUrl();
+  public final void setUrl(java.lang.String);
+  public com.gap.hoodies_network.core.Response(int, byte[], long, java.util.List<com.gap.hoodies_network.header.Header>);
+  public com.gap.hoodies_network.core.Response(int, byte[], long, java.util.List<com.gap.hoodies_network.header.Header>, java.lang.String);
+  public com.gap.hoodies_network.core.Response(byte[]);
+  public com.gap.hoodies_network.core.Response(android.graphics.Bitmap);
+  public final android.graphics.Bitmap getBitmap();
+  public final void setBitmap(android.graphics.Bitmap);
+  public final byte[] getData();
+  public final void setData(byte[]);
+  public com.gap.hoodies_network.core.Response(int, byte[], java.util.List<com.gap.hoodies_network.header.Header>, long);
+  public com.gap.hoodies_network.core.Response(int);
+  public final void setResultResponse(T);
+  public final java.util.List<com.gap.hoodies_network.header.Header> getAllHeaders();
+}
+public abstract class com.gap.hoodies_network.core.Result<T, E> {
+  public static final int $stable;
+  public com.gap.hoodies_network.core.Result(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.core.Success<T> extends com.gap.hoodies_network.core.Result {
+  public static final int $stable;
+  public com.gap.hoodies_network.core.Success(T, java.util.List<com.gap.hoodies_network.header.Header>, java.lang.String);
+  public com.gap.hoodies_network.core.Success(java.lang.Object, java.util.List, java.lang.String, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public final T getValue();
+  public final java.util.List<com.gap.hoodies_network.header.Header> getHeaders();
+  public final java.lang.String getUrl();
+  public final T component1();
+  public final java.util.List<com.gap.hoodies_network.header.Header> component2();
+  public final java.lang.String component3();
+  public final com.gap.hoodies_network.core.Success<T> copy(T, java.util.List<com.gap.hoodies_network.header.Header>, java.lang.String);
+  public static com.gap.hoodies_network.core.Success copy$default(com.gap.hoodies_network.core.Success, java.lang.Object, java.util.List, java.lang.String, int, java.lang.Object);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+public interface com.gap.hoodies_network.delivery.ResponseDelivery {
+  public abstract void postResponse(com.gap.hoodies_network.request.Request<java.lang.Object>, com.gap.hoodies_network.core.Response<java.lang.Object>);
+  public abstract void postError(com.gap.hoodies_network.request.Request<java.lang.Object>, com.gap.hoodies_network.core.HoodiesNetworkError);
+}
+final class com.gap.hoodies_network.delivery.ResponseDeliveryExecutor$ResponseDeliveryExecutorRunnable implements java.lang.Runnable {
+  public com.gap.hoodies_network.delivery.ResponseDeliveryExecutor$ResponseDeliveryExecutorRunnable(com.gap.hoodies_network.request.Request<java.lang.Object>, com.gap.hoodies_network.core.Response<java.lang.Object>, com.gap.hoodies_network.core.HoodiesNetworkError, boolean);
+  public void run();
+}
+public class com.gap.hoodies_network.delivery.ResponseDeliveryExecutor implements com.gap.hoodies_network.delivery.ResponseDelivery {
+  public static final int $stable;
+  public com.gap.hoodies_network.delivery.ResponseDeliveryExecutor(android.os.Handler);
+  public com.gap.hoodies_network.delivery.ResponseDeliveryExecutor(java.util.concurrent.Executor);
+  public void postResponse(com.gap.hoodies_network.request.Request<java.lang.Object>, com.gap.hoodies_network.core.Response<java.lang.Object>);
+  public void postError(com.gap.hoodies_network.request.Request<java.lang.Object>, com.gap.hoodies_network.core.HoodiesNetworkError);
+}
+public final class com.gap.hoodies_network.header.Header {
+  public static final int $stable;
+  public com.gap.hoodies_network.header.Header(java.lang.String, java.lang.String);
+  public final java.lang.String getName();
+  public final java.lang.String getValue();
+  public boolean equals(java.lang.Object);
+  public int hashCode();
+  public java.lang.String toString();
+}
+public final class com.gap.hoodies_network.header.HttpHeaderParser$Companion {
+  public final java.nio.charset.Charset parseCharset(java.util.Map<java.lang.String, java.lang.String>);
+  public final java.nio.charset.Charset parseCharset(java.util.Map<java.lang.String, java.lang.String>, java.nio.charset.Charset);
+  public com.gap.hoodies_network.header.HttpHeaderParser$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.header.HttpHeaderParser {
+  public static final com.gap.hoodies_network.header.HttpHeaderParser$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.header.HttpHeaderParser();
+}
+public interface com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor {
+  public abstract android.content.Context getContext();
+  public abstract byte[] encryptRequest(byte[]) throws java.io.IOException;
+  public abstract byte[] encryptAdditionalHeaders(byte[]);
+  public abstract byte[] decryptResponse(byte[]);
+}
+public class com.gap.hoodies_network.interceptor.Interceptor {
+  public static final int $stable;
+  public com.gap.hoodies_network.interceptor.Interceptor(android.content.Context);
+  public final android.content.Context getContext();
+  public void interceptRequest(java.lang.String, com.gap.hoodies_network.request.CancellableMutableRequest);
+  public void interceptError(com.gap.hoodies_network.core.HoodiesNetworkError, com.gap.hoodies_network.request.RetryableCancellableMutableRequest, int);
+  public void interceptNetwork(boolean, com.gap.hoodies_network.request.CancellableMutableRequest);
+  public void interceptResponse(com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>, com.gap.hoodies_network.request.Request<java.lang.Object>);
+}
+public final class com.gap.hoodies_network.keystore.CacheKeyManager$Companion {
+  public final synchronized javax.crypto.SecretKey getKey();
+  public com.gap.hoodies_network.keystore.CacheKeyManager$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.keystore.CacheKeyManager {
+  public static final com.gap.hoodies_network.keystore.CacheKeyManager$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.keystore.CacheKeyManager();
+  public static final javax.crypto.SecretKey access$getKey$cp();
+  public static final void access$setKey$cp(javax.crypto.SecretKey);
+}
+public final class com.gap.hoodies_network.mockwebserver.HttpCall {
+  public static final int $stable;
+  public com.gap.hoodies_network.mockwebserver.HttpCall(com.sun.net.httpserver.HttpExchange);
+  public final com.sun.net.httpserver.HttpExchange getHttpExchange();
+  public final byte[] getBodyByteArray();
+  public final java.lang.String getBodyString();
+  public final java.util.Map<java.lang.String, java.lang.String> getFormUrlEncodedParameters();
+  public final com.sun.net.httpserver.Headers getHeaders();
+  public final void setResponseHeaders(com.sun.net.httpserver.Headers);
+  public final void respond(int, java.lang.String);
+  public final void respond(int, byte[]);
+}
+public final class com.gap.hoodies_network.mockwebserver.MockWebServerManager$Builder {
+  public static final int $stable;
+  public com.gap.hoodies_network.mockwebserver.MockWebServerManager$Builder();
+  public final java.util.HashMap<java.lang.String, com.gap.hoodies_network.mockwebserver.WebServerHandler> getContext$Hoodies_Network_release();
+  public final int getPort$Hoodies_Network_release();
+  public final void setPort$Hoodies_Network_release(int);
+  public final com.gap.hoodies_network.mockwebserver.MockWebServerManager$Builder addContext(java.lang.String, com.gap.hoodies_network.mockwebserver.WebServerHandler);
+  public final com.gap.hoodies_network.mockwebserver.MockWebServerManager$Builder usePort(int);
+  public final com.gap.hoodies_network.mockwebserver.MockWebServerManager start();
+}
+public final class com.gap.hoodies_network.mockwebserver.MockWebServerManager {
+  public static final int $stable;
+  public com.gap.hoodies_network.mockwebserver.MockWebServerManager(com.gap.hoodies_network.mockwebserver.MockWebServerManager$Builder);
+  public final com.gap.hoodies_network.mockwebserver.MockWebServerManager start();
+  public final void stop();
+}
+public class com.gap.hoodies_network.mockwebserver.WebServerHandler {
+  public static final int $stable;
+  public com.gap.hoodies_network.mockwebserver.WebServerHandler();
+  public final java.lang.Runnable getPostRunnable();
+  public final void setPostRunnable(java.lang.Runnable);
+  public final java.lang.Runnable getGetRunnable();
+  public final void setGetRunnable(java.lang.Runnable);
+  public final java.lang.Runnable getPutRunnable();
+  public final void setPutRunnable(java.lang.Runnable);
+  public final java.lang.Runnable getDeleteRunnable();
+  public final void setDeleteRunnable(java.lang.Runnable);
+  public final java.lang.Runnable getOptionsRunnable();
+  public final void setOptionsRunnable(java.lang.Runnable);
+  public final java.lang.Runnable getPatchRunnable();
+  public final void setPatchRunnable(java.lang.Runnable);
+  public final com.sun.net.httpserver.HttpHandler getInternalHandler();
+  public void handleRequest(com.gap.hoodies_network.mockwebserver.HttpCall);
+  public final void post(java.lang.Runnable);
+  public final void get(java.lang.Runnable);
+  public final void put(java.lang.Runnable);
+  public final void delete(java.lang.Runnable);
+  public final void options(java.lang.Runnable);
+  public final void patch(java.lang.Runnable);
+}
+public final class com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder {
+  public static final int $stable;
+  public com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder();
+  public final com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder acceptMethod(com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod);
+  public final com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder expect(java.util.Map<java.lang.String, java.lang.String>);
+  public final com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder expect(org.json.JSONObject);
+  public final com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder expectHeaders(java.util.Map<java.lang.String, java.lang.String>);
+  public final com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder returnThisJsonIfInputMatches(org.json.JSONObject);
+  public final com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder returnThisJsonIfInputMatches(org.json.JSONArray);
+  public final com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder returnErrorIfInputDoesNotMatch(int, java.lang.String);
+  public final void applyToMockWebServerBuilder(java.lang.String, com.gap.hoodies_network.mockwebserver.MockWebServerManager$Builder);
+  public static final com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod access$getMethod$p(com.gap.hoodies_network.mockwebserver.helper.MockServerMaker$Builder);
+}
+public final class com.gap.hoodies_network.mockwebserver.helper.MockServerMaker {
+  public static final int $stable;
+  public com.gap.hoodies_network.mockwebserver.helper.MockServerMaker();
+}
+public final class com.gap.hoodies_network.mockwebserver.helper.MockServerMakerKt {
+  public static final boolean similar(org.json.JSONObject, org.json.JSONObject);
+  public static final boolean similar(org.json.JSONArray, org.json.JSONArray);
+}
+public class com.gap.hoodies_network.request.CancellableMutableRequest {
+  public static final int $stable;
+  public com.gap.hoodies_network.request.CancellableMutableRequest(com.gap.hoodies_network.request.Request<java.lang.Object>);
+  public final com.gap.hoodies_network.request.Request<java.lang.Object> getRequest();
+  public final void cancelRequest(com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>);
+}
+public abstract class com.gap.hoodies_network.request.FileRequest<T> extends com.gap.hoodies_network.request.Request<T> {
+  public static final int $stable;
+  public com.gap.hoodies_network.request.FileRequest(java.lang.String, java.lang.String, java.util.List<? extends java.io.File>, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, java.net.CookieManager);
+  public abstract com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+  public void deliverResponse(com.gap.hoodies_network.core.Response<java.lang.Object>);
+}
+public final class com.gap.hoodies_network.request.FileUploadRequest$Companion {
+  public com.gap.hoodies_network.request.FileUploadRequest$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.request.FileUploadRequest extends com.gap.hoodies_network.request.FileRequest<java.io.File> {
+  public static final com.gap.hoodies_network.request.FileUploadRequest$Companion Companion;
+  public static final int $stable;
+  public static final java.lang.String PROTOCOL_CHARSET;
+  public com.gap.hoodies_network.request.FileUploadRequest(java.lang.String, java.util.List<? extends java.io.File>, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, java.net.CookieManager);
+  public com.gap.hoodies_network.request.FileUploadRequest(java.lang.String, java.util.List, java.lang.String, com.gap.hoodies_network.core.HoodiesNetworkClient$HttpMethod, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, java.net.CookieManager, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+}
+public final class com.gap.hoodies_network.request.FormUrlEncodedRequest$Companion {
+  public static final java.lang.String access$convertToParameterizedString(com.gap.hoodies_network.request.FormUrlEncodedRequest$Companion, java.util.Map);
+  public com.gap.hoodies_network.request.FormUrlEncodedRequest$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.request.FormUrlEncodedRequest extends com.gap.hoodies_network.request.StringRequest {
+  public static final com.gap.hoodies_network.request.FormUrlEncodedRequest$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.request.FormUrlEncodedRequest(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+}
+public final class com.gap.hoodies_network.request.ImageRequest$Companion {
+  public final int findBestSampleSize(int, int, int, int);
+  public com.gap.hoodies_network.request.ImageRequest$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.request.ImageRequest extends com.gap.hoodies_network.request.Request<android.graphics.Bitmap> {
+  public static final com.gap.hoodies_network.request.ImageRequest$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.request.ImageRequest(java.lang.String, int, int, android.widget.ImageView$ScaleType, android.graphics.Bitmap$Config, com.gap.hoodies_network.core.Response$BitmapResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.ImageRequest(java.lang.String, int, int, android.graphics.Bitmap$Config, com.gap.hoodies_network.core.Response$BitmapResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+  public void deliverResponse(com.gap.hoodies_network.core.Response<java.lang.Object>);
+  public final int getResizedDimension(int, int, int, int, android.widget.ImageView$ScaleType);
+  public final void processRequest(com.gap.hoodies_network.connection.queue.RequestQueue, com.gap.hoodies_network.request.ImageRequest);
+  public final int getResizedValue(int, int, int, int, android.widget.ImageView$ScaleType);
+  public final int getResizeValueWithSpecifiedHW(int, int, int, int, android.widget.ImageView$ScaleType);
+}
+public final class com.gap.hoodies_network.request.Request$Method$Companion {
+  public static final java.lang.String GET;
+  public static final java.lang.String POST;
+  public static final java.lang.String PUT;
+  public static final java.lang.String DELETE;
+  public static final java.lang.String HEAD;
+  public static final java.lang.String OPTIONS;
+  public static final java.lang.String TRACE;
+  public static final java.lang.String PATCH;
+}
+public interface com.gap.hoodies_network.request.Request$Method {
+  public static final com.gap.hoodies_network.request.Request$Method$Companion Companion;
+  public static final java.lang.String GET;
+  public static final java.lang.String POST;
+  public static final java.lang.String PUT;
+  public static final java.lang.String DELETE;
+  public static final java.lang.String HEAD;
+  public static final java.lang.String OPTIONS;
+  public static final java.lang.String TRACE;
+  public static final java.lang.String PATCH;
+}
+public abstract class com.gap.hoodies_network.request.Request<T> implements java.lang.Comparable<com.gap.hoodies_network.request.Request<T>> {
+  public static final int $stable;
+  public final java.lang.String getRequestBody();
+  public final void setRequestBody(java.lang.String);
+  public final com.gap.hoodies_network.cache.EncryptedCache getCache();
+  public final void setCache(com.gap.hoodies_network.cache.EncryptedCache);
+  public final java.net.CookieManager getCookieManager();
+  public final void setCookieManager(java.net.CookieManager);
+  public final java.util.List<java.io.File> getFiles();
+  public final void setFiles(java.util.List<? extends java.io.File>);
+  public final java.lang.String getMultipartBoundary();
+  public final void setMultipartBoundary(java.lang.String);
+  public final com.gap.hoodies_network.core.Response$ErrorListener getErrorListener();
+  public final void setErrorListener(com.gap.hoodies_network.core.Response$ErrorListener);
+  public final boolean getRequestIsCancelled$Hoodies_Network_release();
+  public final void setRequestIsCancelled$Hoodies_Network_release(boolean);
+  public final boolean getRetryingRequest$Hoodies_Network_release();
+  public final void setRetryingRequest$Hoodies_Network_release(boolean);
+  public final com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError> getCancellationResult$Hoodies_Network_release();
+  public final void setCancellationResult$Hoodies_Network_release(com.gap.hoodies_network.core.Result<?, com.gap.hoodies_network.core.HoodiesNetworkError>);
+  public abstract com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+  public abstract void deliverResponse(com.gap.hoodies_network.core.Response<java.lang.Object>);
+  public final kotlin.Unit deliverError(com.gap.hoodies_network.core.HoodiesNetworkError);
+  public com.gap.hoodies_network.request.Request(java.lang.String, java.lang.String, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.Request(java.lang.String, java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.Request(java.lang.String, java.lang.String, java.util.List<? extends java.io.File>, java.lang.String, com.gap.hoodies_network.core.Response$ErrorListener, java.net.CookieManager);
+  public java.lang.String getMethod();
+  public java.lang.String getUrl();
+  public final java.lang.String getBody();
+  public final java.util.ArrayList<byte[]> getFile();
+  public java.util.Map<java.lang.String, java.lang.String> getHeaders();
+  public final void setRequestHeaders(java.util.Map<java.lang.String, java.lang.String>);
+  public int compareTo(com.gap.hoodies_network.request.Request<T>);
+  public final java.util.ArrayList<byte[]> postMultipartFormData(java.util.List<? extends java.io.File>);
+  public int compareTo(java.lang.Object);
+}
+public final class com.gap.hoodies_network.request.RetryableCancellableMutableRequest extends com.gap.hoodies_network.request.CancellableMutableRequest {
+  public static final int $stable;
+  public com.gap.hoodies_network.request.RetryableCancellableMutableRequest(com.gap.hoodies_network.request.Request<java.lang.Object>);
+  public final void retryRequest();
+}
+public class com.gap.hoodies_network.request.StringRequest extends com.gap.hoodies_network.request.Request<java.lang.String> {
+  public static final int $stable;
+  public com.gap.hoodies_network.request.StringRequest(java.lang.String, java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.StringRequest(java.lang.String, java.lang.String, org.json.JSONObject, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.StringRequest(java.lang.String, java.lang.String, org.json.JSONObject, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public com.gap.hoodies_network.request.StringRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.StringRequest(java.lang.String, java.lang.String, org.json.JSONObject, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+  public void deliverResponse(com.gap.hoodies_network.core.Response<java.lang.Object>);
+}
+public final class com.gap.hoodies_network.request.json.JsonArrayRequest extends com.gap.hoodies_network.request.json.JsonRequest<org.json.JSONArray> {
+  public static final int $stable;
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, org.json.JSONArray, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, org.json.JSONArray, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, org.json.JSONArray, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, org.json.JSONArray, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonArrayRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+}
+public final class com.gap.hoodies_network.request.json.JsonObjectRequest extends com.gap.hoodies_network.request.json.JsonRequest<org.json.JSONObject> {
+  public static final int $stable;
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, org.json.JSONObject, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, org.json.JSONObject, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, org.json.JSONObject, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, org.json.JSONObject, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public com.gap.hoodies_network.request.json.JsonObjectRequest(java.lang.String, java.lang.String, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+}
+public abstract class com.gap.hoodies_network.request.json.JsonRequest<T> extends com.gap.hoodies_network.request.Request<T> {
+  public static final int $stable;
+  public com.gap.hoodies_network.request.json.JsonRequest(java.lang.String, java.lang.String, java.lang.String, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+  public abstract com.gap.hoodies_network.core.Response<java.lang.Object> parseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>) throws com.gap.hoodies_network.core.HoodiesNetworkError;
+  public void deliverResponse(com.gap.hoodies_network.core.Response<java.lang.Object>);
+}
+public final class com.gap.hoodies_network.request.query.UrlQueryParamEncodedRequest$Companion {
+  public static final java.lang.String access$convertToQueryParamEncodedURL(com.gap.hoodies_network.request.query.UrlQueryParamEncodedRequest$Companion, java.lang.String, java.lang.String, java.util.Map);
+  public com.gap.hoodies_network.request.query.UrlQueryParamEncodedRequest$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.request.query.UrlQueryParamEncodedRequest extends com.gap.hoodies_network.request.StringRequest {
+  public static final com.gap.hoodies_network.request.query.UrlQueryParamEncodedRequest$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.request.query.UrlQueryParamEncodedRequest(java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+}
+public final class com.gap.hoodies_network.request.query.UrlQueryParamRequest$Companion {
+  public static final java.lang.String access$convertToQueryParamURL(com.gap.hoodies_network.request.query.UrlQueryParamRequest$Companion, java.lang.String, java.lang.String, java.util.Map);
+  public com.gap.hoodies_network.request.query.UrlQueryParamRequest$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.request.query.UrlQueryParamRequest extends com.gap.hoodies_network.request.StringRequest {
+  public static final com.gap.hoodies_network.request.query.UrlQueryParamRequest$Companion Companion;
+  public static final int $stable;
+  public com.gap.hoodies_network.request.query.UrlQueryParamRequest(java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>, com.gap.hoodies_network.core.Response$ResponseListener, com.gap.hoodies_network.core.Response$ErrorListener, com.gap.hoodies_network.cache.EncryptedCache, java.net.CookieManager);
+}
+public final class com.gap.hoodies_network.utils.NetworkHelper$Companion {
+  public com.gap.hoodies_network.utils.NetworkHelper$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+public final class com.gap.hoodies_network.utils.NetworkHelper {
+  public static final com.gap.hoodies_network.utils.NetworkHelper$Companion Companion;
+  public static final int $stable;
+  public static final java.lang.String PROTOCOL_CHARSET;
+  public com.gap.hoodies_network.utils.NetworkHelper();
+  public final java.lang.String getFinalURL(java.util.Map<java.lang.String, java.lang.String>, java.lang.String, java.lang.String);
+  public final com.gap.hoodies_network.core.Response<java.lang.Object> getParseNetworkResponse(com.gap.hoodies_network.core.Response<java.lang.Object>, boolean);
+  public static com.gap.hoodies_network.core.Response getParseNetworkResponse$default(com.gap.hoodies_network.utils.NetworkHelper, com.gap.hoodies_network.core.Response, boolean, int, java.lang.Object);
+}

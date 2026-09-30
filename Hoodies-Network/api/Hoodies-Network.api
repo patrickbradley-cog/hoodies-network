@@ -1,0 +1,858 @@
+public final class com/gap/hoodies_network/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class com/gap/hoodies_network/cache/EncryptedCache {
+	public static final field Companion Lcom/gap/hoodies_network/cache/EncryptedCache$Companion;
+	public fun <init> ()V
+	public fun <init> (Lcom/gap/hoodies_network/cache/configuration/CacheEnabled;Lcom/gap/hoodies_network/interceptor/EncryptionDecryptionInterceptor;)V
+	public synthetic fun <init> (Lcom/gap/hoodies_network/cache/configuration/CacheEnabled;Lcom/gap/hoodies_network/interceptor/EncryptionDecryptionInterceptor;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun cacheRequestResult ([BLcom/gap/hoodies_network/request/Request;)V
+	public final fun getCacheConfig ()Lcom/gap/hoodies_network/cache/configuration/CacheEnabled;
+	public final fun getCachedData (Lcom/gap/hoodies_network/request/Request;)V
+	public final fun getEncryptionDecryptionInterceptor ()Lcom/gap/hoodies_network/interceptor/EncryptionDecryptionInterceptor;
+	public final fun isDataStale (Lcom/gap/hoodies_network/request/Request;)Z
+	public final fun setCacheConfig (Lcom/gap/hoodies_network/cache/configuration/CacheEnabled;)V
+	public final fun setEncryptionDecryptionInterceptor (Lcom/gap/hoodies_network/interceptor/EncryptionDecryptionInterceptor;)V
+}
+
+public final class com/gap/hoodies_network/cache/EncryptedCache$Companion {
+	public final fun genIV ()[B
+	public final fun runAES ([B[BI)[B
+}
+
+public abstract interface class com/gap/hoodies_network/cache/configuration/CacheConfiguration {
+}
+
+public final class com/gap/hoodies_network/cache/configuration/CacheDisabled : com/gap/hoodies_network/cache/configuration/CacheConfiguration {
+	public fun <init> ()V
+}
+
+public final class com/gap/hoodies_network/cache/configuration/CacheEnabled : com/gap/hoodies_network/cache/configuration/CacheConfiguration {
+	public fun <init> (Ljava/time/Duration;ZLandroid/content/Context;)V
+	public synthetic fun <init> (Ljava/time/Duration;ZLandroid/content/Context;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getApplicationContext ()Landroid/content/Context;
+	public final fun getEncryptionEnabled ()Z
+	public final fun getStaleDataThreshold ()Ljava/time/Duration;
+}
+
+public abstract interface class com/gap/hoodies_network/cache/persistentstorage/CacheDao {
+	public abstract fun delete (Ljava/lang/String;I)V
+	public abstract fun get (Ljava/lang/String;I)Lcom/gap/hoodies_network/cache/persistentstorage/CachedData;
+	public abstract fun getByIv (Ljava/lang/String;)Ljava/util/List;
+	public abstract fun insert ([Lcom/gap/hoodies_network/cache/persistentstorage/CachedData;)V
+}
+
+public final class com/gap/hoodies_network/cache/persistentstorage/CacheDao_Impl : com/gap/hoodies_network/cache/persistentstorage/CacheDao {
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun delete (Ljava/lang/String;I)V
+	public fun get (Ljava/lang/String;I)Lcom/gap/hoodies_network/cache/persistentstorage/CachedData;
+	public fun getByIv (Ljava/lang/String;)Ljava/util/List;
+	public static fun getRequiredConverters ()Ljava/util/List;
+	public fun insert ([Lcom/gap/hoodies_network/cache/persistentstorage/CachedData;)V
+}
+
+public abstract class com/gap/hoodies_network/cache/persistentstorage/CacheDatabase : androidx/room/RoomDatabase {
+	public fun <init> ()V
+	public abstract fun cacheDao ()Lcom/gap/hoodies_network/cache/persistentstorage/CacheDao;
+}
+
+public final class com/gap/hoodies_network/cache/persistentstorage/CacheDatabase_Impl : com/gap/hoodies_network/cache/persistentstorage/CacheDatabase {
+	public fun <init> ()V
+	public fun cacheDao ()Lcom/gap/hoodies_network/cache/persistentstorage/CacheDao;
+	public fun clearAllTables ()V
+	public fun getAutoMigrations (Ljava/util/Map;)Ljava/util/List;
+	public fun getRequiredAutoMigrationSpecs ()Ljava/util/Set;
+}
+
+public final class com/gap/hoodies_network/cache/persistentstorage/CachedData {
+	public fun <init> (ILjava/lang/String;IJLjava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun component4 ()J
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;IJLjava/lang/String;Ljava/lang/String;)Lcom/gap/hoodies_network/cache/persistentstorage/CachedData;
+	public static synthetic fun copy$default (Lcom/gap/hoodies_network/cache/persistentstorage/CachedData;ILjava/lang/String;IJLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gap/hoodies_network/cache/persistentstorage/CachedData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBodyHash ()I
+	public final fun getCachedAt ()J
+	public final fun getData ()Ljava/lang/String;
+	public final fun getId ()I
+	public final fun getIv ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun setData (Ljava/lang/String;)V
+	public final fun setIv (Ljava/lang/String;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/config/HeaderKeyValuesKt {
+	public static final field ACCEPT_LANGUAGE Ljava/lang/String;
+	public static final field ACCEPT_LANGUAGE_VALUE Ljava/lang/String;
+	public static final field APPLICATION_JSON Ljava/lang/String;
+	public static final field AUTHORIZATION_KEY Ljava/lang/String;
+	public static final field CLIENT_ID Ljava/lang/String;
+	public static final field CLIENT_ID_VALUE Ljava/lang/String;
+	public static final field CLIENT_OS Ljava/lang/String;
+	public static final field CLIENT_OS_VALUE Ljava/lang/String;
+	public static final field CONTENT_TYPE_KEY Ljava/lang/String;
+	public static final field FORM_URL_ENCODED Ljava/lang/String;
+	public static final field MULTIDB_ENABLED Ljava/lang/String;
+	public static final field MULTIDB_ENABLED_VALUE Ljava/lang/String;
+	public static final field SESSION_ID_KEY Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/config/HttpClientConfig {
+	public static final field Companion Lcom/gap/hoodies_network/config/HttpClientConfig$Companion;
+	public fun <init> ()V
+}
+
+public final class com/gap/hoodies_network/config/HttpClientConfig$Companion {
+	public final fun getConnectTimeOutDuration ()Ljava/time/Duration;
+	public final fun getReadTimeoutDuration ()Ljava/time/Duration;
+	public final fun setConnectTimeOut (Ljava/time/Duration;)V
+	public final fun setFactoryDefaultConfiguration ()V
+	public final fun setReadTimeOut (Ljava/time/Duration;)V
+}
+
+public final class com/gap/hoodies_network/config/IsOnlineKt {
+	public static final fun isOnline (Landroid/content/Context;)Z
+}
+
+public final class com/gap/hoodies_network/config/UrlResolver {
+	public static final field Companion Lcom/gap/hoodies_network/config/UrlResolver$Companion;
+	public fun <init> ()V
+}
+
+public final class com/gap/hoodies_network/config/UrlResolver$Companion {
+	public final fun getProtocol (Ljava/lang/String;)Ljava/lang/String;
+	public final fun resolveHttpProtocol (Ljava/net/URL;)Ljava/lang/String;
+	public final fun resolveUrl (Ljava/lang/String;)Ljava/lang/String;
+	public final fun validateUrl (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/connection/BaseNetwork : com/gap/hoodies_network/connection/Network {
+	public static final field Companion Lcom/gap/hoodies_network/connection/BaseNetwork$Companion;
+	public fun <init> (Ljava/lang/String;Ljavax/net/ssl/SSLSocketFactory;)V
+	public fun executeRequest (Lcom/gap/hoodies_network/request/Request;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/connection/BaseNetwork$Companion {
+}
+
+public abstract interface class com/gap/hoodies_network/connection/Network {
+	public abstract fun executeRequest (Lcom/gap/hoodies_network/request/Request;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/connection/queue/NetworkHandler {
+	public fun <init> (Lcom/gap/hoodies_network/delivery/ResponseDelivery;)V
+	public final fun executeRequest (Lcom/gap/hoodies_network/request/Request;Lcom/gap/hoodies_network/connection/Network;)V
+}
+
+public final class com/gap/hoodies_network/connection/queue/QueueHandler : java/lang/Thread {
+	public final fun quit ()V
+	public fun run ()V
+}
+
+public final class com/gap/hoodies_network/connection/queue/RequestQueue {
+	public static final field Companion Lcom/gap/hoodies_network/connection/queue/RequestQueue$Companion;
+	public fun <init> (Ljava/lang/String;Ljavax/net/ssl/SSLSocketFactory;)V
+	public final fun dequeue ()Lcom/gap/hoodies_network/request/Request;
+	public final fun enqueue (Lcom/gap/hoodies_network/request/Request;)V
+	public final fun hasItems ()Z
+	public final fun size ()I
+}
+
+public final class com/gap/hoodies_network/connection/queue/RequestQueue$Companion {
+	public final fun getInstance ()Lcom/gap/hoodies_network/connection/queue/RequestQueue;
+	public final fun getInstance (Ljava/lang/String;Ljavax/net/ssl/SSLSocketFactory;)Lcom/gap/hoodies_network/connection/queue/RequestQueue;
+}
+
+public class com/gap/hoodies_network/cookies/CookieJar : java/net/CookieManager {
+	public fun <init> ()V
+	public fun <init> (Ljava/net/CookieStore;)V
+	public synthetic fun <init> (Ljava/net/CookieStore;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun addCookieForHost (Ljava/net/URI;Ljava/net/HttpCookie;)V
+	public final fun getAllCookies ()Ljava/util/List;
+	public final fun getAllHosts ()Ljava/util/List;
+	public final fun getCookiesForHost (Ljava/net/URI;)Ljava/util/List;
+	public final fun removeAllCookies ()V
+	public final fun setCookiesForHost (Ljava/net/URI;Ljava/util/List;)V
+}
+
+public final class com/gap/hoodies_network/cookies/PersistentCookieJar : com/gap/hoodies_network/cookies/CookieJar {
+	public fun <init> (Ljava/lang/String;Landroid/content/Context;)V
+}
+
+public final class com/gap/hoodies_network/cookies/persistentstorage/EncryptedCookie {
+	public fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()I
+	public final fun copy (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedCookie;
+	public static synthetic fun copy$default (Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedCookie;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedCookie;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCookie ()Ljava/lang/String;
+	public final fun getHash ()I
+	public final fun getHost ()Ljava/lang/String;
+	public final fun getId ()I
+	public final fun getIv ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDao {
+	public abstract fun deleteAll ()V
+	public abstract fun deleteByHash (I)I
+	public abstract fun getAll ()Ljava/util/List;
+	public abstract fun getAllHosts ()Ljava/util/List;
+	public abstract fun getByHost (Ljava/lang/String;)Ljava/util/List;
+	public abstract fun getByIv (Ljava/lang/String;)Ljava/util/List;
+	public abstract fun insert ([Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedCookie;)V
+}
+
+public final class com/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDao_Impl : com/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDao {
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun deleteAll ()V
+	public fun deleteByHash (I)I
+	public fun getAll ()Ljava/util/List;
+	public fun getAllHosts ()Ljava/util/List;
+	public fun getByHost (Ljava/lang/String;)Ljava/util/List;
+	public fun getByIv (Ljava/lang/String;)Ljava/util/List;
+	public static fun getRequiredConverters ()Ljava/util/List;
+	public fun insert ([Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedCookie;)V
+}
+
+public abstract class com/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDatabase : androidx/room/RoomDatabase {
+	public fun <init> ()V
+	public abstract fun encryptedCookieDao ()Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDao;
+}
+
+public final class com/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDatabase_Impl : com/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDatabase {
+	public fun <init> ()V
+	public fun clearAllTables ()V
+	public fun encryptedCookieDao ()Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedCookieDao;
+	public fun getAutoMigrations (Ljava/util/Map;)Ljava/util/List;
+	public fun getRequiredAutoMigrationSpecs ()Ljava/util/Set;
+}
+
+public final class com/gap/hoodies_network/cookies/persistentstorage/EncryptedDaoWrapperForCookies {
+	public fun <init> (Ljava/lang/String;Landroid/content/Context;)V
+	public final fun deleteAll ()V
+	public final fun deleteCookie (Ljava/net/HttpCookie;)Z
+	public final fun getAll ()Ljava/util/List;
+	public final fun getAllHosts ()Ljava/util/List;
+	public final fun getByHost (Ljava/net/URI;)Ljava/util/List;
+	public final fun insert (Ljava/net/URI;Ljava/net/HttpCookie;)V
+}
+
+public final class com/gap/hoodies_network/cookies/persistentstorage/EncryptedDaoWrapperForCookies$CookieAndId {
+	public fun <init> (Ljava/net/HttpCookie;I)V
+	public final fun component1 ()Ljava/net/HttpCookie;
+	public final fun component2 ()I
+	public final fun copy (Ljava/net/HttpCookie;I)Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedDaoWrapperForCookies$CookieAndId;
+	public static synthetic fun copy$default (Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedDaoWrapperForCookies$CookieAndId;Ljava/net/HttpCookie;IILjava/lang/Object;)Lcom/gap/hoodies_network/cookies/persistentstorage/EncryptedDaoWrapperForCookies$CookieAndId;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCookie ()Ljava/net/HttpCookie;
+	public final fun getId ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/core/Failure : com/gap/hoodies_network/core/Result {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lcom/gap/hoodies_network/core/Failure;
+	public static synthetic fun copy$default (Lcom/gap/hoodies_network/core/Failure;Ljava/lang/Object;ILjava/lang/Object;)Lcom/gap/hoodies_network/core/Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkClient : com/gap/hoodies_network/core/IHoodiesNetworkClientRaw {
+	public fun <init> (Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;)V
+	public fun deleteRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getHtml (Ljava/lang/String;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getHtml$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClient;Ljava/lang/String;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun getImage (Ljava/lang/String;Ljava/util/HashMap;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getInterceptors ()Ljava/util/List;
+	public final fun getNonInlinedClient ()Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;
+	public fun getRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRawUrlQueryParam (Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRawUrlQueryParamEncoded (Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getRequestHeaders ()Ljava/util/HashMap;
+	public fun patchRaw (Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun patchRaw (Ljava/lang/String;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun patchRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun postRaw (Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun postRaw (Ljava/lang/String;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun postRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putRaw (Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkClient$Builder {
+	public fun <init> ()V
+	public final fun addEncryptionDecryptionInterceptor (Lcom/gap/hoodies_network/interceptor/EncryptionDecryptionInterceptor;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;
+	public final fun addHeader (Ljava/lang/String;Ljava/lang/String;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;
+	public final fun addHeaders (Ljava/util/HashMap;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;
+	public final fun addInterceptor (Lcom/gap/hoodies_network/interceptor/Interceptor;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;
+	public final fun baseUrl (Ljava/lang/String;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;
+	public final fun build ()Lcom/gap/hoodies_network/core/HoodiesNetworkClient;
+	public final fun enableCookiesWithCookieJar (Lcom/gap/hoodies_network/cookies/CookieJar;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;
+	public final fun retryOnConnectionFailure (ZLcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod : java/lang/Enum {
+	public static final field DELETE Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;
+	public static final field GET Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;
+	public static final field PATCH Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;
+	public static final field POST Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;
+	public static final field PUT Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;
+	public static fun values ()[Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount : java/lang/Enum {
+	public static final field Companion Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount$Companion;
+	public static final field RETRY_MAX Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+	public static final field RETRY_NEVER Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+	public static final field RETRY_ONCE Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+	public static final field RETRY_THRICE Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+	public static final field RETRY_TWICE Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+	public static fun values ()[Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount$Companion {
+	public final fun parseToInt (Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;)I
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkClientNonInlined {
+	public fun <init> (Lcom/gap/hoodies_network/core/HoodiesNetworkClient$Builder;)V
+	public final fun delete (Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun delete$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun failureCallback (Ljava/lang/String;Lkotlinx/coroutines/CancellableContinuation;)Lkotlin/jvm/functions/Function1;
+	public final fun get (Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun get$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getBaseUrl ()Ljava/lang/String;
+	public final fun getCookieManager ()Ljava/net/CookieManager;
+	public final fun getDefaultHeaders ()Ljava/util/HashMap;
+	public final fun getEncryptionDecryptionInterceptor ()Lcom/gap/hoodies_network/interceptor/EncryptionDecryptionInterceptor;
+	public final fun getFailureCallback (Ljava/lang/String;Lkotlinx/coroutines/CancellableContinuation;Lcom/gap/hoodies_network/core/HoodiesNetworkError;)V
+	public final fun getFileUploadRequest (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/FileUploadRequest;
+	public static synthetic fun getFileUploadRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/FileUploadRequest;
+	public final fun getGson ()Lcom/google/gson/Gson;
+	public final fun getHtml (Ljava/lang/String;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getHtml$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getImage (Ljava/lang/String;Ljava/util/HashMap;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getImage$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/HashMap;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getImageRequest (Ljava/lang/String;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;)Lcom/gap/hoodies_network/request/ImageRequest;
+	public static synthetic fun getImageRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/ImageRequest;
+	public final fun getInterceptors ()Ljava/util/List;
+	public final fun getJsonArrayRequest (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONArray;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/json/JsonArrayRequest;
+	public static synthetic fun getJsonArrayRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONArray;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/json/JsonArrayRequest;
+	public final fun getJsonObjectRequest (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONObject;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/json/JsonObjectRequest;
+	public static synthetic fun getJsonObjectRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONObject;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/json/JsonObjectRequest;
+	public final fun getMaxRetryLimit ()Lcom/gap/hoodies_network/core/HoodiesNetworkClient$RetryCount;
+	public final fun getRegularRequestHtml (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getRegularRequestHtml$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getRequest (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getRequestFormUrlEncoded (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getRequestFormUrlEncoded$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getRequestHeaders ()Ljava/util/HashMap;
+	public final fun getRequestHtml (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getRequestHtml$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getRequestRegular (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getRequestRegular$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getRequestUrlQueryParam (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getRequestUrlQueryParam$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getRequestUrlQueryParamEncoded (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getRequestUrlQueryParamEncoded$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getRetryOnConnectionFailure ()Z
+	public final fun getStringRequest (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getStringRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getStringRequestEncoded (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lcom/gap/hoodies_network/request/StringRequest;
+	public static synthetic fun getStringRequestEncoded$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;ILjava/lang/Object;)Lcom/gap/hoodies_network/request/StringRequest;
+	public final fun getUrlQueryParam (Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getUrlQueryParam$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getUrlQueryParamEncoded (Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getUrlQueryParamEncoded$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun isRetryAttempts (Ljava/lang/String;ILcom/gap/hoodies_network/core/HoodiesNetworkError;Lkotlinx/coroutines/CancellableContinuation;)V
+	public final fun patch (Ljava/lang/String;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun patch (Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun patch (Ljava/lang/String;Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun patch (Ljava/lang/String;Lorg/json/JSONObject;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun patch$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun patch$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun patch$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun patch$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lorg/json/JSONObject;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun post (Ljava/lang/String;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun post (Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun post (Ljava/lang/String;Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun post (Ljava/lang/String;Lorg/json/JSONObject;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun post$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun post$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun post$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun post$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lorg/json/JSONObject;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun postMultipartFiles (Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/reflect/Type;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun postMultipartFiles$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/reflect/Type;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun put (Ljava/lang/String;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun put$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun safeResume (Ljava/lang/String;Lkotlinx/coroutines/CancellableContinuation;Lcom/gap/hoodies_network/core/Result;)V
+	public final fun sendFileUploadRequest (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendFileUploadRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendImageRequest (Ljava/lang/String;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendImageRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendJsonArrayRequest (Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendJsonArrayRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendJsonObjectRequest (Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONObject;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendJsonObjectRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lorg/json/JSONObject;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendRequest (Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun sendRequest (Ljava/lang/String;Lcom/gap/hoodies_network/request/Request;Lkotlinx/coroutines/CancellableContinuation;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;)V
+	public static synthetic fun sendRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendRequestHtml (Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendRequestHtml$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/lang/Object;Ljava/util/HashMap;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendUrlQueryParamEncodedRequest (Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendUrlQueryParamEncodedRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun sendUrlQueryRequest (Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendUrlQueryRequest$default (Lcom/gap/hoodies_network/core/HoodiesNetworkClientNonInlined;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Ljava/lang/reflect/Type;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun successCallback (Ljava/lang/String;Lcom/google/gson/Gson;Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/reflect/Type;)Lkotlin/jvm/functions/Function1;
+	public final fun successCallbackHtml (Ljava/lang/String;Lkotlinx/coroutines/CancellableContinuation;)Lkotlin/jvm/functions/Function1;
+	public final fun successCallbackImage (Ljava/lang/String;Lkotlinx/coroutines/CancellableContinuation;)Lkotlin/jvm/functions/Function1;
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkError : java/lang/Exception {
+	public fun <init> (Ljava/lang/String;ILjava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;ILjava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/String;ILjava/lang/Throwable;)Lcom/gap/hoodies_network/core/HoodiesNetworkError;
+	public static synthetic fun copy$default (Lcom/gap/hoodies_network/core/HoodiesNetworkError;Ljava/lang/String;ILjava/lang/Throwable;ILjava/lang/Object;)Lcom/gap/hoodies_network/core/HoodiesNetworkError;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getCause ()Ljava/lang/Throwable;
+	public final fun getCode ()I
+	public fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun setCause (Ljava/lang/Throwable;)V
+	public final fun setCode (I)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/core/HoodiesNetworkErrorDescriptionKt {
+	public static final field EXCEPTION_ERROR_CODE I
+	public static final field JSON_ERROR_CODE I
+	public static final field JSON_SYNTAX_ERROR_CODE I
+	public static final field NULL_POINTER_ERROR_CODE I
+	public static final field OUT_OF_MEMORY_ERROR_CODE I
+	public static final field UNKNOWN_ERROR_CODE I
+	public static final field UNSUPPORTED_ENCODING_ERROR_CODE I
+}
+
+public abstract interface class com/gap/hoodies_network/core/IHoodiesNetworkClientRaw {
+	public abstract fun deleteRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun deleteRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun getImage (Ljava/lang/String;Ljava/util/HashMap;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getImage$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun getRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun getRawUrlQueryParam (Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getRawUrlQueryParam$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun getRawUrlQueryParamEncoded (Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getRawUrlQueryParamEncoded$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun patchRaw (Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun patchRaw (Ljava/lang/String;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun patchRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun patchRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun patchRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun postRaw (Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun postRaw (Ljava/lang/String;Ljava/util/HashMap;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun postRaw (Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun postRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun postRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun putRaw (Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun putRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/gap/hoodies_network/core/IHoodiesNetworkClientRaw$DefaultImpls {
+	public static synthetic fun deleteRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun getImage$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/cache/configuration/CacheConfiguration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun getRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun getRawUrlQueryParam$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun getRawUrlQueryParamEncoded$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/util/HashMap;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun patchRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun patchRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun postRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun postRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun putRaw$default (Lcom/gap/hoodies_network/core/IHoodiesNetworkClientRaw;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/gap/hoodies_network/core/Response {
+	public static final field Companion Lcom/gap/hoodies_network/core/Response$Companion;
+	public fun <init> (I)V
+	public final fun getAllHeaders ()Ljava/util/List;
+	public final fun getBitmap ()Landroid/graphics/Bitmap;
+	public final fun getData ()[B
+	public final fun getNetworkTimeMs ()J
+	public final fun getResult ()Ljava/lang/Object;
+	public final fun getStatusCode ()I
+	public final fun getUrl ()Ljava/lang/String;
+	public final fun setBitmap (Landroid/graphics/Bitmap;)V
+	public final fun setData ([B)V
+	public final fun setNetworkTimeMs (J)V
+	public final fun setResult (Ljava/lang/Object;)V
+	public final fun setResultResponse (Ljava/lang/Object;)V
+	public final fun setStatusCode (I)V
+	public final fun setUrl (Ljava/lang/String;)V
+}
+
+public abstract interface class com/gap/hoodies_network/core/Response$BitmapResponseListener {
+	public abstract fun onError (Lcom/gap/hoodies_network/core/HoodiesNetworkError;)V
+	public abstract fun onResponse (Landroid/graphics/Bitmap;)V
+}
+
+public final class com/gap/hoodies_network/core/Response$Companion {
+	public final fun toHeaderMap (Ljava/util/List;)Ljava/util/Map;
+}
+
+public abstract interface class com/gap/hoodies_network/core/Response$ErrorListener {
+	public abstract fun onErrorResponse (Lcom/gap/hoodies_network/core/HoodiesNetworkError;)V
+}
+
+public abstract interface class com/gap/hoodies_network/core/Response$ResponseListener {
+	public abstract fun onResponse (Lcom/gap/hoodies_network/core/Response;)V
+}
+
+public abstract class com/gap/hoodies_network/core/Result {
+}
+
+public final class com/gap/hoodies_network/core/Success : com/gap/hoodies_network/core/Result {
+	public fun <init> (Ljava/lang/Object;Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Object;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Object;Ljava/util/List;Ljava/lang/String;)Lcom/gap/hoodies_network/core/Success;
+	public static synthetic fun copy$default (Lcom/gap/hoodies_network/core/Success;Ljava/lang/Object;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lcom/gap/hoodies_network/core/Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeaders ()Ljava/util/List;
+	public final fun getUrl ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/gap/hoodies_network/delivery/ResponseDelivery {
+	public abstract fun postError (Lcom/gap/hoodies_network/request/Request;Lcom/gap/hoodies_network/core/HoodiesNetworkError;)V
+	public abstract fun postResponse (Lcom/gap/hoodies_network/request/Request;Lcom/gap/hoodies_network/core/Response;)V
+}
+
+public class com/gap/hoodies_network/delivery/ResponseDeliveryExecutor : com/gap/hoodies_network/delivery/ResponseDelivery {
+	public fun <init> (Landroid/os/Handler;)V
+	public fun <init> (Ljava/util/concurrent/Executor;)V
+	public fun postError (Lcom/gap/hoodies_network/request/Request;Lcom/gap/hoodies_network/core/HoodiesNetworkError;)V
+	public fun postResponse (Lcom/gap/hoodies_network/request/Request;Lcom/gap/hoodies_network/core/Response;)V
+}
+
+public final class com/gap/hoodies_network/header/Header {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/header/HttpHeaderParser {
+	public static final field Companion Lcom/gap/hoodies_network/header/HttpHeaderParser$Companion;
+	public fun <init> ()V
+}
+
+public final class com/gap/hoodies_network/header/HttpHeaderParser$Companion {
+	public final fun parseCharset (Ljava/util/Map;)Ljava/nio/charset/Charset;
+	public final fun parseCharset (Ljava/util/Map;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
+}
+
+public abstract interface class com/gap/hoodies_network/interceptor/EncryptionDecryptionInterceptor {
+	public abstract fun decryptResponse ([B)[B
+	public abstract fun encryptAdditionalHeaders ([B)[B
+	public abstract fun encryptRequest ([B)[B
+	public abstract fun getContext ()Landroid/content/Context;
+}
+
+public class com/gap/hoodies_network/interceptor/Interceptor {
+	public fun <init> (Landroid/content/Context;)V
+	public final fun getContext ()Landroid/content/Context;
+	public fun interceptError (Lcom/gap/hoodies_network/core/HoodiesNetworkError;Lcom/gap/hoodies_network/request/RetryableCancellableMutableRequest;I)V
+	public fun interceptNetwork (ZLcom/gap/hoodies_network/request/CancellableMutableRequest;)V
+	public fun interceptRequest (Ljava/lang/String;Lcom/gap/hoodies_network/request/CancellableMutableRequest;)V
+	public fun interceptResponse (Lcom/gap/hoodies_network/core/Result;Lcom/gap/hoodies_network/request/Request;)V
+}
+
+public final class com/gap/hoodies_network/keystore/CacheKeyManager {
+	public static final field Companion Lcom/gap/hoodies_network/keystore/CacheKeyManager$Companion;
+	public fun <init> ()V
+}
+
+public final class com/gap/hoodies_network/keystore/CacheKeyManager$Companion {
+	public final fun getKey ()Ljavax/crypto/SecretKey;
+}
+
+public final class com/gap/hoodies_network/mockwebserver/HttpCall {
+	public fun <init> (Lcom/sun/net/httpserver/HttpExchange;)V
+	public final fun getBodyByteArray ()[B
+	public final fun getBodyString ()Ljava/lang/String;
+	public final fun getFormUrlEncodedParameters ()Ljava/util/Map;
+	public final fun getHeaders ()Lcom/sun/net/httpserver/Headers;
+	public final fun getHttpExchange ()Lcom/sun/net/httpserver/HttpExchange;
+	public final fun respond (ILjava/lang/String;)V
+	public final fun respond (I[B)V
+	public final fun setResponseHeaders (Lcom/sun/net/httpserver/Headers;)V
+}
+
+public final class com/gap/hoodies_network/mockwebserver/MockWebServerManager {
+	public fun <init> (Lcom/gap/hoodies_network/mockwebserver/MockWebServerManager$Builder;)V
+	public final fun start ()Lcom/gap/hoodies_network/mockwebserver/MockWebServerManager;
+	public final fun stop ()V
+}
+
+public final class com/gap/hoodies_network/mockwebserver/MockWebServerManager$Builder {
+	public fun <init> ()V
+	public final fun addContext (Ljava/lang/String;Lcom/gap/hoodies_network/mockwebserver/WebServerHandler;)Lcom/gap/hoodies_network/mockwebserver/MockWebServerManager$Builder;
+	public final fun start ()Lcom/gap/hoodies_network/mockwebserver/MockWebServerManager;
+	public final fun usePort (I)Lcom/gap/hoodies_network/mockwebserver/MockWebServerManager$Builder;
+}
+
+public class com/gap/hoodies_network/mockwebserver/WebServerHandler {
+	public fun <init> ()V
+	public final fun delete (Ljava/lang/Runnable;)V
+	public final fun get (Ljava/lang/Runnable;)V
+	public final fun getDeleteRunnable ()Ljava/lang/Runnable;
+	public final fun getGetRunnable ()Ljava/lang/Runnable;
+	public final fun getInternalHandler ()Lcom/sun/net/httpserver/HttpHandler;
+	public final fun getOptionsRunnable ()Ljava/lang/Runnable;
+	public final fun getPatchRunnable ()Ljava/lang/Runnable;
+	public final fun getPostRunnable ()Ljava/lang/Runnable;
+	public final fun getPutRunnable ()Ljava/lang/Runnable;
+	public fun handleRequest (Lcom/gap/hoodies_network/mockwebserver/HttpCall;)V
+	public final fun options (Ljava/lang/Runnable;)V
+	public final fun patch (Ljava/lang/Runnable;)V
+	public final fun post (Ljava/lang/Runnable;)V
+	public final fun put (Ljava/lang/Runnable;)V
+	public final fun setDeleteRunnable (Ljava/lang/Runnable;)V
+	public final fun setGetRunnable (Ljava/lang/Runnable;)V
+	public final fun setOptionsRunnable (Ljava/lang/Runnable;)V
+	public final fun setPatchRunnable (Ljava/lang/Runnable;)V
+	public final fun setPostRunnable (Ljava/lang/Runnable;)V
+	public final fun setPutRunnable (Ljava/lang/Runnable;)V
+}
+
+public final class com/gap/hoodies_network/mockwebserver/helper/MockServerMaker {
+	public fun <init> ()V
+}
+
+public final class com/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder {
+	public fun <init> ()V
+	public final fun acceptMethod (Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;)Lcom/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder;
+	public final fun applyToMockWebServerBuilder (Ljava/lang/String;Lcom/gap/hoodies_network/mockwebserver/MockWebServerManager$Builder;)V
+	public final fun expect (Ljava/util/Map;)Lcom/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder;
+	public final fun expect (Lorg/json/JSONObject;)Lcom/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder;
+	public final fun expectHeaders (Ljava/util/Map;)Lcom/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder;
+	public final fun returnErrorIfInputDoesNotMatch (ILjava/lang/String;)Lcom/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder;
+	public final fun returnThisJsonIfInputMatches (Lorg/json/JSONArray;)Lcom/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder;
+	public final fun returnThisJsonIfInputMatches (Lorg/json/JSONObject;)Lcom/gap/hoodies_network/mockwebserver/helper/MockServerMaker$Builder;
+}
+
+public final class com/gap/hoodies_network/mockwebserver/helper/MockServerMakerKt {
+	public static final fun similar (Lorg/json/JSONArray;Lorg/json/JSONArray;)Z
+	public static final fun similar (Lorg/json/JSONObject;Lorg/json/JSONObject;)Z
+}
+
+public class com/gap/hoodies_network/request/CancellableMutableRequest {
+	public fun <init> (Lcom/gap/hoodies_network/request/Request;)V
+	public final fun cancelRequest (Lcom/gap/hoodies_network/core/Result;)V
+	public final fun getRequest ()Lcom/gap/hoodies_network/request/Request;
+}
+
+public abstract class com/gap/hoodies_network/request/FileRequest : com/gap/hoodies_network/request/Request {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Ljava/net/CookieManager;)V
+	public fun deliverResponse (Lcom/gap/hoodies_network/core/Response;)V
+	public abstract fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/request/FileUploadRequest : com/gap/hoodies_network/request/FileRequest {
+	public static final field Companion Lcom/gap/hoodies_network/request/FileUploadRequest$Companion;
+	public static final field PROTOCOL_CHARSET Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Ljava/net/CookieManager;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lcom/gap/hoodies_network/core/HoodiesNetworkClient$HttpMethod;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Ljava/net/CookieManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/request/FileUploadRequest$Companion {
+}
+
+public final class com/gap/hoodies_network/request/FormUrlEncodedRequest : com/gap/hoodies_network/request/StringRequest {
+	public static final field Companion Lcom/gap/hoodies_network/request/FormUrlEncodedRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+}
+
+public final class com/gap/hoodies_network/request/FormUrlEncodedRequest$Companion {
+}
+
+public final class com/gap/hoodies_network/request/ImageRequest : com/gap/hoodies_network/request/Request {
+	public static final field Companion Lcom/gap/hoodies_network/request/ImageRequest$Companion;
+	public fun <init> (Ljava/lang/String;IILandroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/core/Response$BitmapResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;IILandroid/widget/ImageView$ScaleType;Landroid/graphics/Bitmap$Config;Lcom/gap/hoodies_network/core/Response$BitmapResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun deliverResponse (Lcom/gap/hoodies_network/core/Response;)V
+	public final fun getResizeValueWithSpecifiedHW (IIIILandroid/widget/ImageView$ScaleType;)I
+	public final fun getResizedDimension (IIIILandroid/widget/ImageView$ScaleType;)I
+	public final fun getResizedValue (IIIILandroid/widget/ImageView$ScaleType;)I
+	public fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+	public final fun processRequest (Lcom/gap/hoodies_network/connection/queue/RequestQueue;Lcom/gap/hoodies_network/request/ImageRequest;)V
+}
+
+public final class com/gap/hoodies_network/request/ImageRequest$Companion {
+	public final fun findBestSampleSize (IIII)I
+}
+
+public abstract class com/gap/hoodies_network/request/Request : java/lang/Comparable {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ErrorListener;Ljava/net/CookieManager;)V
+	public fun compareTo (Lcom/gap/hoodies_network/request/Request;)I
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public final fun deliverError (Lcom/gap/hoodies_network/core/HoodiesNetworkError;)Lkotlin/Unit;
+	public abstract fun deliverResponse (Lcom/gap/hoodies_network/core/Response;)V
+	public final fun getBody ()Ljava/lang/String;
+	public final fun getCache ()Lcom/gap/hoodies_network/cache/EncryptedCache;
+	public final fun getCookieManager ()Ljava/net/CookieManager;
+	public final fun getErrorListener ()Lcom/gap/hoodies_network/core/Response$ErrorListener;
+	public final fun getFile ()Ljava/util/ArrayList;
+	public final fun getFiles ()Ljava/util/List;
+	public fun getHeaders ()Ljava/util/Map;
+	public fun getMethod ()Ljava/lang/String;
+	public final fun getMultipartBoundary ()Ljava/lang/String;
+	public final fun getRequestBody ()Ljava/lang/String;
+	public fun getUrl ()Ljava/lang/String;
+	public abstract fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+	public final fun postMultipartFormData (Ljava/util/List;)Ljava/util/ArrayList;
+	public final fun setCache (Lcom/gap/hoodies_network/cache/EncryptedCache;)V
+	public final fun setCookieManager (Ljava/net/CookieManager;)V
+	public final fun setErrorListener (Lcom/gap/hoodies_network/core/Response$ErrorListener;)V
+	public final fun setFiles (Ljava/util/List;)V
+	public final fun setMultipartBoundary (Ljava/lang/String;)V
+	public final fun setRequestBody (Ljava/lang/String;)V
+	public final fun setRequestHeaders (Ljava/util/Map;)V
+}
+
+public abstract interface class com/gap/hoodies_network/request/Request$Method {
+	public static final field Companion Lcom/gap/hoodies_network/request/Request$Method$Companion;
+	public static final field DELETE Ljava/lang/String;
+	public static final field GET Ljava/lang/String;
+	public static final field HEAD Ljava/lang/String;
+	public static final field OPTIONS Ljava/lang/String;
+	public static final field PATCH Ljava/lang/String;
+	public static final field POST Ljava/lang/String;
+	public static final field PUT Ljava/lang/String;
+	public static final field TRACE Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/request/Request$Method$Companion {
+	public static final field DELETE Ljava/lang/String;
+	public static final field GET Ljava/lang/String;
+	public static final field HEAD Ljava/lang/String;
+	public static final field OPTIONS Ljava/lang/String;
+	public static final field PATCH Ljava/lang/String;
+	public static final field POST Ljava/lang/String;
+	public static final field PUT Ljava/lang/String;
+	public static final field TRACE Ljava/lang/String;
+}
+
+public final class com/gap/hoodies_network/request/RetryableCancellableMutableRequest : com/gap/hoodies_network/request/CancellableMutableRequest {
+	public fun <init> (Lcom/gap/hoodies_network/request/Request;)V
+	public final fun retryRequest ()V
+}
+
+public class com/gap/hoodies_network/request/StringRequest : com/gap/hoodies_network/request/Request {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun deliverResponse (Lcom/gap/hoodies_network/core/Response;)V
+	public fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/request/json/JsonArrayRequest : com/gap/hoodies_network/request/json/JsonRequest {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/request/json/JsonObjectRequest : com/gap/hoodies_network/request/json/JsonRequest {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public abstract class com/gap/hoodies_network/request/json/JsonRequest : com/gap/hoodies_network/request/Request {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+	public fun deliverResponse (Lcom/gap/hoodies_network/core/Response;)V
+	public abstract fun parseNetworkResponse (Lcom/gap/hoodies_network/core/Response;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/request/query/UrlQueryParamEncodedRequest : com/gap/hoodies_network/request/StringRequest {
+	public static final field Companion Lcom/gap/hoodies_network/request/query/UrlQueryParamEncodedRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+}
+
+public final class com/gap/hoodies_network/request/query/UrlQueryParamEncodedRequest$Companion {
+}
+
+public final class com/gap/hoodies_network/request/query/UrlQueryParamRequest : com/gap/hoodies_network/request/StringRequest {
+	public static final field Companion Lcom/gap/hoodies_network/request/query/UrlQueryParamRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/gap/hoodies_network/core/Response$ResponseListener;Lcom/gap/hoodies_network/core/Response$ErrorListener;Lcom/gap/hoodies_network/cache/EncryptedCache;Ljava/net/CookieManager;)V
+}
+
+public final class com/gap/hoodies_network/request/query/UrlQueryParamRequest$Companion {
+}
+
+public abstract interface annotation class com/gap/hoodies_network/utils/Generated : java/lang/annotation/Annotation {
+}
+
+public final class com/gap/hoodies_network/utils/NetworkHelper {
+	public static final field Companion Lcom/gap/hoodies_network/utils/NetworkHelper$Companion;
+	public static final field PROTOCOL_CHARSET Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getFinalURL (Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public final fun getParseNetworkResponse (Lcom/gap/hoodies_network/core/Response;Z)Lcom/gap/hoodies_network/core/Response;
+	public static synthetic fun getParseNetworkResponse$default (Lcom/gap/hoodies_network/utils/NetworkHelper;Lcom/gap/hoodies_network/core/Response;ZILjava/lang/Object;)Lcom/gap/hoodies_network/core/Response;
+}
+
+public final class com/gap/hoodies_network/utils/NetworkHelper$Companion {
+}
+

@@ -1,0 +1,2047 @@
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.CachingAndCryptographyTest:
+INSTRUMENTATION_STATUS: test=requestWithUrlEncodedParamsAndHeadersEncryptingInterceptor
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=requestWithUrlEncodedParamsAndHeadersEncryptingInterceptor
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=requestWithBodyAndHeadersEncryptingInterceptor
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=requestWithBodyAndHeadersEncryptingInterceptor
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=requestWithBodyAndHeadersEmptyInterceptor
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=requestWithBodyAndHeadersEmptyInterceptor
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=makeSureDataWasCachedEncryptedFlow
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=makeSureDataWasCachedEncryptedFlow
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=makeSureDataWasCached
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=makeSureDataWasCached
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=requestWithUrlEncodedParamsAndHeadersEmptyInterceptor
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CachingAndCryptographyTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=requestWithUrlEncodedParamsAndHeadersEmptyInterceptor
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CookieTests
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.CookieTests:
+INSTRUMENTATION_STATUS: test=cookieTestNonPersistent
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CookieTests
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cookieTestNonPersistent
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CookieTests
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=noCookieTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CookieTests
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=noCookieTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CookieTests
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cookieTestPersistent
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.CookieTests
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stack=org.json.JSONException: No value for null
+	at org.json.JSONObject.get(JSONObject.java:398)
+	at org.json.JSONObject.getString(JSONObject.java:559)
+	at com.gap.hoodies_network.CookieTests$cookieTestPersistent$1.invokeSuspend(CookieTests.kt:66)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:85)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+	at com.gap.hoodies_network.CookieTests.cookieTestPersistent(CookieTests.kt:38)
+
+INSTRUMENTATION_STATUS: stream=
+Error in cookieTestPersistent(com.gap.hoodies_network.CookieTests):
+org.json.JSONException: No value for null
+	at org.json.JSONObject.get(JSONObject.java:398)
+	at org.json.JSONObject.getString(JSONObject.java:559)
+	at com.gap.hoodies_network.CookieTests$cookieTestPersistent$1.invokeSuspend(CookieTests.kt:66)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:85)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+	at com.gap.hoodies_network.CookieTests.cookieTestPersistent(CookieTests.kt:38)
+
+INSTRUMENTATION_STATUS: test=cookieTestPersistent
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.EncryptionDecryptionTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.EncryptionDecryptionTest:
+INSTRUMENTATION_STATUS: test=encryptAndDecryptString
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.EncryptionDecryptionTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=encryptAndDecryptString
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FileUploadRequestTests
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.FileUploadRequestTests:
+INSTRUMENTATION_STATUS: test=twoFilesTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FileUploadRequestTests
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=twoFilesTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FileUploadRequestTests
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=fileTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FileUploadRequestTests
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=fileTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FileUploadRequestTests
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=threeFilesTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FileUploadRequestTests
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=threeFilesTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FormUrlEncodedRequestTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.FormUrlEncodedRequestTest:
+INSTRUMENTATION_STATUS: test=requestFormattingTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.FormUrlEncodedRequestTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=requestFormattingTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HeaderTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.HeaderTest:
+INSTRUMENTATION_STATUS: test=headerParserTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HeaderTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=headerParserTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HeaderTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=headerTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HeaderTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=headerTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.HoodiesNetworkClientTest:
+INSTRUMENTATION_STATUS: test=basicRawPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=basicRawPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=basicPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=basicPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getJsonObjectRequestNoBodyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getJsonObjectRequestNoBodyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=20
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=withHashMapRawPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=20
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=withHashMapRawPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=21
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postObjectRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=21
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postObjectRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=22
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getJsonArrayRequestNoBodyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=22
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getJsonArrayRequestNoBodyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=23
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=withHashMapRawAndHeadersPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=23
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=withHashMapRawAndHeadersPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=24
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postNullJsonArrayRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=24
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postNullJsonArrayRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=25
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRawUrlQueryParamEncodedRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=25
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRawUrlQueryParamEncodedRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=26
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postNullJsonObjectRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=26
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postNullJsonObjectRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=27
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getUrlQueryParamEncodedRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=27
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getUrlQueryParamEncodedRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=28
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRegularRequestHtmlWithHeadersNoBodyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=28
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRegularRequestHtmlWithHeadersNoBodyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=29
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postJsonObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=29
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postJsonObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=30
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=basicPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=30
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=basicPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=31
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=patchJsonObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=31
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=patchJsonObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=32
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=retryCountTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=32
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=retryCountTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=33
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRawUrlQueryParamRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=33
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRawUrlQueryParamRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=34
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestFormUrlEncodedAdditionalHeadersEmptyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=34
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestFormUrlEncodedAdditionalHeadersEmptyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=35
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=httpMethodTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=35
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=httpMethodTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=36
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestRegularAllNullTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=36
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestRegularAllNullTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=37
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cannotReachServerRawTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=37
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cannotReachServerRawTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=38
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=patchJsonArrayRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=38
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=patchJsonArrayRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=39
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=39
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=40
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=patchObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=40
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=patchObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=41
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postJsonObjectRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=41
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postJsonObjectRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=42
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestRegularTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=42
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestRegularTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=43
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=withHashMapRawPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=43
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=withHashMapRawPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=44
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=putRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=44
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=putRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=45
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=deleteRawRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=45
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deleteRawRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=46
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestUrlQueryParamAdditionalHeadersEmptyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=46
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestUrlQueryParamAdditionalHeadersEmptyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=47
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getUrlQueryParamEncodedRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=47
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getUrlQueryParamEncodedRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=48
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestHtmlWithHeadersTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=48
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestHtmlWithHeadersTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=49
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=sendUrlQueryRequestNullHeaderTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=49
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=sendUrlQueryRequestNullHeaderTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=50
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=sendUrlQueryParamEncodedRequestNullHeaderTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=50
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=sendUrlQueryParamEncodedRequestNullHeaderTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=51
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=putRawRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=51
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=putRawRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=52
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=52
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=53
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getHtmlRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=53
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getHtmlRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=54
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getUrlQueryParamRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=54
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getUrlQueryParamRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=55
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=patchStringRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=55
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=patchStringRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=56
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getUrlQueryParamRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=56
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getUrlQueryParamRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=57
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=deleteRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=57
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deleteRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=58
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postJsonArrayRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=58
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postJsonArrayRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=59
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=basicRawPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=59
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=basicRawPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=60
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=deleteRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=60
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deleteRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=61
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestAdditionalHeadersEmptyFormUrlEncodedTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=61
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestAdditionalHeadersEmptyFormUrlEncodedTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=62
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getHtmlRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=62
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getHtmlRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=63
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=withStringRawPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=63
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=withStringRawPatchRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=64
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postJsonArrayRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=64
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postJsonArrayRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=65
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=65
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=66
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=withStringRawPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=66
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=withStringRawPostRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=67
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=putRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=67
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=putRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=68
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestUrlQueryParamEncodedAdditionalHeadersEmptyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=68
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestUrlQueryParamEncodedAdditionalHeadersEmptyTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=69
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=basicPostRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=69
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=basicPostRequestTestNonInlined
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=70
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cannotReachServerTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=70
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cannotReachServerTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=71
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRawTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=71
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRawTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=72
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getRequestHeadersTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=72
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getRequestHeadersTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=73
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getBuilderTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.HoodiesNetworkClientTest
+INSTRUMENTATION_STATUS: current=73
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getBuilderTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=74
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.ImageRequestMockTest:
+INSTRUMENTATION_STATUS: test=getResizedDimensionTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=74
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getResizedDimensionTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=75
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getImageRequestFailureTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=75
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getImageRequestFailureTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=76
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getImageRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=76
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getImageRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=77
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getResizeValueWithSpecifiedHWTestZeros
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=77
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getResizeValueWithSpecifiedHWTestZeros
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=78
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getResizedValueTestZeros
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=78
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getResizedValueTestZeros
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=79
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getImageRequestTest2
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=79
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getImageRequestTest2
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=80
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getImageRequestTest3
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=80
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getImageRequestTest3
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=81
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getResizeValueWithSpecifiedHWTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=81
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getResizeValueWithSpecifiedHWTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=82
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getImageRequestNoHeadersTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=82
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getImageRequestNoHeadersTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=83
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getImageRequestWithHeadersTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=83
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getImageRequestWithHeadersTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=84
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getResizedValueTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=84
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getResizedValueTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=85
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=imageRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=85
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=imageRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=86
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getResizedDimensionTestZeros
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageRequestMockTest
+INSTRUMENTATION_STATUS: current=86
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getResizedDimensionTestZeros
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageTests
+INSTRUMENTATION_STATUS: current=87
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.ImageTests:
+INSTRUMENTATION_STATUS: test=getImageTestMOCKWEBSERVER
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ImageTests
+INSTRUMENTATION_STATUS: current=87
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getImageTestMOCKWEBSERVER
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.InterceptorTests
+INSTRUMENTATION_STATUS: current=88
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.InterceptorTests:
+INSTRUMENTATION_STATUS: test=cancelRequestInInterceptNetworkTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.InterceptorTests
+INSTRUMENTATION_STATUS: current=88
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cancelRequestInInterceptNetworkTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.InterceptorTests
+INSTRUMENTATION_STATUS: current=89
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=retryRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.InterceptorTests
+INSTRUMENTATION_STATUS: current=89
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=retryRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.InterceptorTests
+INSTRUMENTATION_STATUS: current=90
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cancelRequestInInterceptRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.InterceptorTests
+INSTRUMENTATION_STATUS: current=90
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cancelRequestInInterceptRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=91
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.JsonRequestTest:
+INSTRUMENTATION_STATUS: test=deliverResponseTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=91
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deliverResponseTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=92
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=jsonArrayRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=92
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=jsonArrayRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=93
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=jsonObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=93
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=jsonObjectRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=94
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=jsonObjectRequestWithoutCallback
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=94
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=jsonObjectRequestWithoutCallback
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=95
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=jsonArrayRequestWithoutCallback
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=95
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=jsonArrayRequestWithoutCallback
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=96
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=deliverResponseInstantTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=96
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deliverResponseInstantTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=97
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postDataTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=97
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postDataTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=98
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=deliverErrorTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.JsonRequestTest
+INSTRUMENTATION_STATUS: current=98
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=deliverErrorTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.MultiRequestTest
+INSTRUMENTATION_STATUS: current=99
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.MultiRequestTest:
+INSTRUMENTATION_STATUS: test=multipleRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.MultiRequestTest
+INSTRUMENTATION_STATUS: current=99
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=multipleRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.MultipleRequestTest
+INSTRUMENTATION_STATUS: current=100
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.MultipleRequestTest:
+INSTRUMENTATION_STATUS: test=sendMultipleRequest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.MultipleRequestTest
+INSTRUMENTATION_STATUS: current=100
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=sendMultipleRequest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.NetworkConnectionTest
+INSTRUMENTATION_STATUS: current=101
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.NetworkConnectionTest:
+INSTRUMENTATION_STATUS: test=isOnline
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.NetworkConnectionTest
+INSTRUMENTATION_STATUS: current=101
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=isOnline
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ResponseTest
+INSTRUMENTATION_STATUS: current=102
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.ResponseTest:
+INSTRUMENTATION_STATUS: test=nullValuesDontCrashAndStatusCode
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ResponseTest
+INSTRUMENTATION_STATUS: current=102
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=nullValuesDontCrashAndStatusCode
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ResponseTest
+INSTRUMENTATION_STATUS: current=103
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=toHeaderMap
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ResponseTest
+INSTRUMENTATION_STATUS: current=103
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=toHeaderMap
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ResponseTest
+INSTRUMENTATION_STATUS: current=104
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=mapToList
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.ResponseTest
+INSTRUMENTATION_STATUS: current=104
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=mapToList
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.RetryTest
+INSTRUMENTATION_STATUS: current=105
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.RetryTest:
+INSTRUMENTATION_STATUS: test=retryRequest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.RetryTest
+INSTRUMENTATION_STATUS: current=105
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=retryRequest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=106
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.SocketTimeOutTest:
+INSTRUMENTATION_STATUS: test=configSetTimeoutsDurationMilliSeconds
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=106
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=configSetTimeoutsDurationMilliSeconds
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=107
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=configSetTimeoutsDurationSeconds
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=107
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=configSetTimeoutsDurationSeconds
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=108
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=socketConnectTimeOutTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=108
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stack=java.lang.ExceptionInInitializerError
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:607)
+	at java.lang.Class.forName(Class.java:512)
+	at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.<clinit>(StackTraceFilter.java:29)
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.internal.stubbing.answers.AbstractThrowsException.<init>(AbstractThrowsException.java:18)
+	at org.mockito.internal.stubbing.answers.ThrowsException.<init>(ThrowsException.java:25)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:53)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:64)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:67)
+	... 29 trimmed
+Caused by: java.lang.SecurityException: Unsafe access denied
+	at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+	at sun.misc.SharedSecrets.<clinit>(SharedSecrets.java:47)
+	... 40 more
+
+INSTRUMENTATION_STATUS: stream=
+Error in socketConnectTimeOutTest(com.gap.hoodies_network.SocketTimeOutTest):
+java.lang.ExceptionInInitializerError
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:607)
+	at java.lang.Class.forName(Class.java:512)
+	at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.<clinit>(StackTraceFilter.java:29)
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.internal.stubbing.answers.AbstractThrowsException.<init>(AbstractThrowsException.java:18)
+	at org.mockito.internal.stubbing.answers.ThrowsException.<init>(ThrowsException.java:25)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:53)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:64)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:67)
+	... 29 trimmed
+Caused by: java.lang.SecurityException: Unsafe access denied
+	at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+	at sun.misc.SharedSecrets.<clinit>(SharedSecrets.java:47)
+	... 40 more
+
+INSTRUMENTATION_STATUS: test=socketConnectTimeOutTest
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=109
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=socketReadTimeOutTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.SocketTimeOutTest
+INSTRUMENTATION_STATUS: current=109
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stack=java.lang.NoClassDefFoundError: org.mockito.internal.exceptions.stacktrace.StackTraceFilter
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.exceptions.base.MockitoException.filterStackTrace(MockitoException.java:41)
+	at org.mockito.exceptions.base.MockitoException.<init>(MockitoException.java:35)
+	at org.mockito.exceptions.misusing.UnfinishedStubbingException.<init>(UnfinishedStubbingException.java:14)
+	at org.mockito.internal.exceptions.Reporter.unfinishedStubbing(Reporter.java:67)
+	at org.mockito.internal.progress.MockingProgressImpl.validateState(MockingProgressImpl.java:119)
+	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:64)
+	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:34)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:82)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:56)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$DispatcherDefaultingToRealMethod.interceptSuperCallable(MockMethodInterceptor.java:145)
+	at com.gap.hoodies_network.SocketTimeOutTest$UrlWrapper$MockitoMock$VczOO0fM.openConnection(Unknown Source:19)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketReadTimeOutTest(SocketTimeOutTest.kt:79)
+	... 29 trimmed
+Caused by: java.lang.ExceptionInInitializerError
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:607)
+	at java.lang.Class.forName(Class.java:512)
+	at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.<clinit>(StackTraceFilter.java:29)
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.internal.stubbing.answers.AbstractThrowsException.<init>(AbstractThrowsException.java:18)
+	at org.mockito.internal.stubbing.answers.ThrowsException.<init>(ThrowsException.java:25)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:53)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:64)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:67)
+	... 30 more
+Caused by: java.lang.SecurityException: Unsafe access denied
+	at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+	at sun.misc.SharedSecrets.<clinit>(SharedSecrets.java:47)
+	... 40 more
+
+INSTRUMENTATION_STATUS: stream=
+Error in socketReadTimeOutTest(com.gap.hoodies_network.SocketTimeOutTest):
+java.lang.NoClassDefFoundError: org.mockito.internal.exceptions.stacktrace.StackTraceFilter
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.exceptions.base.MockitoException.filterStackTrace(MockitoException.java:41)
+	at org.mockito.exceptions.base.MockitoException.<init>(MockitoException.java:35)
+	at org.mockito.exceptions.misusing.UnfinishedStubbingException.<init>(UnfinishedStubbingException.java:14)
+	at org.mockito.internal.exceptions.Reporter.unfinishedStubbing(Reporter.java:67)
+	at org.mockito.internal.progress.MockingProgressImpl.validateState(MockingProgressImpl.java:119)
+	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:64)
+	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:34)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:82)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:56)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$DispatcherDefaultingToRealMethod.interceptSuperCallable(MockMethodInterceptor.java:145)
+	at com.gap.hoodies_network.SocketTimeOutTest$UrlWrapper$MockitoMock$VczOO0fM.openConnection(Unknown Source:19)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketReadTimeOutTest(SocketTimeOutTest.kt:79)
+	... 29 trimmed
+Caused by: java.lang.ExceptionInInitializerError
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:607)
+	at java.lang.Class.forName(Class.java:512)
+	at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.<clinit>(StackTraceFilter.java:29)
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.internal.stubbing.answers.AbstractThrowsException.<init>(AbstractThrowsException.java:18)
+	at org.mockito.internal.stubbing.answers.ThrowsException.<init>(ThrowsException.java:25)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:53)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:64)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:67)
+	... 30 more
+Caused by: java.lang.SecurityException: Unsafe access denied
+	at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+	at sun.misc.SharedSecrets.<clinit>(SharedSecrets.java:47)
+	... 40 more
+
+INSTRUMENTATION_STATUS: test=socketReadTimeOutTest
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=110
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.StringRequestTest:
+INSTRUMENTATION_STATUS: test=errorDeliverTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=110
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=errorDeliverTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=111
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=unSupportedExceptionTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=111
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=unSupportedExceptionTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=112
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=apiMethodTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=112
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=apiMethodTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=113
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stringRequestErrorTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=113
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=stringRequestErrorTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=114
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=postDataTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=114
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=postDataTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=115
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stringRequestTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.StringRequestTest
+INSTRUMENTATION_STATUS: current=115
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=stringRequestTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=116
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+com.gap.hoodies_network.UrlResolverTest:
+INSTRUMENTATION_STATUS: test=validateURL
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=116
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=validateURL
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=117
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=resolveHttpProtocolHttpsTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=117
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=resolveHttpProtocolHttpsTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=118
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=resolveHttpProtocolHttpTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=118
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=resolveHttpProtocolHttpTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=119
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=resolveUrlWithHttpTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=119
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=resolveUrlWithHttpTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=120
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=wrongProtocolFixed
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=120
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=wrongProtocolFixed
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=121
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=validateUrlTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=121
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=validateUrlTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=122
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=rawIP
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=122
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=rawIP
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=123
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=resolveUrlWithoutHttpTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=123
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=resolveUrlWithoutHttpTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=124
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=getProtocolTest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.gap.hoodies_network.UrlResolverTest
+INSTRUMENTATION_STATUS: current=124
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=124
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=getProtocolTest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 113.769
+There were 3 failures:
+1) cookieTestPersistent(com.gap.hoodies_network.CookieTests)
+org.json.JSONException: No value for null
+	at org.json.JSONObject.get(JSONObject.java:398)
+	at org.json.JSONObject.getString(JSONObject.java:559)
+	at com.gap.hoodies_network.CookieTests$cookieTestPersistent$1.invokeSuspend(CookieTests.kt:66)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:85)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+	at com.gap.hoodies_network.CookieTests.cookieTestPersistent(CookieTests.kt:38)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)
+	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:444)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2594)
+2) socketConnectTimeOutTest(com.gap.hoodies_network.SocketTimeOutTest)
+java.lang.ExceptionInInitializerError
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:607)
+	at java.lang.Class.forName(Class.java:512)
+	at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.<clinit>(StackTraceFilter.java:29)
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.internal.stubbing.answers.AbstractThrowsException.<init>(AbstractThrowsException.java:18)
+	at org.mockito.internal.stubbing.answers.ThrowsException.<init>(ThrowsException.java:25)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:53)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:64)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:67)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)
+	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:444)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2594)
+Caused by: java.lang.SecurityException: Unsafe access denied
+	at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+	at sun.misc.SharedSecrets.<clinit>(SharedSecrets.java:47)
+	... 40 more
+3) socketReadTimeOutTest(com.gap.hoodies_network.SocketTimeOutTest)
+java.lang.NoClassDefFoundError: org.mockito.internal.exceptions.stacktrace.StackTraceFilter
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.exceptions.base.MockitoException.filterStackTrace(MockitoException.java:41)
+	at org.mockito.exceptions.base.MockitoException.<init>(MockitoException.java:35)
+	at org.mockito.exceptions.misusing.UnfinishedStubbingException.<init>(UnfinishedStubbingException.java:14)
+	at org.mockito.internal.exceptions.Reporter.unfinishedStubbing(Reporter.java:67)
+	at org.mockito.internal.progress.MockingProgressImpl.validateState(MockingProgressImpl.java:119)
+	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:64)
+	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:34)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:82)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:56)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$DispatcherDefaultingToRealMethod.interceptSuperCallable(MockMethodInterceptor.java:145)
+	at com.gap.hoodies_network.SocketTimeOutTest$UrlWrapper$MockitoMock$VczOO0fM.openConnection(Unknown Source:19)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketReadTimeOutTest(SocketTimeOutTest.kt:79)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)
+	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:444)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2594)
+Caused by: java.lang.ExceptionInInitializerError
+	at java.lang.Class.classForName(Native Method)
+	at java.lang.Class.forName(Class.java:607)
+	at java.lang.Class.forName(Class.java:512)
+	at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.<clinit>(StackTraceFilter.java:29)
+	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
+	at org.mockito.internal.stubbing.answers.AbstractThrowsException.<init>(AbstractThrowsException.java:18)
+	at org.mockito.internal.stubbing.answers.ThrowsException.<init>(ThrowsException.java:25)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:53)
+	at org.mockito.internal.stubbing.BaseStubbing.thenThrow(BaseStubbing.java:64)
+	at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:67)
+	... 30 more
+Caused by: java.lang.SecurityException: Unsafe access denied
+	at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+	at sun.misc.SharedSecrets.<clinit>(SharedSecrets.java:47)
+	... 40 more
+
+FAILURES!!!
+Tests run: 124,  Failures: 3
+
+
+INSTRUMENTATION_CODE: -1
