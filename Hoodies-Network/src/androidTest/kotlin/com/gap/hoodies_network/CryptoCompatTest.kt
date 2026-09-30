@@ -24,6 +24,7 @@ import com.gap.hoodies_network.testObjects.CallResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import org.junit.After
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
@@ -110,9 +111,14 @@ class CryptoCompatTest {
             when (val result = client.patch<String, CallResponse>("patch", testData, cacheConfiguration = encryptedCache())) {
                 is Success -> {
                     val bodyHash = "\"$testData\"".hashCode()
-                    while (cacheDb.cacheDao().get(PATCH_URL, bodyHash) == null)
-                        delay(100)
-                    val row = cacheDb.cacheDao().get(PATCH_URL, bodyHash)!!
+                    val row = withTimeout(10_000) {
+                        var cached = cacheDb.cacheDao().get(PATCH_URL, bodyHash)
+                        while (cached == null) {
+                            delay(100)
+                            cached = cacheDb.cacheDao().get(PATCH_URL, bodyHash)
+                        }
+                        cached
+                    }
                     val iv = unb64(row.iv!!)
                     assertEquals(AesGcm.IV_LENGTH_BYTES, iv.size)
 
@@ -141,6 +147,10 @@ class CryptoCompatTest {
         val cookies = PersistentCookieJar(COOKIE_INSTANCE, context).getCookiesForHost(URI("http://localhost"))
         assertEquals(1, cookies.size)
         assertEquals(cookieJson, Gson().toJson(cookies[0]))
+        if (cookieJson.contains(cookie.value)) {
+            assertEquals(cookie.name, cookies[0].name)
+            assertEquals(cookie.value, cookies[0].value)
+        }
     }
 
     @Test
