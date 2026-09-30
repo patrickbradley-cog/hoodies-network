@@ -12,6 +12,10 @@ import sys
 import xml.etree.ElementTree as ET
 
 
+# With multi-device XML, a test keeps its worst status across devices.
+SEVERITY = {"passed": 0, "skipped": 1, "failed": 2}
+
+
 def parse(xml_dir):
     results = {}
     devices = set()
@@ -29,12 +33,15 @@ def parse(xml_dir):
                     failure = case.find("error")
                 if failure is not None:
                     msg = (failure.get("message") or failure.text or "").strip().splitlines()
-                    results[name] = {"status": "failed", "time": float(case.get("time") or 0),
-                                     "message": msg[0][:300] if msg else ""}
+                    result = {"status": "failed", "time": float(case.get("time") or 0),
+                              "message": msg[0][:300] if msg else ""}
                 elif case.find("skipped") is not None:
-                    results[name] = {"status": "skipped", "time": float(case.get("time") or 0)}
+                    result = {"status": "skipped", "time": float(case.get("time") or 0)}
                 else:
-                    results[name] = {"status": "passed", "time": float(case.get("time") or 0)}
+                    result = {"status": "passed", "time": float(case.get("time") or 0)}
+                prev = results.get(name)
+                if prev is None or SEVERITY[result["status"]] > SEVERITY[prev["status"]]:
+                    results[name] = result
     return results, sorted(devices)
 
 

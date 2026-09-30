@@ -1,6 +1,6 @@
 # Hoodies-Network Modernization Strategy
 
-Status: **Phase 0 (baseline + strategy) — awaiting approval before Phase 1.**
+Status: **Phase 1 (foundation) merged to `main` in #2. Phase 2 workstreams branch from `main`.**
 Fork: `patrickbradley-cog/hoodies-network`. No PRs are ever opened against `gapinc/hoodies-network`.
 Baseline commit: `4846a5a` (`main`, untouched upstream code).
 
