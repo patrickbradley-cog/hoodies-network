@@ -1,9 +1,12 @@
 package com.gap.hoodies_network.mockwebserver
 
 import android.content.Context
+import java.util.concurrent.TimeUnit
 
 class ServerManager {
     companion object {
+        private val START_TIMEOUT_NANOS = TimeUnit.SECONDS.toNanos(60)
+
         var server: MockWebServerManager? = null
 
         fun setup(context:Context?) {
@@ -38,13 +41,15 @@ class ServerManager {
             //Sometimes the tests get run in parallel and fail because the port is already in use
             //For those cases, we will wait here until the server can start
 
-            var started = false
-
-            while (!started) {
+            val deadline = System.nanoTime() + START_TIMEOUT_NANOS
+            while (true) {
                 try {
                     server = builder.start()
-                    started = true
+                    return
                 } catch (e: Exception) {
+                    if (System.nanoTime() > deadline) {
+                        throw IllegalStateException("Mock web server did not start within 60s", e)
+                    }
                     Thread.sleep(100)
                 }
             }

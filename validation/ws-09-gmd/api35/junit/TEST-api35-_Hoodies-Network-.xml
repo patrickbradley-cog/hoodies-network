@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.gap.hoodies_network.CachingAndCryptographyTest" tests="124" failures="3" errors="0" skipped="0" time="119.688" timestamp="2026-09-30T19:13:57" hostname="localhost">
+  <properties>
+    <property name="device" value="api35" />
+    <property name="flavor" value="" />
+    <property name="project" value=":Hoodies-Network" />
+  </properties>
+  <testcase name="requestWithUrlEncodedParamsAndHeadersEncryptingInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.413" />
+  <testcase name="requestWithBodyAndHeadersEncryptingInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.079" />
+  <testcase name="requestWithBodyAndHeadersEmptyInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.001" />
+  <testcase name="makeSureDataWasCachedEncryptedFlow" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="3.387" />
+  <testcase name="makeSureDataWasCached" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="3.241" />
+  <testcase name="requestWithUrlEncodedParamsAndHeadersEmptyInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.026" />
+  <testcase name="cookieTestNonPersistent" classname="com.gap.hoodies_network.CookieTests" time="0.077" />
+  <testcase name="noCookieTest" classname="com.gap.hoodies_network.CookieTests" time="0.051" />
+  <testcase name="cookieTestPersistent" classname="com.gap.hoodies_network.CookieTests" time="0.081">
+    <failure>org.json.JSONException: No value for null
+at org.json.JSONObject.get(JSONObject.java:398)
+at org.json.JSONObject.getString(JSONObject.java:559)
+at com.gap.hoodies_network.CookieTests$cookieTestPersistent$1.invokeSuspend(CookieTests.kt:66)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:104)
+at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:277)
+at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:48)
+at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+at com.gap.hoodies_network.CookieTests.cookieTestPersistent(CookieTests.kt:38)
+</failure>
+  </testcase>
+  <testcase name="encryptAndDecryptString" classname="com.gap.hoodies_network.EncryptionDecryptionTest" time="0.0" />
+  <testcase name="twoFilesTest" classname="com.gap.hoodies_network.FileUploadRequestTests" time="0.075" />
+  <testcase name="fileTest" classname="com.gap.hoodies_network.FileUploadRequestTests" time="0.027" />
+  <testcase name="threeFilesTest" classname="com.gap.hoodies_network.FileUploadRequestTests" time="0.0" />
+  <testcase name="requestFormattingTest" classname="com.gap.hoodies_network.FormUrlEncodedRequestTest" time="0.0" />
+  <testcase name="headerParserTest" classname="com.gap.hoodies_network.HeaderTest" time="0.0" />
+  <testcase name="headerTest" classname="com.gap.hoodies_network.HeaderTest" time="0.001" />
+  <testcase name="basicRawPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="basicPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="getJsonObjectRequestNoBodyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="withHashMapRawPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="postObjectRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="getJsonArrayRequestNoBodyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="withHashMapRawAndHeadersPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.027" />
+  <testcase name="postNullJsonArrayRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getRawUrlQueryParamEncodedRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.151" />
+  <testcase name="postNullJsonObjectRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.052" />
+  <testcase name="getUrlQueryParamEncodedRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="getRegularRequestHtmlWithHeadersNoBodyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.076" />
+  <testcase name="postJsonObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="basicPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="patchJsonObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="retryCountTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="getRawUrlQueryParamRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="getRequestFormUrlEncodedAdditionalHeadersEmptyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="httpMethodTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="getRequestRegularAllNullTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.05" />
+  <testcase name="cannotReachServerRawTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="patchJsonArrayRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.051" />
+  <testcase name="getRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.025" />
+  <testcase name="patchObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="postJsonObjectRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.025" />
+  <testcase name="getRequestRegularTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="withHashMapRawPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="putRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.177" />
+  <testcase name="deleteRawRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.102" />
+  <testcase name="getRequestUrlQueryParamAdditionalHeadersEmptyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.051" />
+  <testcase name="getUrlQueryParamEncodedRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.126" />
+  <testcase name="getRequestHtmlWithHeadersTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.178" />
+  <testcase name="sendUrlQueryRequestNullHeaderTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.201" />
+  <testcase name="sendUrlQueryParamEncodedRequestNullHeaderTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.101" />
+  <testcase name="putRawRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.076" />
+  <testcase name="getRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getHtmlRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="getUrlQueryParamRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.127" />
+  <testcase name="patchStringRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.077" />
+  <testcase name="getUrlQueryParamRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.101" />
+  <testcase name="deleteRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.126" />
+  <testcase name="postJsonArrayRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.051" />
+  <testcase name="basicRawPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.077" />
+  <testcase name="deleteRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.126" />
+  <testcase name="getRequestAdditionalHeadersEmptyFormUrlEncodedTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.076" />
+  <testcase name="getHtmlRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.101" />
+  <testcase name="withStringRawPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="postJsonArrayRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.252" />
+  <testcase name="postObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.076" />
+  <testcase name="withStringRawPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.126" />
+  <testcase name="putRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.076" />
+  <testcase name="getRequestUrlQueryParamEncodedAdditionalHeadersEmptyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.227" />
+  <testcase name="basicPostRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.177" />
+  <testcase name="cannotReachServerTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.027" />
+  <testcase name="getRawTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.124" />
+  <testcase name="getRequestHeadersTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getBuilderTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.025" />
+  <testcase name="getResizedDimensionTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.002" />
+  <testcase name="getImageRequestFailureTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.051" />
+  <testcase name="getImageRequestTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.101" />
+  <testcase name="getResizeValueWithSpecifiedHWTestZeros" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.0" />
+  <testcase name="getResizedValueTestZeros" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.001" />
+  <testcase name="getImageRequestTest2" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.177" />
+  <testcase name="getImageRequestTest3" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.075" />
+  <testcase name="getResizeValueWithSpecifiedHWTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.126" />
+  <testcase name="getImageRequestNoHeadersTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.101" />
+  <testcase name="getImageRequestWithHeadersTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.075" />
+  <testcase name="getResizedValueTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.026" />
+  <testcase name="imageRequestTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.001" />
+  <testcase name="getResizedDimensionTestZeros" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.026" />
+  <testcase name="getImageTestMOCKWEBSERVER" classname="com.gap.hoodies_network.ImageTests" time="0.102" />
+  <testcase name="cancelRequestInInterceptNetworkTest" classname="com.gap.hoodies_network.InterceptorTests" time="0.025" />
+  <testcase name="retryRequestTest" classname="com.gap.hoodies_network.InterceptorTests" time="1.331" />
+  <testcase name="cancelRequestInInterceptRequestTest" classname="com.gap.hoodies_network.InterceptorTests" time="0.025" />
+  <testcase name="deliverResponseTest" classname="com.gap.hoodies_network.JsonRequestTest" time="0.0" />
+  <testcase name="jsonArrayRequestTest" classname="com.gap.hoodies_network.JsonRequestTest" time="8.002" />
+  <testcase name="jsonObjectRequestTest" classname="com.gap.hoodies_network.JsonRequestTest" time="6.021" />
+  <testcase name="jsonObjectRequestWithoutCallback" classname="com.gap.hoodies_network.JsonRequestTest" time="0.0" />
+  <testcase name="jsonArrayRequestWithoutCallback" classname="com.gap.hoodies_network.JsonRequestTest" time="10.009" />
+  <testcase name="deliverResponseInstantTest" classname="com.gap.hoodies_network.JsonRequestTest" time="9.988" />
+  <testcase name="postDataTest" classname="com.gap.hoodies_network.JsonRequestTest" time="7.983" />
+  <testcase name="deliverErrorTest" classname="com.gap.hoodies_network.JsonRequestTest" time="0.0" />
+  <testcase name="multipleRequestTest" classname="com.gap.hoodies_network.MultiRequestTest" time="15.016" />
+  <testcase name="sendMultipleRequest" classname="com.gap.hoodies_network.MultipleRequestTest" time="6.102" />
+  <testcase name="isOnline" classname="com.gap.hoodies_network.NetworkConnectionTest" time="0.0" />
+  <testcase name="nullValuesDontCrashAndStatusCode" classname="com.gap.hoodies_network.ResponseTest" time="0.026" />
+  <testcase name="toHeaderMap" classname="com.gap.hoodies_network.ResponseTest" time="0.0" />
+  <testcase name="mapToList" classname="com.gap.hoodies_network.ResponseTest" time="0.0" />
+  <testcase name="retryRequest" classname="com.gap.hoodies_network.RetryTest" time="6.004" />
+  <testcase name="configSetTimeoutsDurationMilliSeconds" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.025" />
+  <testcase name="configSetTimeoutsDurationSeconds" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.001" />
+  <testcase name="socketConnectTimeOutTest" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.178">
+    <failure>java.lang.ExceptionInInitializerError
+at java.lang.Class.classForName(Native Method)
+at java.lang.Class.forName(Class.java:607)
+at java.lang.Class.forName(Class.java:512)
+at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.&lt;clinit&gt;(StackTraceFilter.java:29)
+at org.mockito.internal.debugging.Java8LocationImpl.&lt;clinit&gt;(Java8LocationImpl.java:16)
+at org.mockito.internal.debugging.LocationFactory$Java8LocationFactory.create(LocationFactory.java:46)
+at org.mockito.internal.debugging.LocationFactory.create(LocationFactory.java:21)
+at org.mockito.internal.debugging.LocationFactory.create(LocationFactory.java:17)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:74)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:48)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:39)
+at com.android.dx.mockito.inline.InvocationHandlerAdapter.interceptEntryHook(InvocationHandlerAdapter.java:75)
+at com.android.dx.mockito.inline.MockMethodAdvice.handle(MockMethodAdvice.java:233)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.dx.mockito.inline.MockMethodDispatcher.handle(MockMethodDispatcher.java:79)
+at com.gap.hoodies_network.SocketTimeOutTest$UrlWrapper.openConnection(Unknown Source:27)
+at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:61)
+... 34 trimmed
+Caused by: java.lang.SecurityException: Unsafe access denied
+at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+at sun.misc.SharedSecrets.&lt;clinit&gt;(SharedSecrets.java:47)
+... 52 more
+</failure>
+  </testcase>
+  <testcase name="socketReadTimeOutTest" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.0">
+    <failure>java.lang.NoClassDefFoundError: org.mockito.internal.debugging.Java8LocationImpl
+at org.mockito.internal.debugging.LocationFactory$Java8LocationFactory.create(LocationFactory.java:46)
+at org.mockito.internal.debugging.LocationFactory.create(LocationFactory.java:21)
+at org.mockito.internal.debugging.LocationFactory.create(LocationFactory.java:17)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:74)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:48)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:39)
+at com.android.dx.mockito.inline.InvocationHandlerAdapter.interceptEntryHook(InvocationHandlerAdapter.java:75)
+at com.android.dx.mockito.inline.MockMethodAdvice.handle(MockMethodAdvice.java:233)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.dx.mockito.inline.MockMethodDispatcher.handle(MockMethodDispatcher.java:79)
+at com.gap.hoodies_network.SocketTimeOutTest$UrlWrapper.openConnection(Unknown Source:27)
+at com.gap.hoodies_network.SocketTimeOutTest.socketReadTimeOutTest(SocketTimeOutTest.kt:79)
+... 34 trimmed
+Caused by: java.lang.ExceptionInInitializerError
+at java.lang.Class.classForName(Native Method)
+at java.lang.Class.forName(Class.java:607)
+at java.lang.Class.forName(Class.java:512)
+at org.mockito.internal.exceptions.stacktrace.StackTraceFilter.&lt;clinit&gt;(StackTraceFilter.java:29)
+at org.mockito.internal.debugging.Java8LocationImpl.&lt;clinit&gt;(Java8LocationImpl.java:16)
+at org.mockito.internal.debugging.LocationFactory$Java8LocationFactory.create(LocationFactory.java:46)
+at org.mockito.internal.debugging.LocationFactory.create(LocationFactory.java:21)
+at org.mockito.internal.debugging.LocationFactory.create(LocationFactory.java:17)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:74)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:48)
+at org.mockito.internal.invocation.DefaultInvocationFactory.createInvocation(DefaultInvocationFactory.java:39)
+at com.android.dx.mockito.inline.InvocationHandlerAdapter.interceptEntryHook(InvocationHandlerAdapter.java:75)
+at com.android.dx.mockito.inline.MockMethodAdvice.handle(MockMethodAdvice.java:233)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.dx.mockito.inline.MockMethodDispatcher.handle(MockMethodDispatcher.java:79)
+at com.gap.hoodies_network.SocketTimeOutTest$UrlWrapper.openConnection(Unknown Source:27)
+at com.gap.hoodies_network.SocketTimeOutTest.socketConnectTimeOutTest(SocketTimeOutTest.kt:61)
+... 35 more
+Caused by: java.lang.SecurityException: Unsafe access denied
+at sun.misc.Unsafe.getUnsafe(Unsafe.java:67)
+at sun.misc.SharedSecrets.&lt;clinit&gt;(SharedSecrets.java:47)
+... 52 more
+</failure>
+  </testcase>
+  <testcase name="errorDeliverTest" classname="com.gap.hoodies_network.StringRequestTest" time="6.026" />
+  <testcase name="unSupportedExceptionTest" classname="com.gap.hoodies_network.StringRequestTest" time="0.0" />
+  <testcase name="apiMethodTest" classname="com.gap.hoodies_network.StringRequestTest" time="8.006" />
+  <testcase name="stringRequestErrorTest" classname="com.gap.hoodies_network.StringRequestTest" time="6.0" />
+  <testcase name="postDataTest" classname="com.gap.hoodies_network.StringRequestTest" time="8.009" />
+  <testcase name="stringRequestTest" classname="com.gap.hoodies_network.StringRequestTest" time="8.008" />
+  <testcase name="validateURL" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="resolveHttpProtocolHttpsTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.001" />
+  <testcase name="resolveHttpProtocolHttpTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="resolveUrlWithHttpTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="wrongProtocolFixed" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="validateUrlTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.001" />
+  <testcase name="rawIP" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="resolveUrlWithoutHttpTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="getProtocolTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+</testsuite>
