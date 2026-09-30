@@ -2,36 +2,79 @@ package com.gap.hoodies_network.connection.queue
 
 import android.os.Handler
 import android.os.Looper
+import android.os.Process
 import android.util.Log
 import com.gap.hoodies_network.connection.BaseNetwork
+import com.gap.hoodies_network.connection.InFlightRequests
 import com.gap.hoodies_network.connection.Network
+import com.gap.hoodies_network.core.HoodiesNetworkError
+import com.gap.hoodies_network.core.Response
 import com.gap.hoodies_network.delivery.ResponseDelivery
 import com.gap.hoodies_network.delivery.ResponseDeliveryExecutor
 import com.gap.hoodies_network.request.Request
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.asCoroutineDispatcher
+import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.channels.Channel
+import java.util.concurrent.Executors
 import java.util.concurrent.PriorityBlockingQueue
+import java.util.concurrent.atomic.AtomicInteger
 import javax.net.ssl.SSLSocketFactory
 
 /**
  * RequestQueue class handles enqueue and dequeue of requests' queue
  *
+ * Requests are executed by [DEFAULT_NETWORK_THREAD_POOL_SIZE] worker coroutines running on
+ * [networkDispatcher], children of a queue-owned [SupervisorJob]. Responses are posted through
+ * the [ResponseDelivery] (the main thread by default).
+ *
  * @param sslHost
  * @param sslSocketFactory
  *
  */
-class RequestQueue constructor(sslHost: String?, sslSocketFactory: SSLSocketFactory?) {
+class RequestQueue internal constructor(
+    network: Network,
+    responseDelivery: ResponseDelivery,
+    networkDispatcher: CoroutineDispatcher,
+    private val inFlightRequests: InFlightRequests
+) {
+
+    constructor(sslHost: String?, sslSocketFactory: SSLSocketFactory?) :
+        this(sslHost, sslSocketFactory, InFlightRequests())
+
+    private constructor(
+        sslHost: String?,
+        sslSocketFactory: SSLSocketFactory?,
+        inFlightRequests: InFlightRequests
+    ) : this(
+        BaseNetwork(sslHost, sslSocketFactory, inFlightRequests),
+        ResponseDeliveryExecutor(Handler(Looper.getMainLooper())),
+        newNetworkDispatcher(),
+        inFlightRequests
+    )
 
     private val mNetworkQueue: PriorityBlockingQueue<Request<Any>> =
         PriorityBlockingQueue<Request<Any>>()
 
-    /** The gapnetworkandroid dispatchers.  */
-    private val mQueueDispatchers: Array<QueueHandler?> =
-        arrayOfNulls(DEFAULT_NETWORK_THREAD_POOL_SIZE)
-    private val mNetwork: Network
-    private val mResponseDelivery: ResponseDelivery
+    /** One element per enqueued request; workers suspend on it instead of blocking on [mNetworkQueue]. */
+    private val pending = Channel<Unit>(Channel.UNLIMITED)
+
+    private val mNetwork: Network = network
+    private val mResponseDelivery: ResponseDelivery =
+        CancellationAwareDelivery(responseDelivery, inFlightRequests)
+    private val scope = CoroutineScope(
+        SupervisorJob() + networkDispatcher + CoroutineName("HoodiesRequestQueue")
+    )
 
     fun enqueue(request: Request<Any>) {
         try {
             mNetworkQueue.add(request)
+            pending.trySend(Unit)
         } catch (e: Exception) {
             Log.e("exception in enqueue", e.toString())
         }
@@ -50,6 +93,15 @@ class RequestQueue constructor(sslHost: String?, sslSocketFactory: SSLSocketFact
     }
 
     /**
+     * Cancels [request]: removes it from the queue if it is still waiting, disconnects its
+     * [java.net.HttpURLConnection] if it is in flight, and suppresses delivery of its result.
+     */
+    internal fun cancel(request: Request<Any>) {
+        inFlightRequests.cancel(request)
+        mNetworkQueue.remove(request)
+    }
+
+    /**
      * Starts the dispatchers in this queue
      */
     private fun startDispatchers() {
@@ -57,17 +109,34 @@ class RequestQueue constructor(sslHost: String?, sslSocketFactory: SSLSocketFact
         stopDispatchers()
 
         /**create n/w dispatchers up to the pool size */
-        for (i in mQueueDispatchers.indices) {
-            val apiManager = NetworkHandler(mResponseDelivery)
-            val networkDispatcher = QueueHandler(mNetworkQueue, apiManager, mNetwork)
-            mQueueDispatchers[i] = networkDispatcher
-            networkDispatcher.start()
+        repeat(DEFAULT_NETWORK_THREAD_POOL_SIZE) {
+            val networkHandler = NetworkHandler(mResponseDelivery)
+            scope.launch {
+                while (isActive) {
+                    pending.receive()
+                    val request = mNetworkQueue.poll() ?: continue
+                    if (!inFlightRequests.isCancelled(request)) {
+                        networkHandler.executeRequest(request, mNetwork)
+                    }
+                }
+            }
         }
     }
 
     private fun stopDispatchers() {
-        for (mQueueDispatcher in mQueueDispatchers) {
-            mQueueDispatcher?.quit()
+        scope.coroutineContext.cancelChildren()
+    }
+
+    private class CancellationAwareDelivery(
+        private val delegate: ResponseDelivery,
+        private val inFlightRequests: InFlightRequests
+    ) : ResponseDelivery {
+        override fun postResponse(request: Request<Any>, response: Response<Any>) {
+            if (!inFlightRequests.isCancelled(request)) delegate.postResponse(request, response)
+        }
+
+        override fun postError(request: Request<Any>, error: HoodiesNetworkError) {
+            if (!inFlightRequests.isCancelled(request)) delegate.postError(request, error)
         }
     }
 
@@ -92,11 +161,20 @@ class RequestQueue constructor(sslHost: String?, sslSocketFactory: SSLSocketFact
                 return requestQueue
             }
         }
+
+        /** Background-priority daemon threads, one per worker, matching the former QueueHandler threads. */
+        private fun newNetworkDispatcher(): CoroutineDispatcher {
+            val threadCount = AtomicInteger()
+            return Executors.newFixedThreadPool(DEFAULT_NETWORK_THREAD_POOL_SIZE) { runnable ->
+                Thread({
+                    Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
+                    runnable.run()
+                }, "HoodiesNetwork-${threadCount.incrementAndGet()}").apply { isDaemon = true }
+            }.asCoroutineDispatcher()
+        }
     }
 
     init {
-        mNetwork = BaseNetwork(sslHost, sslSocketFactory)
-        mResponseDelivery = ResponseDeliveryExecutor(Handler(Looper.getMainLooper()))
         startDispatchers()
     }
 }

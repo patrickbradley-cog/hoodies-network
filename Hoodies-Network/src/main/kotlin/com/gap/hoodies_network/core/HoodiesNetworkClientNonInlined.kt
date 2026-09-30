@@ -39,7 +39,10 @@ import kotlin.coroutines.resume
 class HoodiesNetworkClientNonInlined(
     builder: HoodiesNetworkClient.Builder
 ) {
-    private val requestQueue = RequestQueue.instance
+    private val requestQueue = builder.requestQueue ?: RequestQueue.instance
+    private val scope = CoroutineScope(
+        SupervisorJob() + builder.dispatchers.io + CoroutineName("HoodiesNetworkClient")
+    )
     private val retryRequests = LinkedHashMap<String, Request<Any>>()
     private val retryAttempts = LinkedHashMap<String, Int>()
 
@@ -705,7 +708,7 @@ class HoodiesNetworkClientNonInlined(
         if (request.requestIsCancelled && continuation != null) {
             continuation.resume(request.cancellationResult!!)
         } else {
-            CoroutineScope(Dispatchers.IO).launch {
+            val job = scope.launch {
                 //If cache is enabled, set up cache for this operation
                 request.cache = EncryptedCache(
                     if (cacheConfiguration is CacheEnabled) {
@@ -725,6 +728,12 @@ class HoodiesNetworkClientNonInlined(
                 //If we didn't get cached data and return, enqueue network request
                 requestQueue?.enqueue(request)
                 retryRequests[identifier] = request
+            }
+            continuation?.invokeOnCancellation {
+                job.cancel()
+                requestQueue?.cancel(request)
+                removeRequestFromQueue(identifier)
+                removeRequestFromRetry(identifier)
             }
         }
     }
