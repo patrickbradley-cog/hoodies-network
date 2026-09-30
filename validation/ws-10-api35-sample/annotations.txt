@@ -1,0 +1,1 @@
+[ws-10-api35-sample] RESULT gradle_exit=0 tests=0 failed=0 skipped=0

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.gap.hoodies_network.sample.SampleScreensTest" tests="7" failures="0" errors="0" skipped="0" time="17.918" timestamp="2026-09-30T19:28:54" hostname="localhost">
+  <properties>
+    <property name="device" value="api30(AVD) - 11" />
+    <property name="flavor" value="" />
+    <property name="project" value=":sample" />
+  </properties>
+  <testcase name="getScreenShowsTypedResponse" classname="com.gap.hoodies_network.sample.SampleScreensTest" time="1.627" />
+  <testcase name="imageScreenDecodesTheBitmap" classname="com.gap.hoodies_network.sample.SampleScreensTest" time="2.03" />
+  <testcase name="allScreensAreReachableFromTheTabRow" classname="com.gap.hoodies_network.sample.SampleScreensTest" time="2.449" />
+  <testcase name="postScreenEchoesTheSerializedBody" classname="com.gap.hoodies_network.sample.SampleScreensTest" time="2.751" />
+  <testcase name="interceptorScreenAddsHeaderAndLogsStages" classname="com.gap.hoodies_network.sample.SampleScreensTest" time="2.819" />
+  <testcase name="cacheScreenServesRepeatRequestsFromCache" classname="com.gap.hoodies_network.sample.SampleScreensTest" time="1.855" />
+  <testcase name="postDraftSurvivesSwitchingTabs" classname="com.gap.hoodies_network.sample.SampleScreensTest" time="3.189" />
+</testsuite>

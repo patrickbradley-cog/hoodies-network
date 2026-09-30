@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hoodies-Network"
 include(":Hoodies-Network")
+include(":sample")
