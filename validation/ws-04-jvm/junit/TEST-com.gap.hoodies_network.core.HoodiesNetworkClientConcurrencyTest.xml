@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gap.hoodies_network.core.HoodiesNetworkClientConcurrencyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-30T19:14:44.086Z" hostname="devin-box" time="0.072">
+  <properties/>
+  <testcase name="cancellingCallerWhileQueuedRemovesRequest" classname="com.gap.hoodies_network.core.HoodiesNetworkClientConcurrencyTest" time="0.058"/>
+  <testcase name="cancellingCallerBeforeEnqueueSkipsNetwork" classname="com.gap.hoodies_network.core.HoodiesNetworkClientConcurrencyTest" time="0.005"/>
+  <testcase name="requestPreparationRunsOnInjectedDispatcher" classname="com.gap.hoodies_network.core.HoodiesNetworkClientConcurrencyTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gap.hoodies_network.connection.queue.RequestQueueTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-30T19:14:44.043Z" hostname="devin-box" time="0.042">
+  <properties/>
+  <testcase name="requestsAreExecutedInPriorityOrder" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.017"/>
+  <testcase name="cancellingAfterResponseIsPostedSuppressesDelivery" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.003"/>
+  <testcase name="responsesAreDeliveredThroughResponseDelivery" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.002"/>
+  <testcase name="errorsAreDeliveredThroughResponseDelivery" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.003"/>
+  <testcase name="reEnqueuedRequestRunsAgain" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.002"/>
+  <testcase name="cancellingInFlightRequestDisconnectsAndSuppressesDelivery" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.003"/>
+  <testcase name="dequeueRemovesRequestBeforeWorkersRun" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.002"/>
+  <testcase name="workersRunOnInjectedDispatcher" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.002"/>
+  <testcase name="cancelledQueuedRequestIsNeverExecuted" classname="com.gap.hoodies_network.connection.queue.RequestQueueTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
