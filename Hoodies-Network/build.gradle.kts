@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         minSdk = 28
-        targetSdk = 32
+        targetSdk = 35
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -66,8 +66,8 @@ android {
     }
 
     lint {
+        targetSdk = 35
         sarifReport = true
-        baseline = file("lint-baseline.xml")
     }
 }
 
