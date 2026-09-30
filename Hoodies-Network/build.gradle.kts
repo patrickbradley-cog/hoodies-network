@@ -134,8 +134,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.kotlinx.coroutines.android)
     api(libs.gson)
-    implementation(files("libs/http-2.2.1.jar"))
-    implementation(files("libs/sun-common-server.jar"))
+    implementation(libs.okhttp.mockwebserver3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.mockito.android)
@@ -152,4 +151,12 @@ tasks.named<org.jetbrains.dokka.gradle.DokkaTask>("dokkaJavadoc") {
 
 configurations.all {
     resolutionStrategy.force(libs.objenesis.get().toString())
+}
+
+// The mock web server ships Android-side replacements for com.sun.net.httpserver types. The host
+// JDK's jdk.httpserver module would otherwise claim that package when kapt compiles its stubs.
+kapt {
+    javacOptions {
+        option("--limit-modules", "java.se,jdk.unsupported")
+    }
 }

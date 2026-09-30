@@ -18,6 +18,9 @@ androidxTestExtJunit = "1.1.3"
 espresso = "3.4.0"
 mockitoAndroid = "4.8.0"
 objenesis = "2.6"
+# okhttp 5.4+ requires compileSdk 36+ (5.5.0: 37); stay on 5.3.2 until compileSdk is raised
+#noinspection GradleDependency
+mockwebserver3 = "5.3.2"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
@@ -33,6 +36,7 @@ androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "a
 androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockitoAndroid" }
 objenesis = { module = "org.objenesis:objenesis", version.ref = "objenesis" }
+okhttp-mockwebserver3 = { module = "com.squareup.okhttp3:mockwebserver3", version.ref = "mockwebserver3" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }
