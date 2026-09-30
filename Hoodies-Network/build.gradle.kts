@@ -137,6 +137,8 @@ dependencies {
     implementation(files("libs/http-2.2.1.jar"))
     implementation(files("libs/sun-common-server.jar"))
     testImplementation(libs.junit)
+    testRuntimeOnly(libs.junit.vintage.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.mockito.android)
     androidTestImplementation(libs.androidx.test.ext.junit)
