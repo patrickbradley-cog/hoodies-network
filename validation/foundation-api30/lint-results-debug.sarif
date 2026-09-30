@@ -1,0 +1,70 @@
+{
+    "$schema" : "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+    "version" : "2.1.0",
+    "runs" : [
+        {
+            "tool": {
+                "driver": {
+                    "name": "Android Lint",
+                    "fullName": "Android Lint (in gradle)",
+                    "version": "8.13.2",
+                    "semanticVersion": "8.13.2",
+                    "organization": "Google",
+                    "informationUri": "https://developer.android.com/studio/write/lint",
+                    "fullDescription": {
+                        "text": "Static analysis originally for Android source code but now performing general analysis"
+                    },
+                    "language": "en-US",
+                    "rules": [
+                        {
+                            "id": "LintBaseline",
+                            "shortDescription": {
+                                "text": "Baseline Applied"
+                            },
+                            "fullDescription": {
+                                "text": "Lint can be configured with a \"baseline\"; a set of current issues found in a codebase, which future runs of lint will silently ignore. Only new issues not found in the baseline are reported.\n\nNote that while opening files in the IDE, baseline issues are not filtered out; the purpose of baselines is to allow you to get started using lint and break the build on all newly introduced errors, without having to go back and fix the entire codebase up front. However, when you open up existing files you still want to be aware of and fix issues as you come across them.\n\nThis issue type is used to emit an informational-only warning if any issues were filtered out due to baseline matching. That way, you don't have a false sense of security if you forgot that you've checked in a baseline file."
+                            },
+                            "defaultConfiguration": {
+                                "level": "note",
+                                "rank": 10
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Lint"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "originalUriBaseIds": {
+                "%SRCROOT%": {
+                    "uri": "file:///home/ubuntu/repos/hoodies-network/"
+                }
+            },
+            "results": [
+                {
+                    "ruleId": "LintBaseline",
+                    "ruleIndex": 0,
+                    "message": {
+                        "text": "1 error and 17 warnings were filtered out because they are listed in the baseline file, lint-baseline.xml"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "Hoodies-Network/lint-baseline.xml"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                    }
+                }
+            ]
+        }
+    ]
+}

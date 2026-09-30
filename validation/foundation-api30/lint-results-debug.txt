@@ -1,0 +1,2 @@
+/home/ubuntu/repos/hoodies-network/Hoodies-Network/lint-baseline.xml: Hint: 1 error and 17 warnings were filtered out because they are listed in the baseline file, lint-baseline.xml [LintBaseline]
+No errors or warnings (and 1 error, 17 warnings filtered by baseline lint-baseline.xml)

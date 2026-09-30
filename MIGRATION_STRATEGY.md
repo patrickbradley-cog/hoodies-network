@@ -28,6 +28,18 @@ Evidence (committed in this PR unless noted):
 
 **Known failures at baseline: none.** Every one of the 124 tests is "baseline-passing" and must stay passing.
 
+### 1.0 API 35 baseline (measured during Phase 1)
+
+The untouched code was also run on the API 35 AVD. AGP 7.1.3's UTP runner crashes against an API 35 device (`IllegalAccessError` in protobuf), so the baseline test APK was installed and run with `adb shell am instrument -w -r` (raw output in `validation/baseline-api35/instrument.txt`, converted to JUnit XML there). Result: **121 / 124 passed, 3 failed** (`baseline/test-results-api35.json`). These three are **pre-existing API 35 failures**, not migration regressions:
+
+| Test | Cause (from stack trace) | Owner |
+|---|---|---|
+| `SocketTimeOutTest#socketConnectTimeOutTest` | Mockito's `StackTraceFilter` loads `sun.misc.SharedSecrets`; the copy bundled in `sun-common-server.jar` shadows the platform class and calls `Unsafe.getUnsafe()` → `SecurityException: Unsafe access denied` on API 35 | WS07 (removing the bundled JARs) |
+| `SocketTimeOutTest#socketReadTimeOutTest` | same class-init failure (`NoClassDefFoundError: StackTraceFilter`) | WS07 |
+| `CookieTests#cookieTestPersistent` | `JSONException: No value for null` at `CookieTests.kt:66` — a cookie with a `null` name comes back from `PersistentCookieJar` on API 35 | WS02 (SDK 35 behaviour), with WS03 if the cause is in persistence |
+
+Gates: on **API 30** all 124 must pass; on **API 35** zero regressions vs `baseline/test-results-api35.json`, and the three above must be fixed by their owners before the final PR.
+
 ### 1.1 Test-count discrepancy (42 vs 124)
 
 The brief says "42 instrumented tests". The measured count is **124**: there are exactly 124 `@Test` methods across 19 classes in `Hoodies-Network/src/androidTest`, and Gradle reported `Starting 124 tests on api30(AVD) - 11`. `HoodiesNetworkClientTest` alone has 57. The README lists 18 class names (one of them, `ResponseDeliveryInstant`, is a helper with no `@Test` methods). "42" does not match any count we can derive from the repo. We use **124** as the baseline and treat the brief's number as out of date.
