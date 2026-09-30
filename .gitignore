@@ -91,3 +91,6 @@ Thumbs.db
 !/gradle/wrapper/gradle-wrapper.jar
 /Gemfile
 /Gemfile.lock
+
+# Local validation recordings (attached to PRs instead)
+validation/**/*.mp4
