@@ -1,0 +1,36 @@
+{
+  "tool": "jacoco 0.8.7 via AGP 7.1.3 createDebugCoverageReport",
+  "device": "api30 AVD",
+  "totals": {
+    "INSTRUCTION": {
+      "missed": 2056,
+      "covered": 8806,
+      "pct": 81.07
+    },
+    "BRANCH": {
+      "missed": 249,
+      "covered": 367,
+      "pct": 59.58
+    },
+    "LINE": {
+      "missed": 316,
+      "covered": 1699,
+      "pct": 84.32
+    },
+    "COMPLEXITY": {
+      "missed": 272,
+      "covered": 511,
+      "pct": 65.26
+    },
+    "METHOD": {
+      "missed": 68,
+      "covered": 400,
+      "pct": 85.47
+    },
+    "CLASS": {
+      "missed": 9,
+      "covered": 85,
+      "pct": 90.43
+    }
+  }
+}
