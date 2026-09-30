@@ -1,0 +1,1 @@
+[ws-08-api35] RESULT gradle_exit=1 tests=127 failed=3 skipped=0
