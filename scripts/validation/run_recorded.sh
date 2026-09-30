@@ -10,7 +10,7 @@ OUT="$ROOT/validation/$WS"; mkdir -p "$OUT/device-video" "$OUT/junit"
 ADB="$ANDROID_HOME/platform-tools/adb -s $SERIAL"
 ANN="$OUT/annotations.txt"; LOG="$OUT/gradle.log"; TL="$OUT/timeline.log"
 annotate() { printf '%s' "$*" > "$ANN.tmp" && mv "$ANN.tmp" "$ANN"; echo "$(date -u +%H:%M:%S) $*" | tee -a "$TL"; }
-: > "$TL"; : > "$LOG"
+: > "$TL"; : > "$LOG"; rm -f "$OUT/.done" "$OUT/.exit"
 annotate "[$WS] START  device=$SERIAL  api=$($ADB shell getprop ro.build.version.sdk | tr -d '\r')"
 
 # Desktop recording (emulator window left, live terminal right) with an annotation banner.
