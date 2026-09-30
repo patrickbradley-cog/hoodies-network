@@ -37,6 +37,7 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
         val decryptedCookieJson = EncryptedCache.runAES(Base64.getDecoder().decode(encryptedCookie.cookie), iv, Cipher.DECRYPT_MODE).decodeToString()
 
         return gson.fromJson(decryptedCookieJson, HttpCookie::class.java)?.let { CookieAndId(it, encryptedCookie.id) }
+            .also { if (it == null) db.deleteByHash(encryptedCookie.hash) } // drop unrecoverable rows so their host isn't phantom
     }
 
     fun deleteAll() {
@@ -79,10 +80,12 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
  * public getters/setters and emits the same JSON keys the old reflective dump
  * produced, so rows encrypted by older app versions still decode.
  *
- * `HttpCookie` has no public accessor for `whenCreated`, so each row also
- * records `savedAt` (the write timestamp); on decode, `maxAge` is reduced by
- * the wall-clock time elapsed since `whenCreated`/`savedAt`, which keeps the
- * original expiry instead of restarting the lifetime on every read.
+ * `HttpCookie` has no public accessor for `whenCreated`, so it is read
+ * reflectively when the platform exposes it (it survives the API 35
+ * hidden-API filtering that strips the other fields); otherwise `savedAt`
+ * (the write timestamp) is recorded instead. On decode, `maxAge` is reduced
+ * by the wall-clock time elapsed since `whenCreated`/`savedAt`, which keeps
+ * the original expiry instead of restarting the lifetime on every read.
  */
 internal object HttpCookieJsonAdapter : JsonSerializer<HttpCookie>, JsonDeserializer<HttpCookie> {
     override fun serialize(src: HttpCookie, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
@@ -99,9 +102,15 @@ internal object HttpCookieJsonAdapter : JsonSerializer<HttpCookie>, JsonDeserial
             addProperty("httpOnly", src.isHttpOnly)
             addProperty("value", src.value)
             addProperty("version", src.version)
-            addProperty("savedAt", System.currentTimeMillis())
+            whenCreatedField?.let { f -> runCatching { f.getLong(src) }.getOrNull() }
+                ?.let { addProperty("whenCreated", it) }
+                ?: addProperty("savedAt", System.currentTimeMillis())
         }
     }
+
+    private val whenCreatedField: java.lang.reflect.Field? = runCatching {
+        HttpCookie::class.java.getDeclaredField("whenCreated").apply { isAccessible = true }
+    }.getOrNull()
 
     override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): HttpCookie? {
         val obj = json.asJsonObject

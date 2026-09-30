@@ -100,6 +100,17 @@ class HttpCookieJsonAdapterTest {
     }
 
     @Test
+    fun serializedRowCarriesCreationTimestamp() {
+        // Whether via the reflective whenCreated read or the savedAt fallback,
+        // every row must carry a creation timestamp or expiry can't be preserved.
+        val obj = gson.fromJson(
+            gson.toJson(HttpCookie("k", "v").apply { maxAge = 3600 }),
+            com.google.gson.JsonObject::class.java
+        )
+        assertTrue(obj.has("whenCreated") || obj.has("savedAt"))
+    }
+
+    @Test
     fun expiredCookieStaysExpired() {
         val past = System.currentTimeMillis() - 600_000
         val json = """{"name":"k","value":"v","maxAge":60,"whenCreated":$past}"""
