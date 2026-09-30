@@ -3,19 +3,23 @@ name: Android Lint
 on:
   pull_request:
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   android-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
       - run: ./gradlew lint
-      - uses: github/codeql-action/upload-sarif@v2
+      - uses: github/codeql-action/upload-sarif@v3
         if: success() || failure()
         with:
-          sarif_file: app/build/reports/lint-results-debug.sarif
+          sarif_file: Hoodies-Network/build/reports/lint-results-debug.sarif
           category: lint
