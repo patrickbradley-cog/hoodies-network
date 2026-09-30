@@ -4,6 +4,7 @@ import com.gap.hoodies_network.cookies.persistentstorage.HttpCookieJsonAdapter
 import com.google.gson.GsonBuilder
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.net.HttpCookie
@@ -71,5 +72,41 @@ class HttpCookieJsonAdapterTest {
         assertFalse(restored.secure)
         assertTrue(restored.isHttpOnly)
         assertTrue(restored.discard)
+    }
+
+    @Test
+    fun namelessRowsFromBrokenApi35DumpsDecodeToNull() {
+        // Pre-fix API 35 builds persisted rows containing only these two fields;
+        // they cannot be recovered and must not crash the whole store read.
+        val brokenJson = """{"httpOnly":false,"whenCreated":1700000000000}"""
+
+        assertNull(gson.fromJson(brokenJson, HttpCookie::class.java))
+    }
+
+    @Test
+    fun decodePreservesElapsedExpiry() {
+        // A cookie persisted 50s ago with maxAge=100 must decode with ~50s left,
+        // not a fresh 100s (the reflective dump preserved whenCreated; rows from
+        // this adapter carry savedAt, legacy rows carry whenCreated).
+        val fiftySecondsAgo = System.currentTimeMillis() - 50_000
+        val newFormatJson = """{"name":"k","value":"v","maxAge":100,"savedAt":$fiftySecondsAgo}"""
+        val legacyJson = """{"name":"k","value":"v","maxAge":100,"whenCreated":$fiftySecondsAgo}"""
+
+        val fromNew = gson.fromJson(newFormatJson, HttpCookie::class.java)
+        val fromLegacy = gson.fromJson(legacyJson, HttpCookie::class.java)
+
+        assertTrue(fromNew.maxAge in 1..51)
+        assertTrue(fromLegacy.maxAge in 1..51)
+    }
+
+    @Test
+    fun expiredCookieStaysExpired() {
+        val past = System.currentTimeMillis() - 600_000
+        val json = """{"name":"k","value":"v","maxAge":60,"whenCreated":$past}"""
+
+        val restored = gson.fromJson(json, HttpCookie::class.java)
+
+        assertEquals(0, restored.maxAge)
+        assertTrue(restored.hasExpired())
     }
 }
