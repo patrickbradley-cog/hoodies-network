@@ -8,7 +8,8 @@ plugins {
     alias(libs.plugins.dokka)
     jacoco
     alias(libs.plugins.git.publish)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room)
 }
 apply(from = "../jacoco.gradle")
 
@@ -69,6 +70,11 @@ android {
         sarifReport = true
         baseline = file("lint-baseline.xml")
     }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
+    generateKotlin = false
 }
 
 kotlin {
@@ -142,8 +148,8 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
     implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.compiler)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
+    androidTestImplementation(libs.androidx.room.testing)
 }
 
 tasks.named<org.jetbrains.dokka.gradle.DokkaTask>("dokkaJavadoc") {
