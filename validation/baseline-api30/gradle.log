@@ -1,0 +1,82 @@
+> Task :Hoodies-Network:preBuild UP-TO-DATE
+> Task :Hoodies-Network:preDebugBuild UP-TO-DATE
+> Task :Hoodies-Network:compileDebugAidl NO-SOURCE
+> Task :Hoodies-Network:compileDebugRenderscript NO-SOURCE
+> Task :Hoodies-Network:generateDebugBuildConfig UP-TO-DATE
+> Task :Hoodies-Network:generateDebugResValues UP-TO-DATE
+> Task :Hoodies-Network:generateDebugResources UP-TO-DATE
+> Task :Hoodies-Network:packageDebugResources UP-TO-DATE
+> Task :Hoodies-Network:parseDebugLocalResources UP-TO-DATE
+> Task :Hoodies-Network:processDebugManifest UP-TO-DATE
+> Task :Hoodies-Network:generateDebugRFile UP-TO-DATE
+> Task :Hoodies-Network:kaptGenerateStubsDebugKotlin UP-TO-DATE
+> Task :Hoodies-Network:kaptDebugKotlin UP-TO-DATE
+> Task :Hoodies-Network:compileDebugKotlin UP-TO-DATE
+> Task :Hoodies-Network:javaPreCompileDebug UP-TO-DATE
+> Task :Hoodies-Network:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Hoodies-Network:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Hoodies-Network:preDebugAndroidTestBuild UP-TO-DATE
+> Task :Hoodies-Network:compileDebugAndroidTestAidl NO-SOURCE
+> Task :Hoodies-Network:extractDeepLinksDebug UP-TO-DATE
+> Task :Hoodies-Network:processDebugAndroidTestManifest UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestBuildConfig UP-TO-DATE
+> Task :Hoodies-Network:writeDebugAarMetadata UP-TO-DATE
+> Task :Hoodies-Network:checkDebugAndroidTestAarMetadata UP-TO-DATE
+> Task :Hoodies-Network:compileDebugLibraryResources UP-TO-DATE
+> Task :Hoodies-Network:packageDebugRenderscript NO-SOURCE
+> Task :Hoodies-Network:compileDebugAndroidTestRenderscript NO-SOURCE
+> Task :Hoodies-Network:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestResources UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestResources UP-TO-DATE
+> Task :Hoodies-Network:processDebugAndroidTestResources UP-TO-DATE
+> Task :Hoodies-Network:kaptGenerateStubsDebugAndroidTestKotlin UP-TO-DATE
+> Task :Hoodies-Network:kaptDebugAndroidTestKotlin UP-TO-DATE
+> Task :Hoodies-Network:compileDebugAndroidTestKotlin UP-TO-DATE
+> Task :Hoodies-Network:javaPreCompileDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:compileDebugAndroidTestJavaWithJavac UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestShaders UP-TO-DATE
+> Task :Hoodies-Network:compileDebugAndroidTestShaders NO-SOURCE
+> Task :Hoodies-Network:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugShaders UP-TO-DATE
+> Task :Hoodies-Network:compileDebugShaders NO-SOURCE
+> Task :Hoodies-Network:generateDebugAssets UP-TO-DATE
+> Task :Hoodies-Network:packageDebugAssets UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestAssets UP-TO-DATE
+> Task :Hoodies-Network:compressDebugAndroidTestAssets UP-TO-DATE
+> Task :Hoodies-Network:generateDebugJacocoPropertiesFile UP-TO-DATE
+> Task :Hoodies-Network:processDebugJavaRes NO-SOURCE
+> Task :Hoodies-Network:bundleLibResDebug UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestJacocoPropertiesFile UP-TO-DATE
+> Task :Hoodies-Network:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :Hoodies-Network:mergeDebugAndroidTestJavaResource UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugNativeLibs NO-SOURCE
+> Task :Hoodies-Network:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :Hoodies-Network:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :Hoodies-Network:desugarDebugAndroidTestFileDependencies UP-TO-DATE
+> Task :Hoodies-Network:mergeExtDexDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:jacocoDebug UP-TO-DATE
+> Task :Hoodies-Network:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :Hoodies-Network:dexBuilderDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:mergeLibDexDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:mergeProjectDexDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:validateSigningDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
+> Task :Hoodies-Network:packageDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+
+> Task :Hoodies-Network:connectedDebugAndroidTest
+Starting 124 tests on api30(AVD) - 11
+
+Test results saved as file:/home/ubuntu/repos/hoodies-network/Hoodies-Network/build/outputs/androidTest-results/connected/api30(AVD)%20-%2011/test-result.pb. Inspect these results in Android Studio by selecting Run > Import Tests From File from the menu bar and importing test-result.pb.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.5.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2m 9s
+51 actionable tasks: 1 executed, 50 up-to-date
