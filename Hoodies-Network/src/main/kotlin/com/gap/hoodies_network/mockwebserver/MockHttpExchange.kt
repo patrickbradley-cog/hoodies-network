@@ -4,6 +4,7 @@ import com.gap.hoodies_network.utils.Generated
 import com.sun.net.httpserver.Headers
 import com.sun.net.httpserver.HttpExchange
 import mockwebserver3.MockResponse
+import mockwebserver3.SocketEffect
 import okio.Buffer
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -35,7 +36,17 @@ internal class MockHttpExchange(
     override val responseHeaders = Headers()
 
     private val responseBuffer = ByteArrayOutputStream()
-    override val responseBody: OutputStream = responseBuffer
+    override val responseBody: OutputStream = object : OutputStream() {
+        override fun write(b: Int) {
+            checkCapacity(1)
+            responseBuffer.write(b)
+        }
+
+        override fun write(b: ByteArray, off: Int, len: Int) {
+            checkCapacity(len)
+            responseBuffer.write(b, off, len)
+        }
+    }
 
     override var responseCode: Int = -1
         private set
@@ -47,6 +58,12 @@ internal class MockHttpExchange(
         if (responseCode != -1) throw IOException("headers already sent")
         responseCode = rCode
         this.responseLength = responseLength
+    }
+
+    private fun checkCapacity(len: Int) {
+        if (responseLength > 0 && responseBuffer.size() + len > responseLength) {
+            throw IOException("too many bytes to write to stream")
+        }
     }
 
     override fun getAttribute(name: String): Any? = attributes[name]
@@ -61,10 +78,14 @@ internal class MockHttpExchange(
     }
 
     /**
-     * Returns the response written by the handler, or null if [sendResponseHeaders] was never called
+     * Returns the response written by the handler, or null if [sendResponseHeaders] was never called.
+     * A fixed-length response with fewer bytes than declared closes the connection.
      */
     fun toMockResponse(): MockResponse? {
         if (responseCode == -1) return null
+        if (responseLength > 0 && requestMethod != "HEAD" && responseBuffer.size().toLong() != responseLength) {
+            return MockResponse.Builder().onResponseStart(SocketEffect.CloseSocket()).build()
+        }
 
         val builder = MockResponse.Builder()
             .status("HTTP/1.1 $responseCode${reasonPhrase(responseCode)}")

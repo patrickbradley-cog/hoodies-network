@@ -94,15 +94,22 @@ class MockWebServerManager(builder: Builder) {
     private class ConnectionAddresses(val remote: InetSocketAddress, val local: InetSocketAddress)
 
     /**
-     * Records the addresses of every accepted connection, keyed by mockwebserver3's connection index
+     * Records the addresses of every open connection, keyed by mockwebserver3's connection index
      */
     private class AddressRecordingServerSocket : ServerSocket() {
         val connections = ConcurrentHashMap<Int, ConnectionAddresses>()
         private var nextConnectionIndex = 0
 
         override fun accept(): Socket {
-            val socket = super.accept()
-            connections[nextConnectionIndex++] = ConnectionAddresses(
+            val index = nextConnectionIndex++
+            val socket = object : Socket() {
+                override fun close() {
+                    connections.remove(index)
+                    super.close()
+                }
+            }
+            implAccept(socket)
+            connections[index] = ConnectionAddresses(
                 socket.remoteSocketAddress as InetSocketAddress,
                 socket.localSocketAddress as InetSocketAddress,
             )
