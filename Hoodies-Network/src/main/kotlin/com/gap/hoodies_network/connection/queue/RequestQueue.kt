@@ -21,6 +21,7 @@ import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.channels.Channel
+import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import java.util.concurrent.PriorityBlockingQueue
 import java.util.concurrent.atomic.AtomicInteger
@@ -30,8 +31,8 @@ import javax.net.ssl.SSLSocketFactory
  * RequestQueue class handles enqueue and dequeue of requests' queue
  *
  * Requests are executed by [DEFAULT_NETWORK_THREAD_POOL_SIZE] worker coroutines running on
- * [networkDispatcher], children of a queue-owned [SupervisorJob]. Responses are posted through
- * the [ResponseDelivery] (the main thread by default).
+ * [networkDispatcher], children of a queue-owned [SupervisorJob]. Responses are delivered on
+ * [deliveryExecutor] (the main thread by default).
  *
  * @param sslHost
  * @param sslSocketFactory
@@ -39,7 +40,7 @@ import javax.net.ssl.SSLSocketFactory
  */
 class RequestQueue internal constructor(
     network: Network,
-    responseDelivery: ResponseDelivery,
+    deliveryExecutor: Executor,
     networkDispatcher: CoroutineDispatcher,
     private val inFlightRequests: InFlightRequests
 ) {
@@ -53,7 +54,7 @@ class RequestQueue internal constructor(
         inFlightRequests: InFlightRequests
     ) : this(
         BaseNetwork(sslHost, sslSocketFactory, inFlightRequests),
-        ResponseDeliveryExecutor(Handler(Looper.getMainLooper())),
+        Handler(Looper.getMainLooper()).let { handler -> Executor { handler.post(it) } },
         newNetworkDispatcher(),
         inFlightRequests
     )
@@ -66,7 +67,7 @@ class RequestQueue internal constructor(
 
     private val mNetwork: Network = network
     private val mResponseDelivery: ResponseDelivery =
-        CancellationAwareDelivery(responseDelivery, inFlightRequests)
+        CancellationAwareDelivery(deliveryExecutor, inFlightRequests)
     private val scope = CoroutineScope(
         SupervisorJob() + networkDispatcher + CoroutineName("HoodiesRequestQueue")
     )
@@ -127,16 +128,23 @@ class RequestQueue internal constructor(
         scope.coroutineContext.cancelChildren()
     }
 
+    /** Checks cancellation on the delivery thread, immediately before the callbacks run. */
     private class CancellationAwareDelivery(
-        private val delegate: ResponseDelivery,
+        private val deliveryExecutor: Executor,
         private val inFlightRequests: InFlightRequests
     ) : ResponseDelivery {
+        private val delegate = ResponseDeliveryExecutor(Executor { it.run() })
+
         override fun postResponse(request: Request<Any>, response: Response<Any>) {
-            if (!inFlightRequests.isCancelled(request)) delegate.postResponse(request, response)
+            deliveryExecutor.execute {
+                if (!inFlightRequests.isCancelled(request)) delegate.postResponse(request, response)
+            }
         }
 
         override fun postError(request: Request<Any>, error: HoodiesNetworkError) {
-            if (!inFlightRequests.isCancelled(request)) delegate.postError(request, error)
+            deliveryExecutor.execute {
+                if (!inFlightRequests.isCancelled(request)) delegate.postError(request, error)
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gap.hoodies_network.connection.InFlightRequestsTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-30T19:09:09.326Z" hostname="devin-box" time="0.003">
+<testsuite name="com.gap.hoodies_network.connection.InFlightRequestsTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-30T19:14:44.039Z" hostname="devin-box" time="0.003">
   <properties/>
   <testcase name="cancelDisconnectsAttachedConnection" classname="com.gap.hoodies_network.connection.InFlightRequestsTest" time="0.001"/>
   <testcase name="attachAfterCancelIsRejected" classname="com.gap.hoodies_network.connection.InFlightRequestsTest" time="0.001"/>

@@ -728,12 +728,11 @@ class HoodiesNetworkClientNonInlined(
                 //If we didn't get cached data and return, enqueue network request
                 requestQueue?.enqueue(request)
                 retryRequests[identifier] = request
+                if (continuation?.isCancelled == true) forgetRequest(identifier, request)
             }
             continuation?.invokeOnCancellation {
                 job.cancel()
-                requestQueue?.cancel(request)
-                removeRequestFromQueue(identifier)
-                removeRequestFromRetry(identifier)
+                forgetRequest(identifier, request)
             }
         }
     }
@@ -1327,6 +1326,12 @@ class HoodiesNetworkClientNonInlined(
     ): Boolean {
         return (retryOnConnectionFailure &&
                 (error.cause is SocketException || error.cause is SocketTimeoutException || error.cause is IOException))
+    }
+
+    private fun forgetRequest(identifier: String, request: Request<Any>) {
+        requestQueue?.cancel(request)
+        removeRequestFromQueue(identifier)
+        removeRequestFromRetry(identifier)
     }
 
     private fun removeRequestFromQueue(identifier: String) =

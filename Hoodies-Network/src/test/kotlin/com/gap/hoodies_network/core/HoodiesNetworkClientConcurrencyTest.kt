@@ -3,7 +3,6 @@ package com.gap.hoodies_network.core
 import com.gap.hoodies_network.connection.FakeNetwork
 import com.gap.hoodies_network.connection.InFlightRequests
 import com.gap.hoodies_network.connection.queue.RequestQueue
-import com.gap.hoodies_network.delivery.ResponseDeliveryExecutor
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -22,7 +21,7 @@ class HoodiesNetworkClientConcurrencyTest {
     private fun TestScope.client(network: FakeNetwork): Pair<HoodiesNetworkClient, RequestQueue> {
         val queue = RequestQueue(
             network,
-            ResponseDeliveryExecutor(Executor { it.run() }),
+            Executor { it.run() },
             StandardTestDispatcher(testScheduler),
             InFlightRequests()
         )
@@ -73,7 +72,7 @@ class HoodiesNetworkClientConcurrencyTest {
         val queueScheduler = TestCoroutineScheduler()
         val queue = RequestQueue(
             network,
-            ResponseDeliveryExecutor(Executor { it.run() }),
+            Executor { it.run() },
             StandardTestDispatcher(queueScheduler),
             InFlightRequests()
         )

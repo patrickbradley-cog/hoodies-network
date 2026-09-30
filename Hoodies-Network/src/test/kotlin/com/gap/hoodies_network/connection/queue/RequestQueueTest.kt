@@ -5,7 +5,6 @@ import com.gap.hoodies_network.connection.FakeNetwork
 import com.gap.hoodies_network.connection.InFlightRequests
 import com.gap.hoodies_network.connection.TestRequest
 import com.gap.hoodies_network.core.HoodiesNetworkError
-import com.gap.hoodies_network.delivery.ResponseDeliveryExecutor
 import com.gap.hoodies_network.request.Request
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -36,7 +35,7 @@ class RequestQueueTest {
         delivery: Executor = Executor { it.run() },
         inFlight: InFlightRequests = InFlightRequests(),
         dispatcher: CoroutineDispatcher = StandardTestDispatcher(testScheduler)
-    ) = RequestQueue(network, ResponseDeliveryExecutor(delivery), dispatcher, inFlight)
+    ) = RequestQueue(network, delivery, dispatcher, inFlight)
 
     @Test
     fun workersRunOnInjectedDispatcher() = runTest {
@@ -147,6 +146,23 @@ class RequestQueueTest {
 
         assertTrue(connection.disconnected)
         assertTrue(request.errors.isEmpty())
+        assertTrue(request.delivered.isEmpty())
+    }
+
+    @Test
+    fun cancellingAfterResponseIsPostedSuppressesDelivery() = runTest {
+        val delivery = RecordingExecutor()
+        val network = FakeNetwork()
+        val queue = queue(network, delivery)
+        val request = TestRequest("a")
+
+        queue.enqueue(request as Request<Any>)
+        testScheduler.advanceUntilIdle()
+        assertEquals(1, delivery.tasks.size)
+
+        queue.cancel(request)
+        delivery.runAll()
+
         assertTrue(request.delivered.isEmpty())
     }
 

@@ -11,7 +11,7 @@
   "tests": {
     "com.gap.hoodies_network.CachingAndCryptographyTest#makeSureDataWasCached": {
       "status": "passed",
-      "time": 3.063
+      "time": 3.038
     },
     "com.gap.hoodies_network.CachingAndCryptographyTest#makeSureDataWasCachedEncryptedFlow": {
       "status": "passed",
@@ -19,32 +19,32 @@
     },
     "com.gap.hoodies_network.CachingAndCryptographyTest#requestWithBodyAndHeadersEmptyInterceptor": {
       "status": "passed",
-      "time": 0.004
+      "time": 0.0
     },
     "com.gap.hoodies_network.CachingAndCryptographyTest#requestWithBodyAndHeadersEncryptingInterceptor": {
       "status": "passed",
-      "time": 0.029
+      "time": 0.031
     },
     "com.gap.hoodies_network.CachingAndCryptographyTest#requestWithUrlEncodedParamsAndHeadersEmptyInterceptor": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.027
     },
     "com.gap.hoodies_network.CachingAndCryptographyTest#requestWithUrlEncodedParamsAndHeadersEncryptingInterceptor": {
       "status": "passed",
-      "time": 0.066
+      "time": 0.067
     },
     "com.gap.hoodies_network.CookieTests#cookieTestNonPersistent": {
       "status": "passed",
-      "time": 0.077
+      "time": 0.052
     },
     "com.gap.hoodies_network.CookieTests#cookieTestPersistent": {
       "message": "org.json.JSONException: No value for null",
       "status": "failed",
-      "time": 0.031
+      "time": 0.029
     },
     "com.gap.hoodies_network.CookieTests#noCookieTest": {
       "status": "passed",
-      "time": 0.053
+      "time": 0.077
     },
     "com.gap.hoodies_network.EncryptionDecryptionTest#encryptAndDecryptString": {
       "status": "passed",
@@ -52,15 +52,15 @@
     },
     "com.gap.hoodies_network.FileUploadRequestTests#fileTest": {
       "status": "passed",
-      "time": 0.002
+      "time": 0.001
     },
     "com.gap.hoodies_network.FileUploadRequestTests#threeFilesTest": {
       "status": "passed",
-      "time": 0.028
+      "time": 0.026
     },
     "com.gap.hoodies_network.FileUploadRequestTests#twoFilesTest": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.052
     },
     "com.gap.hoodies_network.FormUrlEncodedRequestTest#requestFormattingTest": {
       "status": "passed",
@@ -68,19 +68,19 @@
     },
     "com.gap.hoodies_network.HeaderTest#headerParserTest": {
       "status": "passed",
-      "time": 0.004
+      "time": 0.0
     },
     "com.gap.hoodies_network.HeaderTest#headerTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.002
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#basicPatchRequestTest": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.027
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#basicPostRequestTest": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#basicPostRequestTestNonInlined": {
       "status": "passed",
@@ -88,15 +88,15 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#basicRawPatchRequestTest": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.028
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#basicRawPostRequestTest": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.025
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#cannotReachServerRawTest": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#cannotReachServerTest": {
       "status": "passed",
@@ -104,15 +104,15 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#deleteRawRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.002
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#deleteRequestTest": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.003
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#deleteRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.026
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getBuilderTest": {
       "status": "passed",
@@ -120,11 +120,11 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getHtmlRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.026
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getHtmlRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.025
+      "time": 0.026
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getJsonArrayRequestNoBodyTestNonInlined": {
       "status": "passed",
@@ -132,11 +132,11 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getJsonObjectRequestNoBodyTestNonInlined": {
       "status": "passed",
-      "time": 0.003
+      "time": 0.027
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRawTest": {
       "status": "passed",
-      "time": 0.025
+      "time": 0.026
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRawUrlQueryParamEncodedRequestTest": {
       "status": "passed",
@@ -144,19 +144,19 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRawUrlQueryParamRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.028
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRegularRequestHtmlWithHeadersNoBodyTestNonInlined": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.028
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestAdditionalHeadersEmptyFormUrlEncodedTestNonInlined": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.029
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestFormUrlEncodedAdditionalHeadersEmptyTestNonInlined": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestHeadersTest": {
       "status": "passed",
@@ -164,23 +164,23 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestHtmlWithHeadersTestNonInlined": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.076
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestRegularAllNullTestNonInlined": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.027
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestRegularTestNonInlined": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.026
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestTest": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.005
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.002
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getRequestUrlQueryParamAdditionalHeadersEmptyTestNonInlined": {
       "status": "passed",
@@ -192,7 +192,7 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getUrlQueryParamEncodedRequestTest": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.005
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getUrlQueryParamEncodedRequestTestNonInlined": {
       "status": "passed",
@@ -200,11 +200,11 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getUrlQueryParamRequestTest": {
       "status": "passed",
-      "time": 0.026
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#getUrlQueryParamRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.026
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#httpMethodTest": {
       "status": "passed",
@@ -224,23 +224,23 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#patchStringRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.026
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postJsonArrayRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.003
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postJsonArrayRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.002
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postJsonObjectRequestTest": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.001
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postJsonObjectRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postNullJsonArrayRequestTestNonInlined": {
       "status": "passed",
@@ -248,19 +248,19 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postNullJsonObjectRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.022
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postObjectRequestTest": {
       "status": "passed",
-      "time": 0.028
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#postObjectRequestTestNonInlined": {
       "status": "passed",
-      "time": 0.027
+      "time": 0.03
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#putRawRequestTest": {
       "status": "passed",
-      "time": 0.025
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#putRequestTest": {
       "status": "passed",
@@ -276,35 +276,35 @@
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#sendUrlQueryParamEncodedRequestNullHeaderTestNonInlined": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#sendUrlQueryRequestNullHeaderTestNonInlined": {
       "status": "passed",
-      "time": 0.002
+      "time": 0.0
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#withHashMapRawAndHeadersPostRequestTest": {
       "status": "passed",
-      "time": 0.004
+      "time": 0.025
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#withHashMapRawPatchRequestTest": {
       "status": "passed",
-      "time": 0.052
+      "time": 0.027
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#withHashMapRawPostRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#withStringRawPatchRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.HoodiesNetworkClientTest#withStringRawPostRequestTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.027
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getImageRequestFailureTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.027
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getImageRequestNoHeadersTest": {
       "status": "passed",
@@ -312,11 +312,11 @@
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getImageRequestTest": {
       "status": "passed",
-      "time": 0.025
+      "time": 0.001
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getImageRequestTest2": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.026
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getImageRequestTest3": {
       "status": "passed",
@@ -328,15 +328,15 @@
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getResizeValueWithSpecifiedHWTest": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.027
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getResizeValueWithSpecifiedHWTestZeros": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.002
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getResizedDimensionTest": {
       "status": "passed",
-      "time": 0.003
+      "time": 0.0
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getResizedDimensionTestZeros": {
       "status": "passed",
@@ -344,11 +344,11 @@
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getResizedValueTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.ImageRequestMockTest#getResizedValueTestZeros": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.ImageRequestMockTest#imageRequestTest": {
       "status": "passed",
@@ -356,7 +356,7 @@
     },
     "com.gap.hoodies_network.ImageTests#getImageTestMOCKWEBSERVER": {
       "status": "passed",
-      "time": 0.026
+      "time": 0.027
     },
     "com.gap.hoodies_network.InterceptorTests#cancelRequestInInterceptNetworkTest": {
       "status": "passed",
@@ -364,7 +364,7 @@
     },
     "com.gap.hoodies_network.InterceptorTests#cancelRequestInInterceptRequestTest": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.0
     },
     "com.gap.hoodies_network.InterceptorTests#retryRequestTest": {
       "status": "passed",
@@ -376,7 +376,7 @@
     },
     "com.gap.hoodies_network.JsonRequestTest#deliverResponseInstantTest": {
       "status": "passed",
-      "time": 10.014
+      "time": 10.013
     },
     "com.gap.hoodies_network.JsonRequestTest#deliverResponseTest": {
       "status": "passed",
@@ -384,43 +384,43 @@
     },
     "com.gap.hoodies_network.JsonRequestTest#jsonArrayRequestTest": {
       "status": "passed",
-      "time": 8.006
+      "time": 8.007
     },
     "com.gap.hoodies_network.JsonRequestTest#jsonArrayRequestWithoutCallback": {
       "status": "passed",
-      "time": 10.016
+      "time": 9.987
     },
     "com.gap.hoodies_network.JsonRequestTest#jsonObjectRequestTest": {
       "status": "passed",
-      "time": 5.998
+      "time": 5.997
     },
     "com.gap.hoodies_network.JsonRequestTest#jsonObjectRequestWithoutCallback": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.026
     },
     "com.gap.hoodies_network.JsonRequestTest#postDataTest": {
       "status": "passed",
-      "time": 8.011
+      "time": 8.009
     },
     "com.gap.hoodies_network.MultiRequestTest#multipleRequestTest": {
       "status": "passed",
-      "time": 15.01
+      "time": 15.006
     },
     "com.gap.hoodies_network.MultipleRequestTest#sendMultipleRequest": {
       "status": "passed",
-      "time": 6.096
+      "time": 6.122
     },
     "com.gap.hoodies_network.NetworkConnectionTest#isOnline": {
       "status": "passed",
-      "time": 0.026
+      "time": 0.001
     },
     "com.gap.hoodies_network.ResponseTest#mapToList": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.0
     },
     "com.gap.hoodies_network.ResponseTest#nullValuesDontCrashAndStatusCode": {
       "status": "passed",
-      "time": 0.001
+      "time": 0.0
     },
     "com.gap.hoodies_network.ResponseTest#toHeaderMap": {
       "status": "passed",
@@ -428,45 +428,45 @@
     },
     "com.gap.hoodies_network.RetryTest#retryRequest": {
       "status": "passed",
-      "time": 6.0
+      "time": 6.02
     },
     "com.gap.hoodies_network.SocketTimeOutTest#configSetTimeoutsDurationMilliSeconds": {
       "status": "passed",
-      "time": 0.002
+      "time": 0.0
     },
     "com.gap.hoodies_network.SocketTimeOutTest#configSetTimeoutsDurationSeconds": {
       "status": "passed",
-      "time": 0.025
+      "time": 0.0
     },
     "com.gap.hoodies_network.SocketTimeOutTest#socketConnectTimeOutTest": {
       "message": "java.lang.ExceptionInInitializerError",
       "status": "failed",
-      "time": 1.332
+      "time": 1.356
     },
     "com.gap.hoodies_network.SocketTimeOutTest#socketReadTimeOutTest": {
       "message": "java.lang.NoClassDefFoundError: org.mockito.internal.exceptions.stacktrace.StackTraceFilter",
       "status": "failed",
-      "time": 0.026
+      "time": 0.0
     },
     "com.gap.hoodies_network.StringRequestTest#apiMethodTest": {
       "status": "passed",
-      "time": 8.027
+      "time": 8.004
     },
     "com.gap.hoodies_network.StringRequestTest#errorDeliverTest": {
       "status": "passed",
-      "time": 5.996
+      "time": 5.997
     },
     "com.gap.hoodies_network.StringRequestTest#postDataTest": {
       "status": "passed",
-      "time": 8.003
+      "time": 8.006
     },
     "com.gap.hoodies_network.StringRequestTest#stringRequestErrorTest": {
       "status": "passed",
-      "time": 5.996
+      "time": 5.999
     },
     "com.gap.hoodies_network.StringRequestTest#stringRequestTest": {
       "status": "passed",
-      "time": 8.004
+      "time": 8.005
     },
     "com.gap.hoodies_network.StringRequestTest#unSupportedExceptionTest": {
       "status": "passed",
@@ -474,15 +474,15 @@
     },
     "com.gap.hoodies_network.UrlResolverTest#getProtocolTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.UrlResolverTest#rawIP": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.UrlResolverTest#resolveHttpProtocolHttpTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.UrlResolverTest#resolveHttpProtocolHttpsTest": {
       "status": "passed",
@@ -490,7 +490,7 @@
     },
     "com.gap.hoodies_network.UrlResolverTest#resolveUrlWithHttpTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.UrlResolverTest#resolveUrlWithoutHttpTest": {
       "status": "passed",
@@ -502,7 +502,7 @@
     },
     "com.gap.hoodies_network.UrlResolverTest#validateUrlTest": {
       "status": "passed",
-      "time": 0.0
+      "time": 0.001
     },
     "com.gap.hoodies_network.UrlResolverTest#wrongProtocolFixed": {
       "status": "passed",
