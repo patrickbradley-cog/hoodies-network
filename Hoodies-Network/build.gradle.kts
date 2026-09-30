@@ -100,7 +100,7 @@ tasks.withType<Test>().configureEach {
 
 publishing {
     publications {
-        register<MavenPublication>("release") {
+        register<MavenPublication>("aar") {
             groupId = moduleGroupId
             version = versionName
             artifactId = moduleArtifactId

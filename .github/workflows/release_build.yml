@@ -29,7 +29,7 @@ jobs:
         run: ./gradlew :Hoodies-Network:assembleRelease :Hoodies-Network:dokkaHtml
 
       - name: Publish to GitHub Package Registry
-        run: ./gradlew :Hoodies-Network:publishReleasePublicationToGitHubPackagesRepository
+        run: ./gradlew :Hoodies-Network:publishAarPublicationToGitHubPackagesRepository
         env:
           GPR_USER: ${{ github.actor }}
           GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
@@ -41,5 +41,5 @@ jobs:
           publish_branch: gh-pages
           publish_dir: Hoodies-Network/build/dokka/html
           destination_dir: javadoc
-          keep_files: true
+          keep_files: false
           commit_message: Publishing a new javadoc
