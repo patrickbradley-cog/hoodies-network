@@ -17,6 +17,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import java.time.Duration
 import java.util.UUID
@@ -41,6 +43,9 @@ class SampleViewModel(application: Application) : AndroidViewModel(application) 
 
     /** Unique per process so each launch starts with an empty cache entry. */
     private val clockPath = "clock/${UUID.randomUUID()}"
+
+    /** Serialises /clock calls so the hit-counter comparison only sees this request's hit. */
+    private val clockMutex = Mutex()
 
     private val _get = MutableStateFlow<UiState<Greeting>>(UiState.Idle)
     val get: StateFlow<UiState<Greeting>> = _get.asStateFlow()
@@ -85,21 +90,23 @@ class SampleViewModel(application: Application) : AndroidViewModel(application) 
         } else {
             CacheDisabled()
         }
-        val hitsBefore = app.mockServer.clockHits
         launchInto(_cache) {
-            when (val result = client.get<ClockReading>(clockPath, cacheConfiguration = config)) {
-                is Success -> {
-                    val hitsAfter = app.mockServer.clockHits
-                    val source = if (hitsAfter == hitsBefore) CacheSource.CACHE else CacheSource.NETWORK
-                    Success(CacheResult(result.value, source, hitsAfter))
+            clockMutex.withLock {
+                val hitsBefore = app.mockServer.clockHits
+                when (val result = client.get<ClockReading>(clockPath, cacheConfiguration = config)) {
+                    is Success -> {
+                        val hitsAfter = app.mockServer.clockHits
+                        val source = if (hitsAfter == hitsBefore) CacheSource.CACHE else CacheSource.NETWORK
+                        Success(CacheResult(result.value, source, hitsAfter))
+                    }
+                    is Failure -> result
                 }
-                is Failure -> result
             }
         }
     }
 
     fun setAttachToken(attach: Boolean) {
-        interceptor.attachToken = attach
+        interceptor.setAttachToken(attach)
     }
 
     fun callSecure() {

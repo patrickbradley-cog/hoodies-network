@@ -151,15 +151,12 @@ fun CacheScreen(viewModel: SampleViewModel) {
 fun InterceptorScreen(viewModel: SampleViewModel) {
     val state by viewModel.secure.collectAsStateWithLifecycle()
     val events by viewModel.interceptor.events.collectAsStateWithLifecycle()
-    var attachToken by rememberSaveable { mutableStateOf(viewModel.interceptor.attachToken) }
+    val attachToken by viewModel.interceptor.attachToken.collectAsStateWithLifecycle()
     ScreenColumn("An Interceptor adds the auth header in interceptRequest and logs every stage.") {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Switch(
                 checked = attachToken,
-                onCheckedChange = {
-                    attachToken = it
-                    viewModel.setAttachToken(it)
-                },
+                onCheckedChange = viewModel::setAttachToken,
                 modifier = Modifier.testTag("interceptor_toggle")
             )
             Text("Attach token header")

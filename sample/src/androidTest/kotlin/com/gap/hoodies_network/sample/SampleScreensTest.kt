@@ -91,6 +91,17 @@ class SampleScreensTest {
     }
 
     @Test
+    fun postDraftSurvivesSwitchingTabs() {
+        openTab("post")
+        composeRule.onNodeWithTag("post_title").performTextReplacement("Draft title")
+        composeRule.onNodeWithTag("post_body").performTextReplacement("Draft body")
+        openTab("get")
+        openTab("post")
+        composeRule.onNodeWithTag("post_title").assert(hasText("Draft title"))
+        composeRule.onNodeWithTag("post_body").assert(hasText("Draft body"))
+    }
+
+    @Test
     fun imageScreenDecodesTheBitmap() {
         openTab("image")
         composeRule.onNodeWithTag("image_button").performClick()

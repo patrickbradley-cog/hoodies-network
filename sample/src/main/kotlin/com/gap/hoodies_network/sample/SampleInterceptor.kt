@@ -21,11 +21,15 @@ import kotlinx.coroutines.flow.update
  */
 class SampleInterceptor(context: Context) : Interceptor(context) {
 
-    @Volatile
-    var attachToken: Boolean = true
+    private val _attachToken = MutableStateFlow(true)
+    val attachToken: StateFlow<Boolean> = _attachToken.asStateFlow()
 
     private val _events = MutableStateFlow<List<String>>(emptyList())
     val events: StateFlow<List<String>> = _events.asStateFlow()
+
+    fun setAttachToken(attach: Boolean) {
+        _attachToken.value = attach
+    }
 
     fun clearEvents() {
         _events.value = emptyList()
@@ -40,7 +44,7 @@ class SampleInterceptor(context: Context) : Interceptor(context) {
     }
 
     override fun interceptRequest(identifier: String, cancellableMutableRequest: CancellableMutableRequest) {
-        if (attachToken) {
+        if (attachToken.value) {
             val headers = HashMap(cancellableMutableRequest.request.getHeaders())
             headers[SampleMockServer.TOKEN_HEADER] = SampleMockServer.TOKEN_VALUE
             cancellableMutableRequest.request.setRequestHeaders(headers)
