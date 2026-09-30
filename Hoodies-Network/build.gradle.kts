@@ -7,7 +7,6 @@ plugins {
     `maven-publish`
     alias(libs.plugins.dokka)
     jacoco
-    alias(libs.plugins.git.publish)
     alias(libs.plugins.kotlin.kapt)
 }
 apply(from = "../jacoco.gradle")
@@ -65,6 +64,12 @@ android {
         buildConfig = true
     }
 
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
     lint {
         sarifReport = true
         baseline = file("lint-baseline.xml")
@@ -95,24 +100,12 @@ tasks.withType<Test>().configureEach {
 
 publishing {
     publications {
-        create<MavenPublication>("aar") {
+        register<MavenPublication>("release") {
             groupId = moduleGroupId
             version = versionName
             artifactId = moduleArtifactId
             afterEvaluate {
-                artifact(tasks.named("bundleReleaseAar"))
-            }
-            // generate pom nodes for dependencies
-            pom.withXml {
-                val dependenciesNode = asNode().appendNode("dependencies")
-                configurations["implementation"].allDependencies.forEach { dependency ->
-                    if (dependency.name != "unspecified") {
-                        val dependencyNode = dependenciesNode.appendNode("dependency")
-                        dependencyNode.appendNode("groupId", dependency.group)
-                        dependencyNode.appendNode("artifactId", dependency.name)
-                        dependencyNode.appendNode("version", dependency.version)
-                    }
-                }
+                from(components["release"])
             }
         }
     }
@@ -146,8 +139,14 @@ dependencies {
     kapt(libs.androidx.room.compiler)
 }
 
-tasks.named<org.jetbrains.dokka.gradle.DokkaTask>("dokkaJavadoc") {
-    outputDirectory.set(file("${rootDir}/dokka"))
+dokka {
+    moduleName.set("Hoodies-Network")
+}
+
+tasks.register("dokkaHtml") {
+    group = "documentation"
+    description = "Generates the HTML API reference into build/dokka/html."
+    dependsOn("dokkaGeneratePublicationHtml")
 }
 
 configurations.all {
