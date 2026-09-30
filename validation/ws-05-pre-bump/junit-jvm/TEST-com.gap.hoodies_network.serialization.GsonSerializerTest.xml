@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gap.hoodies_network.serialization.GsonSerializerTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2026-09-30T18:48:36.259Z" hostname="devin-box" time="0.322">
+  <properties/>
+  <testcase name="nanIsRejected" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.122"/>
+  <testcase name="genericWrapperResolvesTypeArgument" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.059"/>
+  <testcase name="rawCollectionClassYieldsUntypedMaps" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.001"/>
+  <testcase name="nestedGenericsRoundTrip" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.004"/>
+  <testcase name="explicitNullsLeaveFieldsAtJvmDefaults" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="missingFieldsKeepKotlinDefaultsOnlyWithNoArgConstructor" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="nestedGenericListViaTypeToken" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.113"/>
+  <testcase name="fractionalValueIntoIntFieldFails" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.001"/>
+  <testcase name="untypedNumbersBecomeDoubles" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="nullFieldsAreOmittedOnSerialization" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="genericFieldsOfConcreteClassResolve" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.005"/>
+  <testcase name="typeMismatchThrowsSerializationException" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="numbersSerializeUnchanged" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.001"/>
+  <testcase name="nullAndEmptyDocumentsDeserializeToNull" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="htmlCharactersAreEscaped" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="nestedGenericMapOfListsViaTypeToken" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.001"/>
+  <testcase name="wholeDoubleAndNumericStringCoerceIntoIntField" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.001"/>
+  <testcase name="malformedJsonThrowsSerializationExceptionWithParserMessage" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <testcase name="numbersIntoTypedFieldsAreExact" classname="com.gap.hoodies_network.serialization.GsonSerializerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
