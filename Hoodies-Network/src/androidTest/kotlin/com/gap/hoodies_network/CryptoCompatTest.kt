@@ -143,7 +143,6 @@ class CryptoCompatTest {
         val row = cookieDb.encryptedCookieDao().getAll().single()
         assertEquals(cookieJson, AesGcm.runAES(unb64(row.cookie!!), unb64(row.iv!!), Cipher.DECRYPT_MODE).decodeToString())
 
-        Log.i(TAG, "legacy cookie plaintext = $cookieJson")
         val cookies = PersistentCookieJar(COOKIE_INSTANCE, context).getCookiesForHost(URI("http://localhost"))
         assertEquals(1, cookies.size)
         assertEquals(cookieJson, Gson().toJson(cookies[0]))
