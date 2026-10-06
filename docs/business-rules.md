@@ -86,7 +86,7 @@ The client copies its default headers, then adds the call's additional headers o
 
 **B7. File uploads are multipart POSTs with numbered part names.**
 `postMultipartFiles` always uses POST and sets `multipart/form-data; boundary=<boundary>`. The default boundary is a random UUID.
-Each file is a part named `file0`, `file1`, and so on, with its file name and a content type from `Files.probeContentType`.
+Each file is a part named `file0`, `file1`, and so on, with its file name and a content type from `Files.probeContentType`. The number is the file's first position in the list, so a file listed twice gets the same name both times.
 The multipart content type is set before the additional headers, so a caller can override it.
 
 *Source: `core/HoodiesNetworkClient.kt` (`postMultipartFiles`); `core/HoodiesNetworkClientNonInlined.kt` (`getFileUploadRequest`); `request/Request.kt` (`postMultipartFormData`).*
@@ -117,10 +117,10 @@ The factory is applied only when the URL is HTTPS and its host equals the config
 
 *Source: `connection/BaseNetwork.kt` (`openConnection`).*
 
-**H5. The connection is closed on failure and left for reuse on success.**
-If anything fails before the status check passes, the connection is disconnected. After a successful status it is not disconnected.
+**H5. The connection is closed only if the request fails before the status check passes.**
+Once a 200 to 209 status is seen, the connection is left open. This holds even if a later step fails, such as decryption, caching or cookie storage.
 
-*Source: `connection/BaseNetwork.kt` (`executeRequest`, `keepConnectionOpen`).*
+*Source: `connection/BaseNetwork.kt` (`executeRequest`: `keepConnectionOpen`, `finally`).*
 
 **H6. Response headers can be looked up in any letter case.**
 Headers with a null name (the status line) are dropped. The rest go into a case-insensitive map where, for a repeated header, the last value wins; the full list is also kept.
@@ -188,9 +188,9 @@ The result of that send does not reach the caller, though interceptors may still
 *Source: `core/HoodiesNetworkClientNonInlined.kt` (`getFailureCallback`, `safeResume`).*
 
 **R5. Requests are tracked by a millisecond timestamp.**
-Each call's identifier is `System.currentTimeMillis().toString()`. Retry bookkeeping is keyed by it, so two calls started in the same millisecond on one client share a key.
+Each call's identifier is `System.currentTimeMillis().toString()`. Retry bookkeeping is keyed by it, so two calls started in the same millisecond on one client share a key. Image calls create a second identifier for their callbacks. If the two differ, `interceptResponse` gets `null` as the request.
 
-*Source: `core/HoodiesNetworkClientNonInlined.kt` (`sendRequest` and siblings: `val identifier = System.currentTimeMillis().toString()`).*
+*Source: `core/HoodiesNetworkClientNonInlined.kt` (`sendRequest` and siblings: `val identifier = System.currentTimeMillis().toString()`; `getImage`, `getImageRequest`, `successCallbackImage`).*
 
 **R6. Timeouts are global and default to 60 seconds.**
 Connect and read timeouts live in `HttpClientConfig`, shared by every client in the process. They are read each time a connection is opened.
