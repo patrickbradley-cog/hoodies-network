@@ -92,8 +92,8 @@ Target versions are the latest stable releases that satisfy the brief's constrai
 
 | Component | Current | Target | Published | Notes |
 |---|---|---|---|---|
-| JDK (build) | 11 | **17** | — | Gradle toolchain |
-| Gradle wrapper | 7.5.1 | **8.14.5** | 2026-05-07 | latest 8.x (9.x exists; brief says 8.x) |
+| JDK (build) | 11 | **25** (Temurin 25.0.4) | 2026-07-27 | latest LTS; Gradle toolchain; needs Gradle 9.x (see note below) |
+| Gradle wrapper | 7.5.1 | **8.14.5** → **9.x** | 2026-05-07 | 8.14.5 landed in Phase 1; moves to 9.x for JDK 25 |
 | AGP | 7.1.3 | **8.13.2** | 2025-12-11 | latest 8.x (9.x exists; brief says 8.x); `namespace` replaces manifest `package` |
 | Kotlin | 1.6.10 | **2.4.20** | 2026-09-08 | K2 compiler; `compilerOptions` DSL |
 | Compose | runtime/compiler 1.1.1 (unused) | **removed from library**; sample uses Compose BOM **2026.09.00** + `org.jetbrains.kotlin.plugin.compose` | 2026-09-09 | library has zero Compose usage |
@@ -113,6 +113,8 @@ Target versions are the latest stable releases that satisfy the brief's constrai
 | JUnit4 / androidx.test / espresso / mockito-android | 4.12 / 1.4.0 & 1.1.3 / 3.4.0 / 4.8.0 | 4.13.2 / latest stable / latest stable / **5.x** (5.24.0 seen) | — | WS09 pins |
 | Jetifier | on | **off** | — | no support-library deps |
 | Build config | Groovy `buildscript {}` | **`gradle/libs.versions.toml` + plugins DSL** | — | Phase 1 |
+
+**JDK 25 note (2026-10-12):** the build JDK target moved from 17 to 25 (latest LTS). Gradle 8.14 cannot run on JDK 25, so the wrapper moves to Gradle 9.x.
 
 ## 4. Risk register
 
@@ -134,7 +136,7 @@ Paths are relative to `Hoodies-Network/src/main/kotlin/com/gap/hoodies_network/`
 
 | WS | Branch | Scope | Owned paths | Acceptance criteria (beyond the common DoD) |
 |---|---|---|---|---|
-| 01 | `migration/ws-01-build` | Build, CI, coverage, publishing | `/build.gradle*`, `/settings.gradle*`, `/gradle.properties`, `/gradle/**` (except other WS catalog entries), `/.github/**`, Jacoco + Dokka + publishing config in module build file | no floating versions; JFrog plugin removed; Jetifier off; configuration + build cache on; `enableAndroidTestCoverage` replaces `testCoverageEnabled`; Jacoco + Dokka tasks work; `singleVariant("release")` publishing; workflows on actions v4, JDK 17, API 28 + 35 matrix, Gradle caching, artifact upload of JUnit/lint/coverage/api |
+| 01 | `migration/ws-01-build` | Build, CI, coverage, publishing | `/build.gradle*`, `/settings.gradle*`, `/gradle.properties`, `/gradle/**` (except other WS catalog entries), `/.github/**`, Jacoco + Dokka + publishing config in module build file | no floating versions; JFrog plugin removed; Jetifier off; configuration + build cache on; `enableAndroidTestCoverage` replaces `testCoverageEnabled`; Jacoco + Dokka tasks work; `singleVariant("release")` publishing; workflows on actions v4, JDK 25, API 28 + 35 matrix, Gradle caching, artifact upload of JUnit/lint/coverage/api |
 | 02 | `migration/ws-02-sdk35` | targetSdk 35 + platform APIs | `src/main/AndroidManifest.xml`, `/Hoodies-Network/lint.xml` (new), `utils/**`, `config/**`, `delivery/**`, `header/**` | targetSdk 35; deprecated/removed APIs fixed; unused permissions removed or justified; **0 lint issues** (no `lint-baseline.xml`) |
 | 03 | `migration/ws-03-room` | Cache + cookie persistence | `cache/**`, `cookies/**`, `/Hoodies-Network/schemas/**`, `src/androidTest/assets/room-2.4.2/**` | KSP; `exportSchema = true` with committed v1 schemas; Room 2.4.2 fixture test + in-place upgrade test (R1) pass; no destructive fallback |
 | 04 | `migration/ws-04-coroutines` | Concurrency | `core/**`, `connection/**` | no `GlobalScope` / ad-hoc `CoroutineScope(...).launch`; dispatchers injectable; cancellation propagates to `HttpURLConnection`; `runTest` JVM tests; **shared-file exception:** may change only scope/dispatcher plumbing in `cache/EncryptedCache.kt` (after WS03 merged) |
@@ -147,7 +149,7 @@ Paths are relative to `Hoodies-Network/src/main/kotlin/com/gap/hoodies_network/`
 
 ## 6. Phases and merge order
 
-- **Phase 1 (lead, after approval):** `migration/foundation` from `main`. JDK 17, Gradle 8.14.5, AGP 8.13.2, Kotlin 2.4.20, `namespace`, `gradle/libs.versions.toml`, plugins DSL (Kotlin DSL), no floating versions, KSP wired only as needed to keep the build green, BCV 0.18.2 with the **current** API committed as `Hoodies-Network/api/Hoodies-Network.api`. Validate on **API 35** with the full loop. Behaviour-preserving only; the heavier changes belong to the workstreams.
+- **Phase 1 (lead, after approval):** `migration/foundation` from `main`. JDK 25 (Phase 1 first landed on JDK 17), Gradle 8.14.5 → 9.x, AGP 8.13.2, Kotlin 2.4.20, `namespace`, `gradle/libs.versions.toml`, plugins DSL (Kotlin DSL), no floating versions, KSP wired only as needed to keep the build green, BCV 0.18.2 with the **current** API committed as `Hoodies-Network/api/Hoodies-Network.api`. Validate on **API 35** with the full loop. Behaviour-preserving only; the heavier changes belong to the workstreams.
 - **Phase 2:** all ten child sessions start at the same time from the foundation commit, each on `migration/ws-NN-<slug>`, each opening a PR into `migration/foundation`.
 - **Phase 3 merge order (fixed):** **01 → 03 → 06 → 07 → 04 → 05 → 08 → 02 → 09 → 10**. Before each merge: rebase onto the current `migration/foundation`, re-run `assembleDebug lintDebug apiCheck connectedDebugAndroidTest`, Devin Review pass. Then final validation on **API 28 + API 35 + sample UI test**, and one PR `migration/foundation` → `main` (**not merged**).
 
@@ -163,7 +165,7 @@ Why this order: build/CI first so every later merge is gated by the new CI; pers
 
 ## 8. Definition of done
 
-- JDK 17, Gradle 8.x, AGP 8.x, Kotlin 2.x, compile/target SDK 35, KSP (no kapt), Compose removed from the library, current AndroidX/Room/coroutines/Gson, **no bundled JARs**, version catalog, no floating versions, every new version ≥ 7 days old.
+- JDK 25, Gradle 9.x, AGP 8.x, Kotlin 2.x, compile/target SDK 35, KSP (no kapt), Compose removed from the library, current AndroidX/Room/coroutines/Gson, **no bundled JARs**, version catalog, no floating versions, every new version ≥ 7 days old.
 - **124 / 124** baseline tests pass on API 28 **and** API 35; no `@Ignore`, deletions, or weakened assertions (reviewable via diff of `src/androidTest`).
 - Lint: 0 issues (baseline is 0), no lint baseline file.
 - `apiCheck` green against the Phase 1 dump; any break is listed and justified in the final PR (only R5 is currently anticipated).

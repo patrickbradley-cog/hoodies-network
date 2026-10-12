@@ -292,6 +292,14 @@ NOTE: A physical device or Android emulator is required to run the tests.
 
 == Environment Setup
 
+=== Building from source
+
+* JDK 25 (https://adoptium.net/[Eclipse Temurin] recommended). `.java-version` and `.sdkmanrc` pin it for jenv/asdf/SDKMAN (`sdk env`).
+* Gradle comes from the wrapper; no local install is needed: `./gradlew :Hoodies-Network:assembleDebug`
+* Android SDK with `ANDROID_HOME` set.
+
+=== IDE
+
 * Since this is a Gradle project, any Android and Gradle-compatible IDE can be used.
 The recommendation is Android Studio.
 * Android Studio Bumblebee and above are supported.
