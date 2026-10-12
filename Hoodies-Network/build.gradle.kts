@@ -38,6 +38,8 @@ android {
         }
     }
 
+    // Built with JDK 25, but emits Java 17 bytecode: Android officially supports Java 17 APIs/bytecode, and
+    // the public reified inline functions can't be inlined by consumers whose jvmTarget is lower than ours.
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -72,6 +74,7 @@ android {
 }
 
 kotlin {
+    jvmToolchain(25)
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
     }
@@ -91,6 +94,8 @@ tasks.withType<Test>().configureEach {
         events("passed", "skipped", "failed")
     }
     maxParallelForks = 1
+    // No JVM unit tests exist yet; keep the pre-Gradle 9 behaviour of passing with zero tests.
+    failOnNoDiscoveredTests = false
 }
 
 publishing {
