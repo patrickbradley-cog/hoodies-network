@@ -39,14 +39,14 @@ jobs:
         uses: actions/upload-artifact@v7.0.1
         with:
           name: report.xml
-          path: ${{ github.workspace }}/Hoodies-Network/build/reports/coverage/androidTest/debug/connected/report.xml
+          path: ${{ github.workspace }}/Hoodies-Network/build/reports/jacocoTestReport/jacocoTestReport.xml
           if-no-files-found: error
 
       - name: Jacoco Report to PR
         id: jacoco
         uses: madrapps/jacoco-report@v1.8.0
         with:
-          paths: ${{ github.workspace }}/Hoodies-Network/build/reports/coverage/androidTest/debug/connected/report.xml
+          paths: ${{ github.workspace }}/Hoodies-Network/build/reports/jacocoTestReport/jacocoTestReport.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 80
           min-coverage-changed-files: 0
