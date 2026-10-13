@@ -1,0 +1,1 @@
+[poc-sfind-2749f44ff1ca46c293084c5f41654007-before] RESULT gradle_exit=1 tests=10 failed=8 skipped=0

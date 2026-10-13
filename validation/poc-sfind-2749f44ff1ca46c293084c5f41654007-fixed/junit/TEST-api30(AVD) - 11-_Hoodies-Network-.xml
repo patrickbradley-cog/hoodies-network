@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.gap.hoodies_network.PersistentCookieStoreTest" tests="10" failures="0" errors="0" skipped="0" time="7.422" timestamp="2026-10-13T03:20:00" hostname="localhost">
+  <properties>
+    <property name="device" value="api30(AVD) - 11" />
+    <property name="flavor" value="" />
+    <property name="project" value=":Hoodies-Network" />
+  </properties>
+  <testcase name="nullAndEmptyPathAreDistinctCookies" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.092" />
+  <testcase name="removeOnlyDeletesMatchingCookieIdentity" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.01" />
+  <testcase name="reissuedCookieDoesNotAccumulate" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="2.183" />
+  <testcase name="rowMovedToAnotherHostIsRejected" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.027" />
+  <testcase name="logoutWithMaxAgeZeroDeletesSessionAcrossRestarts" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.178" />
+  <testcase name="rotatedSessionReplacesPreviousValue" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.103" />
+  <testcase name="legacyRowIsReadThenBoundToItsHost" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.027" />
+  <testcase name="expiredCookieIsNotSentAndIsPurged" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="3.597" />
+  <testcase name="hugeMaxAgeDoesNotOverflowIntoExpiry" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.027" />
+  <testcase name="alreadyExpiredCookieIsNotStored" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.052" />
+</testsuite>

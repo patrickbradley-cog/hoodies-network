@@ -1,0 +1,351 @@
+{
+    "$schema" : "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+    "version" : "2.1.0",
+    "runs" : [
+        {
+            "tool": {
+                "driver": {
+                    "name": "Android Lint",
+                    "fullName": "Android Lint (in gradle)",
+                    "version": "8.13.2",
+                    "semanticVersion": "8.13.2",
+                    "organization": "Google",
+                    "informationUri": "https://developer.android.com/studio/write/lint",
+                    "fullDescription": {
+                        "text": "Static analysis originally for Android source code but now performing general analysis"
+                    },
+                    "language": "en-US",
+                    "rules": [
+                        {
+                            "id": "AndroidGradlePluginVersion",
+                            "shortDescription": {
+                                "text": "Obsolete Android Gradle Plugin Version"
+                            },
+                            "fullDescription": {
+                                "text": "This detector looks for usage of the Android Gradle Plugin where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 70
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Correctness"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "LintBaseline",
+                            "shortDescription": {
+                                "text": "Baseline Applied"
+                            },
+                            "fullDescription": {
+                                "text": "Lint can be configured with a \"baseline\"; a set of current issues found in a codebase, which future runs of lint will silently ignore. Only new issues not found in the baseline are reported.\n\nNote that while opening files in the IDE, baseline issues are not filtered out; the purpose of baselines is to allow you to get started using lint and break the build on all newly introduced errors, without having to go back and fix the entire codebase up front. However, when you open up existing files you still want to be aware of and fix issues as you come across them.\n\nThis issue type is used to emit an informational-only warning if any issues were filtered out due to baseline matching. That way, you don't have a false sense of security if you forgot that you've checked in a baseline file."
+                            },
+                            "defaultConfiguration": {
+                                "level": "note",
+                                "rank": 10
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Lint"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "LintBaselineFixed",
+                            "shortDescription": {
+                                "text": "Baselined Issues Fixed"
+                            },
+                            "fullDescription": {
+                                "text": "If a lint baseline describes a problem which is no longer reported, then the problem has either been fixed, or perhaps the issue type has been disabled. In any case, the entry can be removed from the baseline (such that if the issue is reintroduced at some point, lint will complain rather than just silently starting to match the old baseline entry again.)"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note",
+                                "rank": 10
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Lint"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "NewerVersionAvailable",
+                            "shortDescription": {
+                                "text": "Newer Library Versions Available"
+                            },
+                            "fullDescription": {
+                                "text": "This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the GradleDependency check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also much slower.",
+                                "markdown": "This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning",
+                                "rank": 70
+                            },
+                            "properties": {
+                                "tags": [
+                                    "Correctness"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "originalUriBaseIds": {
+                "%SRCROOT%": {
+                    "uri": "file:///home/ubuntu/repos/hoodies-network/"
+                }
+            },
+            "results": [
+                {
+                    "ruleId": "LintBaseline",
+                    "ruleIndex": 1,
+                    "message": {
+                        "text": "1 error and 15 warnings were filtered out because they are listed in the baseline file, lint-baseline.xml"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "Hoodies-Network/lint-baseline.xml"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                    }
+                },
+                {
+                    "ruleId": "LintBaselineFixed",
+                    "ruleIndex": 2,
+                    "message": {
+                        "text": "2 errors/warnings were listed in the baseline file (lint-baseline.xml) but not found in the project; perhaps they have been fixed? Another possible explanation is that lint recently stopped analyzing (and including results from) dependent projects by default. You can turn this back on with android.lintOptions.checkDependencies=true. Unmatched issue types: GradleDependency (2)",
+                        "markdown": "2 errors/warnings were listed in the baseline file (lint-baseline.xml) but not found in the project; perhaps they have been fixed? Another possible explanation is that lint recently stopped analyzing (and including results from) dependent projects by default. You can turn this back on with `android.lintOptions.checkDependencies=true`. Unmatched issue types: GradleDependency (2)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "Hoodies-Network/lint-baseline.xml"
+                                },
+                                "region": {
+                                    "startLine": 1
+                                }                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                    }
+                },
+                {
+                    "ruleId": "AndroidGradlePluginVersion",
+                    "ruleIndex": 0,
+                    "message": {
+                        "text": "A newer version of Gradle than 8.14.5 is available: 8.14.6"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "gradle/wrapper/gradle-wrapper.properties"
+                                },
+                                "region": {
+                                    "startLine": 4,
+                                    "startColumn": 17,
+                                    "endLine": 4,
+                                    "endColumn": 81,
+                                    "charOffset": 168,
+                                    "charLength": 64,
+                                    "snippet": {
+                                        "text": "https\\://services.gradle.org/distributions/gradle-8.14.5-bin.zip"
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 2,
+                                    "endLine": 7,
+                                    "snippet": {
+                                        "text": "distributionPath=wrapper/dists\ndistributionSha256Sum=6f74b601422d6d6fc4e1f9a1ab6522f642c2fdcbc15ae33ebd30ba3d7198e854\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.5-bin.zip\nnetworkTimeout=10000"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Update to 8.14.6"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "gradle/wrapper/gradle-wrapper.properties"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 4,
+                                                "startColumn": 67,
+                                                "charOffset": 218,
+                                                "endLine": 4,
+                                                "endColumn": 73,
+                                                "charLength": 6
+                                            },
+                                            "insertedContent": {
+                                                "text": "8.14.6\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "da0e90c0d5bba1ba"
+                    }
+                },
+                {
+                    "ruleId": "NewerVersionAvailable",
+                    "ruleIndex": 3,
+                    "message": {
+                        "text": "A newer version of org.jetbrains.kotlin.android than 2.4.20 is available: 2.4.21"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "gradle/libs.versions.toml"
+                                },
+                                "region": {
+                                    "startLine": 3,
+                                    "startColumn": 10,
+                                    "endLine": 3,
+                                    "endColumn": 18,
+                                    "charOffset": 35,
+                                    "charLength": 8,
+                                    "snippet": {
+                                        "text": "\"2.4.20\""
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 1,
+                                    "endLine": 6,
+                                    "snippet": {
+                                        "text": "[versions]\nagp = \"8.13.2\"\nkotlin = \"2.4.20\"\ndokka = \"1.9.20\""
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Change to 2.4.21"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "gradle/libs.versions.toml"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 3,
+                                                "startColumn": 11,
+                                                "charOffset": 36,
+                                                "endLine": 3,
+                                                "endColumn": 17,
+                                                "charLength": 6
+                                            },
+                                            "insertedContent": {
+                                                "text": "2.4.21\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "63a2c0b1b3fcf61f"
+                    }
+                },
+                {
+                    "ruleId": "NewerVersionAvailable",
+                    "ruleIndex": 3,
+                    "message": {
+                        "text": "A newer version of org.jetbrains.kotlin.kapt than 2.4.20 is available: 2.4.21"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uriBaseId": "%SRCROOT%",
+                                    "uri": "gradle/libs.versions.toml"
+                                },
+                                "region": {
+                                    "startLine": 3,
+                                    "startColumn": 10,
+                                    "endLine": 3,
+                                    "endColumn": 18,
+                                    "charOffset": 35,
+                                    "charLength": 8,
+                                    "snippet": {
+                                        "text": "\"2.4.20\""
+                                    }
+                                },
+                                "contextRegion": {
+                                    "startLine": 1,
+                                    "endLine": 6,
+                                    "snippet": {
+                                        "text": "[versions]\nagp = \"8.13.2\"\nkotlin = \"2.4.20\"\ndokka = \"1.9.20\""
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "fixes": [
+                        {
+                            "description": {
+                                "text": "Change to 2.4.21"
+                            },
+                            "artifactChanges": [
+                                {
+                                    "artifactLocation": {
+                                        "uriBaseId": "%SRCROOT%",
+                                        "uri": "gradle/libs.versions.toml"
+                                    },
+                                    "replacements": [
+                                        {
+                                            "deletedRegion": {
+                                                "startLine": 3,
+                                                "startColumn": 11,
+                                                "charOffset": 36,
+                                                "endLine": 3,
+                                                "endColumn": 17,
+                                                "charLength": 6
+                                            },
+                                            "insertedContent": {
+                                                "text": "2.4.21\n"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "sourceContext/v1": "63a2c0b1b3fcf61f"
+                    }
+                }
+            ]
+        }
+    ]
+}

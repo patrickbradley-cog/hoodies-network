@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.gap.hoodies_network.PersistentCookieStoreTest" tests="10" failures="8" errors="0" skipped="0" time="9.225" timestamp="2026-10-13T03:23:13" hostname="localhost">
+  <properties>
+    <property name="device" value="api30(AVD) - 11" />
+    <property name="flavor" value="" />
+    <property name="project" value=":Hoodies-Network" />
+  </properties>
+  <testcase name="nullAndEmptyPathAreDistinctCookies" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.113" />
+  <testcase name="removeOnlyDeletesMatchingCookieIdentity" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.002">
+    <failure>java.lang.AssertionError: expected:&lt;[y=second]&gt; but was:&lt;[]&gt;
+at org.junit.Assert.fail(Assert.java:88)
+at org.junit.Assert.failNotEquals(Assert.java:834)
+at org.junit.Assert.assertEquals(Assert.java:118)
+at org.junit.Assert.assertEquals(Assert.java:144)
+at com.gap.hoodies_network.PersistentCookieStoreTest.removeOnlyDeletesMatchingCookieIdentity(PersistentCookieStoreTest.kt:187)
+</failure>
+  </testcase>
+  <testcase name="reissuedCookieDoesNotAccumulate" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="4.223">
+    <failure>java.lang.AssertionError: expected:&lt;1&gt; but was:&lt;50&gt;
+at org.junit.Assert.fail(Assert.java:88)
+at org.junit.Assert.failNotEquals(Assert.java:834)
+at org.junit.Assert.assertEquals(Assert.java:118)
+at org.junit.Assert.assertEquals(Assert.java:144)
+at com.gap.hoodies_network.PersistentCookieStoreTest$reissuedCookieDoesNotAccumulate$1.invokeSuspend(PersistentCookieStoreTest.kt:145)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)
+at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:84)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+at com.gap.hoodies_network.PersistentCookieStoreTest.reissuedCookieDoesNotAccumulate(PersistentCookieStoreTest.kt:140)
+</failure>
+  </testcase>
+  <testcase name="rowMovedToAnotherHostIsRejected" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.027">
+    <failure>java.lang.AssertionError
+at org.junit.Assert.fail(Assert.java:86)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertTrue(Assert.java:52)
+at com.gap.hoodies_network.PersistentCookieStoreTest.rowMovedToAnotherHostIsRejected(PersistentCookieStoreTest.kt:199)
+</failure>
+  </testcase>
+  <testcase name="logoutWithMaxAgeZeroDeletesSessionAcrossRestarts" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.128">
+    <failure>java.lang.AssertionError: session still sent after logout: session="";$Path="/";$Domain="localhost.local"; session=ALICE-SESSION-TOKEN
+at org.junit.Assert.fail(Assert.java:88)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertFalse(Assert.java:64)
+at com.gap.hoodies_network.PersistentCookieStoreTest$logoutWithMaxAgeZeroDeletesSessionAcrossRestarts$1.invokeSuspend(PersistentCookieStoreTest.kt:117)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)
+at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:84)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+at com.gap.hoodies_network.PersistentCookieStoreTest.logoutWithMaxAgeZeroDeletesSessionAcrossRestarts(PersistentCookieStoreTest.kt:110)
+</failure>
+  </testcase>
+  <testcase name="rotatedSessionReplacesPreviousValue" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.079">
+    <failure>java.lang.AssertionError: old session still sent: session=ROTATED-SESSION-TOKEN; session=ALICE-SESSION-TOKEN
+at org.junit.Assert.fail(Assert.java:88)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertFalse(Assert.java:64)
+at com.gap.hoodies_network.PersistentCookieStoreTest$rotatedSessionReplacesPreviousValue$1.invokeSuspend(PersistentCookieStoreTest.kt:133)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)
+at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:84)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+at com.gap.hoodies_network.PersistentCookieStoreTest.rotatedSessionReplacesPreviousValue(PersistentCookieStoreTest.kt:126)
+</failure>
+  </testcase>
+  <testcase name="legacyRowIsReadThenBoundToItsHost" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.051">
+    <failure>java.lang.AssertionError
+at org.junit.Assert.fail(Assert.java:86)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertTrue(Assert.java:52)
+at com.gap.hoodies_network.PersistentCookieStoreTest.legacyRowIsReadThenBoundToItsHost(PersistentCookieStoreTest.kt:238)
+</failure>
+  </testcase>
+  <testcase name="expiredCookieIsNotSentAndIsPurged" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="3.567">
+    <failure>java.lang.AssertionError
+at org.junit.Assert.fail(Assert.java:86)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertTrue(Assert.java:52)
+at com.gap.hoodies_network.PersistentCookieStoreTest$expiredCookieIsNotSentAndIsPurged$1.invokeSuspend(PersistentCookieStoreTest.kt:158)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)
+at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:84)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+at com.gap.hoodies_network.PersistentCookieStoreTest.expiredCookieIsNotSentAndIsPurged(PersistentCookieStoreTest.kt:150)
+</failure>
+  </testcase>
+  <testcase name="hugeMaxAgeDoesNotOverflowIntoExpiry" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.001" />
+  <testcase name="alreadyExpiredCookieIsNotStored" classname="com.gap.hoodies_network.PersistentCookieStoreTest" time="0.026">
+    <failure>java.lang.AssertionError
+at org.junit.Assert.fail(Assert.java:86)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertTrue(Assert.java:52)
+at com.gap.hoodies_network.PersistentCookieStoreTest.alreadyExpiredCookieIsNotStored(PersistentCookieStoreTest.kt:168)
+</failure>
+  </testcase>
+</testsuite>
