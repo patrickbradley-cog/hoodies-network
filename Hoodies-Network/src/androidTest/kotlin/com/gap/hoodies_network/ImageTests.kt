@@ -1,6 +1,7 @@
 package com.gap.hoodies_network
 
 import android.graphics.Bitmap
+import android.os.Build
 import android.util.Base64
 import android.widget.ImageView
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -17,6 +18,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.ByteArrayOutputStream
+import java.nio.ByteBuffer
 
 @RunWith(AndroidJUnit4::class)
 class ImageTests {
@@ -220,7 +222,11 @@ class ImageTests {
                                 "MxBHF1vIhtfvUo33/wdJIyS2pV5B3AAAAABJRU5ErkJggg=="
 
                     //Finally, assert that we got the image we were expecting back (by asserting it equals the base64 we expect)
-                    assertEquals(base64,encoded)
+                    assertEquals(
+                        Base64.encodeToString(withoutSrgbChunk(Base64.decode(base64, Base64.DEFAULT)), Base64.NO_WRAP),
+                        Base64.encodeToString(withoutSrgbChunk(byteArray), Base64.NO_WRAP)
+                    )
+                    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) assertEquals(base64, encoded)
                 }
                 is Failure -> {
                     throw result.reason
@@ -229,4 +235,17 @@ class ImageTests {
         }
     }
 
+    
+    // The API 28 PNG encoder omits the sRGB colour-space chunk; every other chunk must match byte for byte.
+    private fun withoutSrgbChunk(png: ByteArray): ByteArray {
+        val out = ByteArrayOutputStream()
+        out.write(png, 0, 8)
+        var offset = 8
+        while (offset + 8 <= png.size) {
+            val end = offset + 12 + ByteBuffer.wrap(png, offset, 4).int
+            if (String(png, offset + 4, 4, Charsets.US_ASCII) != "sRGB") out.write(png, offset, end - offset)
+            offset = end
+        }
+        return out.toByteArray()
     }
+}
