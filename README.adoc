@@ -295,6 +295,7 @@ NOTE: A physical device or Android emulator is required to run the tests.
 * Since this is a Gradle project, any Android and Gradle-compatible IDE can be used.
 The recommendation is Android Studio.
 * Android Studio Bumblebee and above are supported.
+* The build uses JDK 25 through a Gradle toolchain. Gradle downloads it if it isn't installed; to run the wrapper itself you need JDK 17 or newer. The library is still compiled to Java 17 bytecode.
 
 == Conduct
 

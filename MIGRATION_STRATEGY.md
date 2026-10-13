@@ -92,8 +92,8 @@ Target versions are the latest stable releases that satisfy the brief's constrai
 
 | Component | Current | Target | Published | Notes |
 |---|---|---|---|---|
-| JDK (build) | 11 | **17** | — | Gradle toolchain |
-| Gradle wrapper | 7.5.1 | **8.14.5** | 2026-05-07 | latest 8.x (9.x exists; brief says 8.x) |
+| JDK (build) | 11 | **25** | — | Gradle toolchain (`jvmToolchain(25)`); library bytecode stays Java 17 so consumers on jvmTarget 17 can inline the reified API and BCV can read the classes |
+| Gradle wrapper | 7.5.1 | **9.5.1** | — | 8.x can't run on JDK 25; 9.5.1 is the newest Gradle AGP 8.x works with (9.6 removed internal APIs AGP 8 uses) |
 | AGP | 7.1.3 | **8.13.2** | 2025-12-11 | latest 8.x (9.x exists; brief says 8.x); `namespace` replaces manifest `package` |
 | Kotlin | 1.6.10 | **2.4.20** | 2026-09-08 | K2 compiler; `compilerOptions` DSL |
 | Compose | runtime/compiler 1.1.1 (unused) | **removed from library**; sample uses Compose BOM **2026.09.00** + `org.jetbrains.kotlin.plugin.compose` | 2026-09-09 | library has zero Compose usage |
@@ -163,7 +163,7 @@ Why this order: build/CI first so every later merge is gated by the new CI; pers
 
 ## 8. Definition of done
 
-- JDK 17, Gradle 8.x, AGP 8.x, Kotlin 2.x, compile/target SDK 35, KSP (no kapt), Compose removed from the library, current AndroidX/Room/coroutines/Gson, **no bundled JARs**, version catalog, no floating versions, every new version ≥ 7 days old.
+- JDK 25 build (Java 17 bytecode), Gradle 9.5.x, AGP 8.x, Kotlin 2.x, compile/target SDK 35, KSP (no kapt), Compose removed from the library, current AndroidX/Room/coroutines/Gson, **no bundled JARs**, version catalog, no floating versions, every new version ≥ 7 days old.
 - **124 / 124** baseline tests pass on API 28 **and** API 35; no `@Ignore`, deletions, or weakened assertions (reviewable via diff of `src/androidTest`).
 - Lint: 0 issues (baseline is 0), no lint baseline file.
 - `apiCheck` green against the Phase 1 dump; any break is listed and justified in the final PR (only R5 is currently anticipated).
