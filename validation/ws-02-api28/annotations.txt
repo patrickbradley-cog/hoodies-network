@@ -1,0 +1,1 @@
+[ws-02-api28] RESULT gradle_exit=1 tests=378 failed=3 skipped=0

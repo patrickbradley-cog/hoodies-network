@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- Dependency versions are pinned deliberately (all >= 7 days old, brief constrains
+         Gradle/AGP to 8.x) — "newer version exists" checks are noise, not defects. -->
+    <issue id="GradleDependency" severity="ignore" />
+    <issue id="NewerVersionAvailable" severity="ignore" />
+    <issue id="AndroidGradlePluginVersion" severity="ignore" />
+
+    <!-- The migration pins targetSdk to API 35 even though a newer platform exists;
+         OldTargetApi would flag the deliberate pin every run. -->
+    <issue id="OldTargetApi" severity="ignore" />
+
+    <!-- kapt -> KSP migration is owned by WS03 (Room workstream); suppress until that
+         lands, then delete this ignore. -->
+    <issue id="KaptUsageInsteadOfKsp">
+        <ignore path="build.gradle.kts" />
+    </issue>
+
+    <!-- Bitmap.createScaledBitmap -> Bitmap.scale lives in request/ImageRequest.kt,
+         owned by WS08; suppress here until that workstream lands, then delete. -->
+    <issue id="UseKtx">
+        <ignore path="src/main/kotlin/com/gap/hoodies_network/request/ImageRequest.kt" />
+    </issue>
+</lint>

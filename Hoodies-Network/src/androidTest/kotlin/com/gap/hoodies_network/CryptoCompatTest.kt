@@ -1,5 +1,6 @@
 package com.gap.hoodies_network
 
+import android.os.Build
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyInfo
 import android.security.keystore.KeyProperties
@@ -13,6 +14,7 @@ import com.gap.hoodies_network.cache.persistentstorage.CacheDatabase
 import com.gap.hoodies_network.cache.persistentstorage.CachedData
 import com.gap.hoodies_network.cookies.PersistentCookieJar
 import com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie
+import com.gap.hoodies_network.cookies.persistentstorage.HttpCookieJsonAdapter
 import com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDatabase
 import com.gap.hoodies_network.core.Failure
 import com.gap.hoodies_network.core.HoodiesNetworkClient
@@ -22,6 +24,8 @@ import com.gap.hoodies_network.keystore.CacheKeyManager
 import com.gap.hoodies_network.mockwebserver.ServerManager
 import com.gap.hoodies_network.testObjects.CallResponse
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
@@ -134,7 +138,8 @@ class CryptoCompatTest {
     fun cookiesWrittenByLegacyCryptoAreReadByCurrentLibrary() {
         installLegacyKey()
         val cookie = HttpCookie("legacy-${UUID.randomUUID()}", UUID.randomUUID().toString()).apply { version = 0 }
-        val cookieJson = Gson().toJson(cookie)
+        val cookieJson = legacyCookieJson(cookie)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) assertEquals(Gson().toJson(cookie), cookieJson)
         val iv = LegacyV1Crypto.genIV()
         cookieDb.encryptedCookieDao().insert(
             EncryptedCookie(0, "http://localhost", b64(LegacyV1Crypto.runAES(cookieJson.encodeToByteArray(), iv, Cipher.ENCRYPT_MODE)), b64(iv), cookie.hashCode())
@@ -145,11 +150,9 @@ class CryptoCompatTest {
 
         val cookies = PersistentCookieJar(COOKIE_INSTANCE, context).getCookiesForHost(URI("http://localhost"))
         assertEquals(1, cookies.size)
-        assertEquals(cookieJson, Gson().toJson(cookies[0]))
-        if (cookieJson.contains(cookie.value)) {
-            assertEquals(cookie.name, cookies[0].name)
-            assertEquals(cookie.value, cookies[0].value)
-        }
+        assertEquals(cookieJson, legacyCookieJson(cookies[0]))
+        assertEquals(cookie.name, cookies[0].name)
+        assertEquals(cookie.value, cookies[0].value)
     }
 
     @Test
@@ -161,7 +164,14 @@ class CryptoCompatTest {
         val row = cookieDb.encryptedCookieDao().getAll().single()
         val iv = unb64(row.iv!!)
         assertEquals(AesGcm.IV_LENGTH_BYTES, iv.size)
-        assertEquals(Gson().toJson(cookie), LegacyV1Crypto.runAES(unb64(row.cookie!!), iv, Cipher.DECRYPT_MODE).decodeToString())
+        val plaintext = LegacyV1Crypto.runAES(unb64(row.cookie!!), iv, Cipher.DECRYPT_MODE).decodeToString()
+        assertEquals(cookieGson.toJson(cookie), plaintext)
+        assertEquals(cookie.name, cookieGson.fromJson(plaintext, HttpCookie::class.java).name)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            val legacyRead = Gson().fromJson(plaintext, HttpCookie::class.java)
+            assertEquals(cookie.name, legacyRead.name)
+            assertEquals(cookie.value, legacyRead.value)
+        }
     }
 
     @Test
@@ -199,6 +209,28 @@ class CryptoCompatTest {
         Log.i(TAG, "legacy (platform default) key size = ${legacyKeyInfo.keySize}")
         assertEquals(keyInfo(LegacyV1Crypto.key()).keySize, legacyKeyInfo.keySize)
     }
+
+    private val cookieGson = GsonBuilder().registerTypeAdapter(HttpCookie::class.java, HttpCookieJsonAdapter).create()
+
+    /**
+     * The row format main @ b105af9 wrote on API <= 34: Gson's reflective dump of HttpCookie (fields in ART's
+     * alphabetical order, nulls omitted). Built explicitly because API 35 hides most HttpCookie fields from reflection.
+     */
+    private fun legacyCookieJson(cookie: HttpCookie): String = Gson().toJson(JsonObject().apply {
+        cookie.comment?.let { addProperty("comment", it) }
+        cookie.commentURL?.let { addProperty("commentURL", it) }
+        cookie.domain?.let { addProperty("domain", it) }
+        addProperty("httpOnly", cookie.isHttpOnly)
+        addProperty("maxAge", cookie.maxAge)
+        cookie.name?.let { addProperty("name", it) }
+        cookie.path?.let { addProperty("path", it) }
+        cookie.portlist?.let { addProperty("portlist", it) }
+        addProperty("secure", cookie.secure)
+        addProperty("toDiscard", cookie.discard)
+        cookie.value?.let { addProperty("value", it) }
+        addProperty("version", cookie.version)
+        add("whenCreated", Gson().toJsonTree(cookie).asJsonObject.get("whenCreated"))
+    })
 
     private fun encryptedCache() = CacheEnabled(encryptionEnabled = true, applicationContext = context)
 
