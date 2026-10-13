@@ -77,5 +77,5 @@ tasks.register('jacocoTestReport', JacocoReport) {
 
     classDirectories.setFrom(files([  kotlinClasses, javaClasses ] ))
 
-    executionData.setFrom(fileTree(dir: layout.buildDirectory.get().asFile, includes: [ "jacoco/testReleaseUnitTest.exec", "outputs/code_coverage/debugAndroidTest/connected/*.ec", "outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec" ]))
+    executionData.setFrom(fileTree(dir: layout.buildDirectory.get().asFile, includes: [ "jacoco/testReleaseUnitTest.exec", "outputs/code_coverage/debugAndroidTest/connected/**/*.ec", "outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec" ]))
 }
