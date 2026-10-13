@@ -31,3 +31,15 @@ adb install -r -t Hoodies-Network/build/outputs/apk/androidTest/debug/Hoodies-Ne
 `connectedDebugAndroidTest` then installs with `install -r`, so the seeded databases survive. Pass
 `-Pandroid.testInstrumentationRunnerArguments.requireRoomUpgradeSeed=true` to make a missing seed fail
 instead of skip.
+
+Run `RoomInPlaceUpgradeTest` on its own, right after seeding. In a full run it executes after
+`CryptoCompatTest` and the cache suites, which rotate the Keystore key and clear the same databases,
+so the seeded rows are gone by the time it runs:
+
+```bash
+./gradlew :Hoodies-Network:connectedDebugAndroidTest \
+  -Pandroid.testInstrumentationRunnerArguments.class=com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest \
+  -Pandroid.testInstrumentationRunnerArguments.requireRoomUpgradeSeed=true
+```
+
+AGP uninstalls the test APK at the end of the run, so the full suite that follows skips these four tests.
