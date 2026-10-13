@@ -1,37 +1,40 @@
 package com.gap.hoodies_network.request
 
 import android.util.Log
-import androidx.annotation.GuardedBy
 import com.gap.hoodies_network.cache.EncryptedCache
-import com.gap.hoodies_network.core.*
-import com.gap.hoodies_network.header.HttpHeaderParser
 import com.gap.hoodies_network.core.HoodiesNetworkError
 import com.gap.hoodies_network.core.NULL_POINTER_ERROR_CODE
+import com.gap.hoodies_network.core.Response
 import com.gap.hoodies_network.core.UNSUPPORTED_ENCODING_ERROR_CODE
+import com.gap.hoodies_network.header.HttpHeaderParser
 import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 import java.net.CookieManager
 
-
 /**
- * StringRequest class handles the string requests
+ * Request whose response body is decoded as a [String] using the charset from its
+ * `Content-Type` header.
  *
- * @param url
- * @param method
- * @param requestBody
- * @param responseListener
- * @param errorListener
- *
+ * @param url absolute URL of the request.
+ * @param method HTTP method, one of [Request.Method].
+ * @param requestBody body sent to the server.
+ * @param responseListener listener receiving the parsed response, or `null`.
+ * @param errorListener listener receiving errors, or `null`.
+ * @param encryptedCache cache used for this request.
+ * @param cookieManager cookie manager, or `null`.
  */
 open class StringRequest(
     url: String, method: String, requestBody: String,
-    @GuardedBy("mLock") private val responseListener: Response.ResponseListener?,
+    private val responseListener: Response.ResponseListener?,
     errorListener: Response.ErrorListener?,
     encryptedCache: EncryptedCache,
     cookieManager: CookieManager?
 ) : Request<String?>(url, method, requestBody, errorListener, encryptedCache, cookieManager) {
-    private val mLock = Any()
 
+    /**
+     * Creates a request without listeners whose body is [jsonRequest] serialized with
+     * [JSONObject.toString] (`"null"` when [jsonRequest] is `null`).
+     */
     constructor(
         url: String,
         method: String,
@@ -48,6 +51,7 @@ open class StringRequest(
         cookieManager
     )
 
+    /** Creates a request with listeners and a `"null"` body. */
     constructor(
         url: String,
         method: String,
@@ -65,6 +69,10 @@ open class StringRequest(
         cookieManager
     )
 
+    /**
+     * Creates a request with listeners whose body is [requestBody] serialized with
+     * [JSONObject.toString] (`"null"` when [requestBody] is `null`).
+     */
     constructor(
         url: String,
         method: String,
@@ -83,23 +91,18 @@ open class StringRequest(
         cookieManager
     )
 
+    /**
+     * Decodes the response body as a string and stores it with [Response.setResultResponse].
+     *
+     * @throws HoodiesNetworkError with [UNSUPPORTED_ENCODING_ERROR_CODE] or [NULL_POINTER_ERROR_CODE].
+     */
     @Throws(HoodiesNetworkError::class)
     override fun parseNetworkResponse(response: Response<Any>?): Response<Any>? {
-        val parsedResponse: String
         return try {
-            parsedResponse = response?.getData()?.let {
-                Response.toHeaderMap(response.getAllHeaders())?.let { it1 ->
-                    HttpHeaderParser.parseCharset(
-                        it1
-                    )
-
-                }?.let { it2 ->
-                    String(
-                        it,
-                        it2
-                    )
-                }
-
+            val parsedResponse = response?.getData()?.let { data ->
+                Response.toHeaderMap(response.getAllHeaders())
+                    ?.let { headers -> HttpHeaderParser.parseCharset(headers) }
+                    ?.let { charset -> String(data, charset) }
             }.toString()
             response?.setResultResponse(parsedResponse)
             response
@@ -112,9 +115,8 @@ open class StringRequest(
         }
     }
 
+    /** Passes [response] to the response listener, if one is set. */
     override fun deliverResponse(response: Response<Any>?) {
-        var listener: Response.ResponseListener?
-        synchronized(mLock) { listener = responseListener }
-        listener?.onResponse(response)
+        responseListener?.onResponse(response)
     }
 }
