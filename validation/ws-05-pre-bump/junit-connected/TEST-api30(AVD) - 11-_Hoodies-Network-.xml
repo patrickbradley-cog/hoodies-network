@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.gap.hoodies_network.CookieSerializationFormatTest" tests="3" failures="0" errors="0" skipped="0" time="0.907" timestamp="2026-09-30T18:50:45" hostname="localhost">
+  <properties>
+    <property name="device" value="api30(AVD) - 11" />
+    <property name="flavor" value="" />
+    <property name="project" value=":Hoodies-Network" />
+  </properties>
+  <testcase name="gsonWritesCookiesInGoldenFormat" classname="com.gap.hoodies_network.CookieSerializationFormatTest" time="0.01" />
+  <testcase name="defaultSerializerWritesCookiesInGoldenFormat" classname="com.gap.hoodies_network.CookieSerializationFormatTest" time="0.0" />
+  <testcase name="storedGoldenCookiesReadBackUnchanged" classname="com.gap.hoodies_network.CookieSerializationFormatTest" time="0.001" />
+</testsuite>

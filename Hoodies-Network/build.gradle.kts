@@ -137,6 +137,7 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
     testRuntimeOnly(libs.junit.vintage.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.mockito.android)
     androidTestImplementation(libs.androidx.test.ext.junit)
