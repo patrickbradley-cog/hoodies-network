@@ -1,0 +1,1 @@
+[ws-10-api35-walkthrough] RESULT walkthrough_exit=0
