@@ -1,0 +1,124 @@
+> Task :Hoodies-Network:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Hoodies-Network:preBuild UP-TO-DATE
+> Task :Hoodies-Network:preDebugBuild UP-TO-DATE
+> Task :Hoodies-Network:generateDebugBuildConfig UP-TO-DATE
+> Task :Hoodies-Network:generateDebugResValues UP-TO-DATE
+> Task :Hoodies-Network:generateDebugResources UP-TO-DATE
+> Task :Hoodies-Network:packageDebugResources UP-TO-DATE
+> Task :Hoodies-Network:processDebugNavigationResources UP-TO-DATE
+> Task :Hoodies-Network:parseDebugLocalResources UP-TO-DATE
+> Task :Hoodies-Network:generateDebugRFile UP-TO-DATE
+> Task :Hoodies-Network:javaPreCompileDebug UP-TO-DATE
+> Task :Hoodies-Network:preDebugAndroidTestBuild UP-TO-DATE
+> Task :Hoodies-Network:extractDeepLinksDebug UP-TO-DATE
+> Task :Hoodies-Network:processDebugManifest UP-TO-DATE
+> Task :Hoodies-Network:processDebugAndroidTestManifest UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestBuildConfig UP-TO-DATE
+> Task :Hoodies-Network:writeDebugAarMetadata UP-TO-DATE
+> Task :Hoodies-Network:checkDebugAndroidTestAarMetadata UP-TO-DATE
+> Task :Hoodies-Network:processDebugAndroidTestNavigationResources UP-TO-DATE
+> Task :Hoodies-Network:compileDebugAndroidTestNavigationResources UP-TO-DATE
+> Task :Hoodies-Network:compileDebugLibraryResources UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :Hoodies-Network:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestResources UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestResources UP-TO-DATE
+> Task :Hoodies-Network:processDebugAndroidTestResources UP-TO-DATE
+> Task :Hoodies-Network:javaPreCompileDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestShaders UP-TO-DATE
+> Task :Hoodies-Network:compileDebugAndroidTestShaders NO-SOURCE
+> Task :Hoodies-Network:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugShaders UP-TO-DATE
+> Task :Hoodies-Network:compileDebugShaders NO-SOURCE
+> Task :Hoodies-Network:generateDebugAssets UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAssets UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestAssets UP-TO-DATE
+> Task :Hoodies-Network:compressDebugAndroidTestAssets UP-TO-DATE
+> Task :Hoodies-Network:desugarDebugAndroidTestFileDependencies UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestJacocoPropertiesFile UP-TO-DATE
+> Task :Hoodies-Network:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :Hoodies-Network:mergeExtDexDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugNativeLibs NO-SOURCE
+> Task :Hoodies-Network:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :Hoodies-Network:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :Hoodies-Network:validateSigningDebugAndroidTest UP-TO-DATE
+> Task :Hoodies-Network:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
+> Task :Hoodies-Network:kaptGenerateStubsDebugKotlin
+> Task :Hoodies-Network:kaptDebugKotlin
+> Task :Hoodies-Network:compileDebugKotlin
+> Task :Hoodies-Network:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Hoodies-Network:bundleLibCompileToJarDebug
+> Task :Hoodies-Network:bundleLibRuntimeToJarDebug
+> Task :Hoodies-Network:processDebugJavaRes
+> Task :Hoodies-Network:bundleLibRuntimeToDirDebug
+> Task :Hoodies-Network:kaptGenerateStubsDebugAndroidTestKotlin
+> Task :Hoodies-Network:mergeLibDexDebugAndroidTest
+> Task :Hoodies-Network:kaptDebugAndroidTestKotlin
+
+> Task :Hoodies-Network:compileDebugAndroidTestKotlin
+w: file:///home/ubuntu/repos/hoodies-network/Hoodies-Network/src/androidTest/kotlin/com/gap/hoodies_network/PersistentCookieStoreTest.kt:94:40 Elvis operator (?:) always returns the left operand of non-nullable type 'String'.
+
+> Task :Hoodies-Network:compileDebugAndroidTestJavaWithJavac UP-TO-DATE
+> Task :Hoodies-Network:dexBuilderDebugAndroidTest
+> Task :Hoodies-Network:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE
+> Task :Hoodies-Network:processDebugAndroidTestJavaRes UP-TO-DATE
+> Task :Hoodies-Network:mergeProjectDexDebugAndroidTest
+> Task :Hoodies-Network:mergeDebugAndroidTestJavaResource
+> Task :Hoodies-Network:packageDebugAndroidTest
+> Task :Hoodies-Network:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+
+> Task :Hoodies-Network:connectedDebugAndroidTest
+Starting 7 tests on api30(AVD) - 11
+
+com.gap.hoodies_network.PersistentCookieStoreTest > removeOnlyDeletesMatchingCookieIdentity[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError: expected:<[y=second]> but was:<[]>
+	at org.junit.Assert.fail(Assert.java:88)
+
+com.gap.hoodies_network.PersistentCookieStoreTest > reissuedCookieDoesNotAccumulate[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError: expected:<1> but was:<50>
+	at org.junit.Assert.fail(Assert.java:88)
+
+com.gap.hoodies_network.PersistentCookieStoreTest > rowMovedToAnotherHostIsRejected[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+
+com.gap.hoodies_network.PersistentCookieStoreTest > logoutWithMaxAgeZeroDeletesSessionAcrossRestarts[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError: session still sent after logout: session="";$Path="/";$Domain="localhost.local"; session=ALICE-SESSION-TOKEN
+	at org.junit.Assert.fail(Assert.java:88)
+
+com.gap.hoodies_network.PersistentCookieStoreTest > rotatedSessionReplacesPreviousValue[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError: old session still sent: session=ROTATED-SESSION-TOKEN; session=ALICE-SESSION-TOKEN
+	at org.junit.Assert.fail(Assert.java:88)
+
+com.gap.hoodies_network.PersistentCookieStoreTest > expiredCookieIsNotSentAndIsPurged[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+
+com.gap.hoodies_network.PersistentCookieStoreTest > alreadyExpiredCookieIsNotStored[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+Tests on api30(AVD) - 11 failed: There was 7 failure(s).
+
+Finished 7 tests on api30(AVD) - 11
+
+> Task :Hoodies-Network:connectedDebugAndroidTest FAILED
+
+[Incubating] Problems report is available at: file:///home/ubuntu/repos/hoodies-network/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':Hoodies-Network:connectedDebugAndroidTest'.
+> There were failing tests. See the report at: file:///home/ubuntu/repos/hoodies-network/Hoodies-Network/build/reports/androidTests/connected/debug/index.html
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 16s
+58 actionable tasks: 16 executed, 42 up-to-date
