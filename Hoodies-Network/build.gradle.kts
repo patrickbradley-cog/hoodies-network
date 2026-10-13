@@ -53,6 +53,26 @@ android {
         unitTests.all {
             it.finalizedBy("jacocoTestReport")
         }
+        managedDevices {
+            localDevices {
+                create("api28") {
+                    device = "Pixel 2"
+                    apiLevel = 28
+                    systemImageSource = "google"
+                }
+                create("api35") {
+                    device = "Pixel 2"
+                    apiLevel = 35
+                    systemImageSource = "google"
+                }
+            }
+            groups {
+                create("ciDevices") {
+                    targetDevices.add(localDevices["api28"])
+                    targetDevices.add(localDevices["api35"])
+                }
+            }
+        }
     }
 
     sourceSets {
@@ -136,9 +156,14 @@ dependencies {
     implementation(libs.okhttp.mockwebserver3)
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockito.core)
+    testRuntimeOnly(platform(libs.junit.bom))
     testRuntimeOnly(libs.junit.vintage.engine)
     testRuntimeOnly(libs.junit.platform.launcher)
+    androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.mockito.android)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)

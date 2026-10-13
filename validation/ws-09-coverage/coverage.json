@@ -1,0 +1,36 @@
+{
+  "tool": "jacoco via AGP 8.13.2 createDebugAndroidTestCoverageReport",
+  "device": "api30 AVD",
+  "totals": {
+    "INSTRUCTION": {
+      "missed": 1875,
+      "covered": 7780,
+      "pct": 80.58
+    },
+    "BRANCH": {
+      "missed": 238,
+      "covered": 363,
+      "pct": 60.4
+    },
+    "LINE": {
+      "missed": 301,
+      "covered": 1731,
+      "pct": 85.19
+    },
+    "COMPLEXITY": {
+      "missed": 276,
+      "covered": 509,
+      "pct": 64.84
+    },
+    "METHOD": {
+      "missed": 80,
+      "covered": 398,
+      "pct": 83.26
+    },
+    "CLASS": {
+      "missed": 4,
+      "covered": 70,
+      "pct": 94.59
+    }
+  }
+}
