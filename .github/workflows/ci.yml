@@ -143,7 +143,7 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: ./gradlew :Hoodies-Network:createDebugCoverageReport
+          script: ./gradlew :Hoodies-Network:createDebugAndroidTestCoverageReport
 
       - name: Upload JUnit XML
         if: ${{ !cancelled() }}
