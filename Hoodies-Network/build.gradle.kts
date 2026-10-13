@@ -135,6 +135,8 @@ dependencies {
     api(libs.gson)
     implementation(libs.okhttp.mockwebserver3)
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testRuntimeOnly(libs.junit.vintage.engine)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.mockito.android)
     androidTestImplementation(libs.androidx.test.ext.junit)
