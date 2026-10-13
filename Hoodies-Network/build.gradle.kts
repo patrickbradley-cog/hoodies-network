@@ -7,7 +7,8 @@ plugins {
     `maven-publish`
     alias(libs.plugins.dokka)
     jacoco
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room)
 }
 apply(from = "../jacoco.gradle")
 
@@ -76,6 +77,11 @@ android {
     }
 }
 
+room {
+    schemaDirectory("$projectDir/schemas")
+    generateKotlin = false
+}
+
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
@@ -135,8 +141,8 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
     implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.compiler)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
+    androidTestImplementation(libs.androidx.room.testing)
 }
 
 dokka {

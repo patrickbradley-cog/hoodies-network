@@ -3,7 +3,6 @@ package com.gap.hoodies_network.cookies.persistentstorage
 import android.content.Context
 import androidx.room.Room
 import com.gap.hoodies_network.cache.EncryptedCache
-import com.google.gson.Gson
 import java.net.HttpCookie
 import java.net.URI
 import java.util.*
@@ -24,7 +23,7 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
         val iv = Base64.getDecoder().decode(encryptedCookie.iv)
         val decryptedCookieJson = EncryptedCache.runAES(Base64.getDecoder().decode(encryptedCookie.cookie), iv, Cipher.DECRYPT_MODE).decodeToString()
 
-        return CookieAndId(Gson().fromJson(decryptedCookieJson, HttpCookie::class.java), encryptedCookie.id)
+        return CookieAndId(HttpCookieJson.fromJson(decryptedCookieJson), encryptedCookie.id)
     }
 
     fun deleteAll() {
@@ -36,11 +35,11 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
     }
 
     fun getAllHosts() : List<URI> {
-        return db.getAllHosts().map{ URI(it) }.toList()
+        return db.getAllHosts().mapNotNull { host -> host?.let { URI(it) } }
     }
 
     fun insert(host: URI, cookie: HttpCookie) {
-        val cookieJson = Gson().toJson(cookie)
+        val cookieJson = HttpCookieJson.toJson(cookie)
         var iv = EncryptedCache.genIV()
 
         //Make sure the IV is unique

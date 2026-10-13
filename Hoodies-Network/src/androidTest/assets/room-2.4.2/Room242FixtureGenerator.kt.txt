@@ -1,0 +1,137 @@
+package com.gap.hoodies_network.room242
+
+import android.content.Context
+import androidx.room.Room
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import com.gap.hoodies_network.cache.EncryptedCache
+import com.gap.hoodies_network.cache.configuration.CacheEnabled
+import com.gap.hoodies_network.cache.persistentstorage.CacheDatabase
+import com.gap.hoodies_network.cache.persistentstorage.CachedData
+import com.gap.hoodies_network.cookies.PersistentCookieJar
+import com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookie
+import com.gap.hoodies_network.cookies.persistentstorage.EncryptedCookieDatabase
+import com.gap.hoodies_network.core.Response
+import com.gap.hoodies_network.request.Request
+import org.json.JSONObject
+import org.junit.Assert
+import org.junit.Test
+import org.junit.runner.RunWith
+import java.io.File
+import java.net.HttpCookie
+import java.net.URI
+import java.util.Base64
+
+/**
+ * Runs against the Room 2.4.2 build of Hoodies-Network (main @ b105af9) to produce the
+ * WS03 upgrade evidence. Not part of the upgraded test suite; kept here for provenance.
+ *
+ * - generateFixtureDatabases: writes known rows with the library's own Room 2.4.2 DAOs and
+ *   copies the checkpointed .db files to <external-files>/room-2.4.2/ for `adb pull`.
+ * - seedInPlaceUpgrade: writes cache + cookie data through the public API (Keystore-encrypted)
+ *   into the real app databases and a seed manifest that RoomInPlaceUpgradeTest verifies after
+ *   the upgraded test APK is installed over this one with `install -r`.
+ */
+@RunWith(AndroidJUnit4::class)
+class Room242FixtureGenerator {
+    private val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
+
+    @Test
+    fun generateFixtureDatabases() {
+        val outDir = File(context.getExternalFilesDir(null), "room-2.4.2").apply { deleteRecursively(); mkdirs() }
+
+        context.deleteDatabase(CACHE_FIXTURE)
+        val cacheDb = Room.databaseBuilder(context, CacheDatabase::class.java, CACHE_FIXTURE).build()
+        cacheDb.cacheDao().insert(
+            CachedData(0, "http://localhost:6969/get", "".hashCode(), 1_700_000_000L, b64("{\"fixture\":\"plain\"}"), null),
+            CachedData(0, "http://localhost:6969/post", "{\"a\":1}".hashCode(), 1_700_000_100L, "ZmFrZS1jaXBoZXJ0ZXh0", "AAECAwQFBgcICQoL"),
+            CachedData(0, "http://localhost:6969/unicode/\u00fcn\u00ef\u00e7\u00f8d\u00e9?q=\u2713", Int.MIN_VALUE, Long.MAX_VALUE, "", null),
+        )
+        checkpointAndClose(cacheDb)
+        File(context.getDatabasePath(CACHE_FIXTURE).path).copyTo(File(outDir, CACHE_FIXTURE), overwrite = true)
+
+        context.deleteDatabase(COOKIE_FIXTURE)
+        val cookieDb = Room.databaseBuilder(context, EncryptedCookieDatabase::class.java, COOKIE_FIXTURE).build()
+        cookieDb.encryptedCookieDao().insert(
+            EncryptedCookie(0, "http://localhost", "Y29va2llLWNpcGhlcnRleHQ=", "AAECAwQFBgcICQoL", 12345),
+            EncryptedCookie(0, "http://example.com", "c2Vjb25kLWNvb2tpZQ==", "CwoJCAcGBQQDAgEA", -987654321),
+            EncryptedCookie(0, null, null, null, 0),
+        )
+        checkpointAndClose(cookieDb)
+        File(context.getDatabasePath(COOKIE_FIXTURE).path).copyTo(File(outDir, COOKIE_FIXTURE), overwrite = true)
+    }
+
+    @Test
+    fun seedInPlaceUpgrade() {
+        val cacheDb = Room.databaseBuilder(context, CacheDatabase::class.java, "HoodiesNetworkCache").build().cacheDao()
+        val encrypted = EncryptedCache(CacheEnabled(encryptionEnabled = true, applicationContext = context))
+        val plain = EncryptedCache(CacheEnabled(encryptionEnabled = false, applicationContext = context))
+
+        val seed = JSONObject()
+        val cache = JSONObject()
+        listOf(Triple(encrypted, ENCRYPTED_URL, "encrypted"), Triple(plain, PLAIN_URL, "plain")).forEach { (c, url, kind) ->
+            val body = "{\"seed\":\"$kind\"}"
+            val payload = "{\"room\":\"2.4.2\",\"kind\":\"$kind\",\"text\":\"h\u00e9llo \u2713\"}"
+            val request = SeedRequest(url, body, c)
+            cacheDb.delete(url, body.hashCode())
+            c.cacheRequestResult(payload.encodeToByteArray(), request)
+            val deadline = System.currentTimeMillis() + 10_000
+            while (cacheDb.get(url, body.hashCode()) == null && System.currentTimeMillis() < deadline) Thread.sleep(50)
+            val row = cacheDb.get(url, body.hashCode())
+            Assert.assertNotNull("cache row for $url was not written", row)
+            Assert.assertEquals(kind == "encrypted", row!!.iv != null)
+            cache.put(kind, JSONObject().put("url", url).put("body", body).put("payload", payload))
+        }
+        seed.put("cache", cache)
+
+        val jar = PersistentCookieJar(COOKIE_INSTANCE, context)
+        jar.removeAllCookies()
+        val cookies = JSONObject()
+        listOf("http://localhost" to HttpCookie("session", "room242-\u00e9-${System.nanoTime()}"),
+               "https://example.com" to HttpCookie("prefs", "a=1&b=2")).forEach { (host, cookie) ->
+            cookie.path = "/"
+            cookie.maxAge = 10L * 365 * 24 * 3600
+            jar.addCookieForHost(URI(host), cookie)
+            cookies.put(cookie.name, JSONObject().put("host", host).put("value", cookie.value))
+        }
+        Assert.assertEquals(2, jar.getAllCookies().size)
+        // What this Room 2.4.2 build itself reads back. On API 35 the Gson-reflected HttpCookie JSON it
+        // writes has no name/value, so the upgraded build can only be held to the same result there.
+        val readBack = JSONObject()
+        cookies.keys().forEach { name ->
+            val host = cookies.getJSONObject(name).getString("host")
+            val found = org.json.JSONArray()
+            jar.getCookiesForHost(URI(host)).forEach {
+                found.put(JSONObject().put("name", it.name ?: JSONObject.NULL).put("value", it.value ?: JSONObject.NULL))
+            }
+            readBack.put(host, found)
+        }
+        seed.put("cookieInstance", COOKIE_INSTANCE).put("cookies", cookies).put("cookiesReadBackByRoom242", readBack)
+        seed.put("sdkInt", android.os.Build.VERSION.SDK_INT)
+        seed.put("createdWith", "Room 2.4.2 / hoodies-network b105af9")
+
+        File(context.filesDir, SEED_FILE).writeText(seed.toString(2))
+    }
+
+    private fun checkpointAndClose(db: androidx.room.RoomDatabase) {
+        db.openHelper.writableDatabase.query("PRAGMA wal_checkpoint(TRUNCATE)").use { it.moveToFirst() }
+        db.close()
+    }
+
+    private fun b64(s: String) = Base64.getEncoder().encodeToString(s.encodeToByteArray())
+
+    private class SeedRequest(url: String, body: String, cache: EncryptedCache) :
+        Request<Any>(url, Method.POST, body, null, cache, null) {
+        override fun parseNetworkResponse(response: Response<Any>?): Response<Any>? = response
+        override fun deliverResponse(response: Response<Any>?) {}
+    }
+
+    companion object {
+        const val CACHE_FIXTURE = "room242-fixture-cache.db"
+        const val COOKIE_FIXTURE = "room242-fixture-cookies.db"
+        const val COOKIE_INSTANCE = "room242UpgradeCookies"
+        const val SEED_FILE = "room242-upgrade-seed.json"
+        const val ENCRYPTED_URL = "http://localhost:6969/room242-upgrade/encrypted"
+        const val PLAIN_URL = "http://localhost:6969/room242-upgrade/plain"
+    }
+}
