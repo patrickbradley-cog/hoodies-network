@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.gap.hoodies_network.CachingAndCryptographyTest" tests="150" failures="0" errors="0" skipped="4" time="126.449" timestamp="2026-10-13T13:37:58" hostname="localhost">
+  <properties>
+    <property name="device" value="api28(AVD) - 9" />
+    <property name="flavor" value="" />
+    <property name="project" value=":Hoodies-Network" />
+  </properties>
+  <testcase name="requestWithUrlEncodedParamsAndHeadersEncryptingInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.502" />
+  <testcase name="requestWithBodyAndHeadersEncryptingInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.093" />
+  <testcase name="requestWithBodyAndHeadersEmptyInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.029" />
+  <testcase name="makeSureDataWasCachedEncryptedFlow" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="3.345" />
+  <testcase name="makeSureDataWasCached" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="3.258" />
+  <testcase name="requestWithUrlEncodedParamsAndHeadersEmptyInterceptor" classname="com.gap.hoodies_network.CachingAndCryptographyTest" time="0.028" />
+  <testcase name="gsonWritesCookiesInGoldenFormat" classname="com.gap.hoodies_network.CookieSerializationFormatTest" time="0.003" />
+  <testcase name="defaultSerializerWritesCookiesInGoldenFormat" classname="com.gap.hoodies_network.CookieSerializationFormatTest" time="0.001" />
+  <testcase name="storedGoldenCookiesReadBackUnchanged" classname="com.gap.hoodies_network.CookieSerializationFormatTest" time="0.001" />
+  <testcase name="cookieTestNonPersistent" classname="com.gap.hoodies_network.CookieTests" time="0.083" />
+  <testcase name="noCookieTest" classname="com.gap.hoodies_network.CookieTests" time="0.046" />
+  <testcase name="cookieTestPersistent" classname="com.gap.hoodies_network.CookieTests" time="0.352" />
+  <testcase name="cookiesWrittenByCurrentLibraryAreReadByLegacyCrypto" classname="com.gap.hoodies_network.CryptoCompatTest" time="0.101" />
+  <testcase name="cookiesWrittenByLegacyCryptoAreReadByCurrentLibrary" classname="com.gap.hoodies_network.CryptoCompatTest" time="0.078" />
+  <testcase name="newKeyIsAes256GcmAndLegacyKeyIsReused" classname="com.gap.hoodies_network.CryptoCompatTest" time="0.053" />
+  <testcase name="cacheWrittenByCurrentLibraryIsReadByLegacyCrypto" classname="com.gap.hoodies_network.CryptoCompatTest" time="0.205" />
+  <testcase name="cryptoPackageIsInterchangeableWithEncryptedCache" classname="com.gap.hoodies_network.CryptoCompatTest" time="0.131" />
+  <testcase name="cacheWrittenByLegacyCryptoIsReadByCurrentLibrary" classname="com.gap.hoodies_network.CryptoCompatTest" time="0.101" />
+  <testcase name="encryptAndDecryptString" classname="com.gap.hoodies_network.EncryptionDecryptionTest" time="0.001" />
+  <testcase name="twoFilesTest" classname="com.gap.hoodies_network.FileUploadRequestTests" time="0.054" />
+  <testcase name="fileTest" classname="com.gap.hoodies_network.FileUploadRequestTests" time="0.0" />
+  <testcase name="threeFilesTest" classname="com.gap.hoodies_network.FileUploadRequestTests" time="0.027" />
+  <testcase name="requestFormattingTest" classname="com.gap.hoodies_network.FormUrlEncodedRequestTest" time="0.001" />
+  <testcase name="headerParserTest" classname="com.gap.hoodies_network.HeaderTest" time="0.0" />
+  <testcase name="headerTest" classname="com.gap.hoodies_network.HeaderTest" time="0.002" />
+  <testcase name="basicRawPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.053" />
+  <testcase name="basicPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.004" />
+  <testcase name="getJsonObjectRequestNoBodyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="withHashMapRawPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="postObjectRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.031" />
+  <testcase name="getJsonArrayRequestNoBodyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="withHashMapRawAndHeadersPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.035" />
+  <testcase name="postNullJsonArrayRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getRawUrlQueryParamEncodedRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.031" />
+  <testcase name="postNullJsonObjectRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.028" />
+  <testcase name="getUrlQueryParamEncodedRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.006" />
+  <testcase name="getRegularRequestHtmlWithHeadersNoBodyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="postJsonObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.025" />
+  <testcase name="basicPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.029" />
+  <testcase name="patchJsonObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="retryCountTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getRawUrlQueryParamRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.028" />
+  <testcase name="getRequestFormUrlEncodedAdditionalHeadersEmptyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.048" />
+  <testcase name="httpMethodTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="getRequestRegularAllNullTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.028" />
+  <testcase name="cannotReachServerRawTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.002" />
+  <testcase name="patchJsonArrayRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="getRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.027" />
+  <testcase name="patchObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="postJsonObjectRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="getRequestRegularTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="withHashMapRawPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.02" />
+  <testcase name="putRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.028" />
+  <testcase name="deleteRawRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.029" />
+  <testcase name="getRequestUrlQueryParamAdditionalHeadersEmptyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.03" />
+  <testcase name="getUrlQueryParamEncodedRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.032" />
+  <testcase name="getRequestHtmlWithHeadersTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.05" />
+  <testcase name="sendUrlQueryRequestNullHeaderTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.028" />
+  <testcase name="sendUrlQueryParamEncodedRequestNullHeaderTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.025" />
+  <testcase name="putRawRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.002" />
+  <testcase name="getRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getHtmlRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.022" />
+  <testcase name="getUrlQueryParamRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.002" />
+  <testcase name="patchStringRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="getUrlQueryParamRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="deleteRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.027" />
+  <testcase name="postJsonArrayRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.027" />
+  <testcase name="basicRawPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="deleteRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="getRequestAdditionalHeadersEmptyFormUrlEncodedTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="getHtmlRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.026" />
+  <testcase name="withStringRawPatchRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.001" />
+  <testcase name="postJsonArrayRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.028" />
+  <testcase name="postObjectRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.002" />
+  <testcase name="withStringRawPostRequestTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.022" />
+  <testcase name="putRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getRequestUrlQueryParamEncodedAdditionalHeadersEmptyTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="basicPostRequestTestNonInlined" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.025" />
+  <testcase name="cannotReachServerTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getRawTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getRequestHeadersTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.0" />
+  <testcase name="getBuilderTest" classname="com.gap.hoodies_network.HoodiesNetworkClientTest" time="0.002" />
+  <testcase name="namelessRowsFromBrokenApi35DumpsDecodeToNull" classname="com.gap.hoodies_network.HttpCookieJsonAdapterTest" time="0.0" />
+  <testcase name="decodesLegacyReflectiveDumpFormat" classname="com.gap.hoodies_network.HttpCookieJsonAdapterTest" time="0.001" />
+  <testcase name="decodePreservesElapsedExpiry" classname="com.gap.hoodies_network.HttpCookieJsonAdapterTest" time="0.002" />
+  <testcase name="cookieRoundTripPreservesFields" classname="com.gap.hoodies_network.HttpCookieJsonAdapterTest" time="0.001" />
+  <testcase name="expiredCookieStaysExpired" classname="com.gap.hoodies_network.HttpCookieJsonAdapterTest" time="0.0" />
+  <testcase name="serializedRowCarriesCreationTimestamp" classname="com.gap.hoodies_network.HttpCookieJsonAdapterTest" time="0.0" />
+  <testcase name="getResizedDimensionTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.002" />
+  <testcase name="getImageRequestFailureTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.0" />
+  <testcase name="getImageRequestTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.028" />
+  <testcase name="getResizeValueWithSpecifiedHWTestZeros" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.0" />
+  <testcase name="getResizedValueTestZeros" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.001" />
+  <testcase name="getImageRequestTest2" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.001" />
+  <testcase name="getImageRequestTest3" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.025" />
+  <testcase name="getResizeValueWithSpecifiedHWTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.001" />
+  <testcase name="getImageRequestNoHeadersTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.001" />
+  <testcase name="getImageRequestWithHeadersTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.023" />
+  <testcase name="getResizedValueTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.003" />
+  <testcase name="imageRequestTest" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.0" />
+  <testcase name="getResizedDimensionTestZeros" classname="com.gap.hoodies_network.ImageRequestMockTest" time="0.002" />
+  <testcase name="getImageTestMOCKWEBSERVER" classname="com.gap.hoodies_network.ImageTests" time="0.002" />
+  <testcase name="cancelRequestInInterceptNetworkTest" classname="com.gap.hoodies_network.InterceptorTests" time="0.027" />
+  <testcase name="retryRequestTest" classname="com.gap.hoodies_network.InterceptorTests" time="0.858" />
+  <testcase name="cancelRequestInInterceptRequestTest" classname="com.gap.hoodies_network.InterceptorTests" time="0.0" />
+  <testcase name="deliverResponseTest" classname="com.gap.hoodies_network.JsonRequestTest" time="0.001" />
+  <testcase name="jsonArrayRequestTest" classname="com.gap.hoodies_network.JsonRequestTest" time="8.007" />
+  <testcase name="jsonObjectRequestTest" classname="com.gap.hoodies_network.JsonRequestTest" time="6.006" />
+  <testcase name="jsonObjectRequestWithoutCallback" classname="com.gap.hoodies_network.JsonRequestTest" time="0.0" />
+  <testcase name="jsonArrayRequestWithoutCallback" classname="com.gap.hoodies_network.JsonRequestTest" time="10.015" />
+  <testcase name="deliverResponseInstantTest" classname="com.gap.hoodies_network.JsonRequestTest" time="9.996" />
+  <testcase name="postDataTest" classname="com.gap.hoodies_network.JsonRequestTest" time="8.007" />
+  <testcase name="deliverErrorTest" classname="com.gap.hoodies_network.JsonRequestTest" time="0.0" />
+  <testcase name="multipleRequestTest" classname="com.gap.hoodies_network.MultiRequestTest" time="15.008" />
+  <testcase name="sendMultipleRequest" classname="com.gap.hoodies_network.MultipleRequestTest" time="6.107" />
+  <testcase name="isOnline" classname="com.gap.hoodies_network.NetworkConnectionTest" time="0.0" />
+  <testcase name="nullValuesDontCrashAndStatusCode" classname="com.gap.hoodies_network.ResponseTest" time="0.0" />
+  <testcase name="toHeaderMap" classname="com.gap.hoodies_network.ResponseTest" time="0.0" />
+  <testcase name="mapToList" classname="com.gap.hoodies_network.ResponseTest" time="0.001" />
+  <testcase name="retryRequest" classname="com.gap.hoodies_network.RetryTest" time="15.023" />
+  <testcase name="configSetTimeoutsDurationMilliSeconds" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.0" />
+  <testcase name="configSetTimeoutsDurationSeconds" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.001" />
+  <testcase name="socketConnectTimeOutTest" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.352" />
+  <testcase name="socketReadTimeOutTest" classname="com.gap.hoodies_network.SocketTimeOutTest" time="0.025" />
+  <testcase name="errorDeliverTest" classname="com.gap.hoodies_network.StringRequestTest" time="6.003" />
+  <testcase name="unSupportedExceptionTest" classname="com.gap.hoodies_network.StringRequestTest" time="0.001" />
+  <testcase name="apiMethodTest" classname="com.gap.hoodies_network.StringRequestTest" time="8.058" />
+  <testcase name="stringRequestErrorTest" classname="com.gap.hoodies_network.StringRequestTest" time="6.005" />
+  <testcase name="postDataTest" classname="com.gap.hoodies_network.StringRequestTest" time="8.014" />
+  <testcase name="stringRequestTest" classname="com.gap.hoodies_network.StringRequestTest" time="8.007" />
+  <testcase name="validateURL" classname="com.gap.hoodies_network.UrlResolverTest" time="0.001" />
+  <testcase name="resolveHttpProtocolHttpsTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="resolveHttpProtocolHttpTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="resolveUrlWithHttpTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="wrongProtocolFixed" classname="com.gap.hoodies_network.UrlResolverTest" time="0.026" />
+  <testcase name="validateUrlTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="rawIP" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="resolveUrlWithoutHttpTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="getProtocolTest" classname="com.gap.hoodies_network.UrlResolverTest" time="0.0" />
+  <testcase name="cookieFixtureHasUnchangedIdentityHashAndSchema" classname="com.gap.hoodies_network.persistence.Room242FixtureTest" time="0.101" />
+  <testcase name="cacheRowsWrittenByRoom242StayReadableAndWritable" classname="com.gap.hoodies_network.persistence.Room242FixtureTest" time="0.026" />
+  <testcase name="cacheFixtureHasUnchangedIdentityHashAndSchema" classname="com.gap.hoodies_network.persistence.Room242FixtureTest" time="0.026" />
+  <testcase name="cookieRowsWrittenByRoom242StayReadableAndWritable" classname="com.gap.hoodies_network.persistence.Room242FixtureTest" time="0.026" />
+  <testcase name="encryptedCacheRowWrittenByRoom242IsReadableAfterUpgrade" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.001">
+    <skipped />
+  </testcase>
+  <testcase name="persistentCookiesWrittenByRoom242AreReadableAfterUpgrade" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.001">
+    <skipped />
+  </testcase>
+  <testcase name="cookieJarUpgradedFromRoom242AcceptsAndReturnsNewCookies" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase name="plainCacheRowWrittenByRoom242IsReadableAfterUpgrade" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.001">
+    <skipped />
+  </testcase>
+  <testcase name="retryRequestReplacesErrorWithRetriedResult" classname="com.gap.hoodies_network.request.CancellationRetryTest" time="0.052" />
+  <testcase name="cancelRequestWithFailureReturnsThatFailure" classname="com.gap.hoodies_network.request.CancellationRetryTest" time="0.0" />
+  <testcase name="errorIsDeliveredWhenInterceptorDoesNotRetry" classname="com.gap.hoodies_network.request.CancellationRetryTest" time="0.001" />
+</testsuite>

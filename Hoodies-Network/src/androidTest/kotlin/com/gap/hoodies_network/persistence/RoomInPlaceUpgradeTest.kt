@@ -47,11 +47,16 @@ class RoomInPlaceUpgradeTest {
         val seeded = seed.getJSONObject("cookies")
         val readBackByRoom242 = seed.getJSONObject("cookiesReadBackByRoom242")
 
-        assertEquals(seeded.length(), jar.getAllCookies().size)
-        readBackByRoom242.keys().forEach { host ->
+        // On API 35 the Room 2.4.2 build's reflective Gson wrote rows it could only read back as nameless
+        // cookies; HttpCookieJsonAdapter (WS02) drops those, so only cookies it could read are expected.
+        val readableByHost = readBackByRoom242.keys().asSequence().associateWith { host ->
+            readBackByRoom242.getJSONArray(host).toNameValuePairs().filter { it.first != null }
+        }
+        assertEquals(readableByHost.values.sumOf { it.size }, jar.getAllCookies().size)
+        readableByHost.forEach { (host, readable) ->
             assertEquals(
                 "cookies for $host differ from what the Room 2.4.2 build read back",
-                readBackByRoom242.getJSONArray(host).toNameValuePairs(),
+                readable,
                 jar.getCookiesForHost(URI(host)).map { it.name to it.value },
             )
         }
