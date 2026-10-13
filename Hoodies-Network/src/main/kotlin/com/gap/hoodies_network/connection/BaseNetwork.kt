@@ -29,8 +29,15 @@ import javax.net.ssl.SSLSocketFactory
  * @throws HoodiesNetworkError on IOException,SocketTimeoutException,MalformedURLException
  *
 </T> */
-class BaseNetwork(private val mSslHost: String?, private val mSslSocketFactory: SSLSocketFactory?) :
-    Network {
+class BaseNetwork internal constructor(
+    private val mSslHost: String?,
+    private val mSslSocketFactory: SSLSocketFactory?,
+    private val inFlightRequests: InFlightRequests
+) : Network {
+
+    constructor(mSslHost: String?, mSslSocketFactory: SSLSocketFactory?) :
+        this(mSslHost, mSslSocketFactory, InFlightRequests())
+
     @Throws(HoodiesNetworkError::class)
 
     /**
@@ -54,6 +61,9 @@ class BaseNetwork(private val mSslHost: String?, private val mSslSocketFactory: 
             val requestedUrl = URL(url)
             connection = openConnection(requestedUrl)
             keepConnectionOpen = false
+            if (!inFlightRequests.attach(request, connection)) {
+                throw IOException(REQUEST_CANCELLED)
+            }
 
             //Add stored cookies
             addStoredCookiesToRequest(request, url)
@@ -63,6 +73,12 @@ class BaseNetwork(private val mSslHost: String?, private val mSslSocketFactory: 
 
             /** pass request method */
             setRequestMethod(request, connection)
+
+            /** A cancel racing connection setup cannot disconnect it, so re-check once connected */
+            connection.connect()
+            if (inFlightRequests.isCancelled(request)) {
+                throw IOException(REQUEST_CANCELLED)
+            }
 
             /** get network status code */
             responseCode = connection.responseCode
@@ -119,6 +135,7 @@ class BaseNetwork(private val mSslHost: String?, private val mSslSocketFactory: 
                 throw HoodiesNetworkError(String(responseContents), responseCode, e)
             }
         } finally {
+            connection?.let { inFlightRequests.detach(request, it) }
             if (!keepConnectionOpen) {
                 connection!!.disconnect()
             }
@@ -307,6 +324,7 @@ class BaseNetwork(private val mSslHost: String?, private val mSslSocketFactory: 
         private const val STATUS_OK = 200
         private const val STATUS_NOT_SUPPORTED = 209
         private const val MAX_BUFFER_SIZE = 1024
+        private const val REQUEST_CANCELLED = "Request cancelled"
 
         private fun convertHeaders(responseHeaders: Map<String?, List<String>>): List<Header?> {
             val headerList: MutableList<Header?> = ArrayList(responseHeaders.size)

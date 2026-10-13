@@ -32,6 +32,7 @@ It was originally designed to make network calls in Gap’s Instant Apps.
 
 === Getting Started
 
+. Make sure your app builds with JDK 17, AGP 8.x, Kotlin 2.x and `compileSdk` 35 or newer (see link:MIGRATION_NOTES.md[MIGRATION_NOTES.md]).
 . Integrate this library as a dependency in your project:
 .. Clone the project and publish it to your local Maven repository:
 ... (In Android Studio top menu) Build -> Clean Build
@@ -256,9 +257,25 @@ serverBuilder.addContext("/echodelay", handler)
 . Run your tests
 . Stop the MockWebServer: `server.stop()`
 
+=== Sample app
+
+The `:sample` module is a Jetpack Compose app with one screen each for GET, POST, image loading, caching and interceptors.
+It talks to the library's `MockWebServerManager`, running in-process on `localhost:8089`, so it needs no network access.
+
+[source,sh]
+----
+./gradlew :sample:installDebug
+adb shell am start -n com.gap.hoodies_network.sample/.MainActivity
+./gradlew :sample:connectedDebugAndroidTest
+----
+
 === More usage examples
 
-There are many more usage examples in the https://github.com/gapinc/hoodies-network/tree/main/examples[examples folder].
+There are many more usage examples in the link:examples[examples folder] and in the `:sample` module.
+
+=== Migrating
+
+If you are upgrading from 1.0.x built with the original toolchain, read link:MIGRATION_NOTES.md[MIGRATION_NOTES.md].
 
 == Running Tests
 
@@ -294,7 +311,9 @@ NOTE: A physical device or Android emulator is required to run the tests.
 
 * Since this is a Gradle project, any Android and Gradle-compatible IDE can be used.
 The recommendation is Android Studio.
-* Android Studio Bumblebee and above are supported.
+* The build uses JDK 17, Gradle 8.14.5, AGP 8.13.2 and Kotlin 2.4.20, with versions kept in `gradle/libs.versions.toml`. Use an Android Studio release that supports AGP 8.13.
+* Build the library and its instrumentation tests: `./gradlew :Hoodies-Network:assembleDebug :Hoodies-Network:assembleDebugAndroidTest`.
+* Check the public API against the committed dump: `./gradlew :Hoodies-Network:apiCheck`.
 
 == Conduct
 

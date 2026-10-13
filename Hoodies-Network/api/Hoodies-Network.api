@@ -856,3 +856,58 @@ public final class com/gap/hoodies_network/utils/NetworkHelper {
 public final class com/gap/hoodies_network/utils/NetworkHelper$Companion {
 }
 
+public class com/sun/net/httpserver/Headers : java/util/Map, kotlin/jvm/internal/markers/KMutableMap {
+	public fun <init> ()V
+	public final fun add (Ljava/lang/String;Ljava/lang/String;)V
+	public fun clear ()V
+	public final fun containsKey (Ljava/lang/Object;)Z
+	public fun containsKey (Ljava/lang/String;)Z
+	public final fun containsValue (Ljava/lang/Object;)Z
+	public fun containsValue (Ljava/util/List;)Z
+	public final fun entrySet ()Ljava/util/Set;
+	public fun equals (Ljava/lang/Object;)Z
+	public final synthetic fun get (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/Object;)Ljava/util/List;
+	public fun get (Ljava/lang/String;)Ljava/util/List;
+	public fun getEntries ()Ljava/util/Set;
+	public final fun getFirst (Ljava/lang/String;)Ljava/lang/String;
+	public fun getKeys ()Ljava/util/Set;
+	public fun getSize ()I
+	public fun getValues ()Ljava/util/Collection;
+	public fun hashCode ()I
+	public fun isEmpty ()Z
+	public final fun keySet ()Ljava/util/Set;
+	public synthetic fun put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public fun put (Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
+	public fun putAll (Ljava/util/Map;)V
+	public final synthetic fun remove (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun remove (Ljava/lang/Object;)Ljava/util/List;
+	public fun remove (Ljava/lang/String;)Ljava/util/List;
+	public final fun set (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun size ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun values ()Ljava/util/Collection;
+}
+
+public abstract class com/sun/net/httpserver/HttpExchange : java/lang/AutoCloseable {
+	protected fun <init> ()V
+	public abstract fun close ()V
+	public abstract fun getAttribute (Ljava/lang/String;)Ljava/lang/Object;
+	public abstract fun getLocalAddress ()Ljava/net/InetSocketAddress;
+	public abstract fun getProtocol ()Ljava/lang/String;
+	public abstract fun getRemoteAddress ()Ljava/net/InetSocketAddress;
+	public abstract fun getRequestBody ()Ljava/io/InputStream;
+	public abstract fun getRequestHeaders ()Lcom/sun/net/httpserver/Headers;
+	public abstract fun getRequestMethod ()Ljava/lang/String;
+	public abstract fun getRequestURI ()Ljava/net/URI;
+	public abstract fun getResponseBody ()Ljava/io/OutputStream;
+	public abstract fun getResponseCode ()I
+	public abstract fun getResponseHeaders ()Lcom/sun/net/httpserver/Headers;
+	public abstract fun sendResponseHeaders (IJ)V
+	public abstract fun setAttribute (Ljava/lang/String;Ljava/lang/Object;)V
+}
+
+public abstract interface class com/sun/net/httpserver/HttpHandler {
+	public abstract fun handle (Lcom/sun/net/httpserver/HttpExchange;)V
+}
+

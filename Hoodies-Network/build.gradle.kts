@@ -7,8 +7,8 @@ plugins {
     `maven-publish`
     alias(libs.plugins.dokka)
     jacoco
-    alias(libs.plugins.git.publish)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room)
 }
 apply(from = "../jacoco.gradle")
 
@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         minSdk = 28
-        targetSdk = 32
+        targetSdk = 35
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -53,6 +53,26 @@ android {
         unitTests.all {
             it.finalizedBy("jacocoTestReport")
         }
+        managedDevices {
+            localDevices {
+                create("api28") {
+                    device = "Pixel 2"
+                    apiLevel = 28
+                    systemImageSource = "google"
+                }
+                create("api35") {
+                    device = "Pixel 2"
+                    apiLevel = 35
+                    systemImageSource = "google"
+                }
+            }
+            groups {
+                create("ciDevices") {
+                    targetDevices.add(localDevices["api28"])
+                    targetDevices.add(localDevices["api35"])
+                }
+            }
+        }
     }
 
     sourceSets {
@@ -65,10 +85,21 @@ android {
         buildConfig = true
     }
 
-    lint {
-        sarifReport = true
-        baseline = file("lint-baseline.xml")
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
     }
+
+    lint {
+        targetSdk = 35
+        sarifReport = true
+    }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
+    generateKotlin = false
 }
 
 kotlin {
@@ -95,24 +126,12 @@ tasks.withType<Test>().configureEach {
 
 publishing {
     publications {
-        create<MavenPublication>("aar") {
+        register<MavenPublication>("aar") {
             groupId = moduleGroupId
             version = versionName
             artifactId = moduleArtifactId
             afterEvaluate {
-                artifact(tasks.named("bundleReleaseAar"))
-            }
-            // generate pom nodes for dependencies
-            pom.withXml {
-                val dependenciesNode = asNode().appendNode("dependencies")
-                configurations["implementation"].allDependencies.forEach { dependency ->
-                    if (dependency.name != "unspecified") {
-                        val dependencyNode = dependenciesNode.appendNode("dependency")
-                        dependencyNode.appendNode("groupId", dependency.group)
-                        dependencyNode.appendNode("artifactId", dependency.name)
-                        dependencyNode.appendNode("version", dependency.version)
-                    }
-                }
+                from(components["release"])
             }
         }
     }
@@ -134,20 +153,33 @@ dependencies {
     implementation(libs.material)
     implementation(libs.kotlinx.coroutines.android)
     api(libs.gson)
-    implementation(files("libs/http-2.2.1.jar"))
-    implementation(files("libs/sun-common-server.jar"))
+    implementation(libs.okhttp.mockwebserver3)
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockito.core)
+    testRuntimeOnly(platform(libs.junit.bom))
+    testRuntimeOnly(libs.junit.vintage.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
+    androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.mockito.android)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
     implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.compiler)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
+    androidTestImplementation(libs.androidx.room.testing)
 }
 
-tasks.named<org.jetbrains.dokka.gradle.DokkaTask>("dokkaJavadoc") {
-    outputDirectory.set(file("${rootDir}/dokka"))
+dokka {
+    moduleName.set("Hoodies-Network")
+}
+
+tasks.register("dokkaHtml") {
+    group = "documentation"
+    description = "Generates the HTML API reference into build/dokka/html."
+    dependsOn("dokkaGeneratePublicationHtml")
 }
 
 configurations.all {

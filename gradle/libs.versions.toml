@@ -1,44 +1,75 @@
 [versions]
 agp = "8.13.2"
 kotlin = "2.4.20"
-dokka = "1.9.20"
-grgit = "5.3.3"
-gitPublish = "5.1.3"
+dokka = "2.2.0"
 bcv = "0.18.2"
 jacoco = "0.8.14"
 coreKtx = "1.6.0"
 appcompat = "1.3.1"
 material = "1.4.0"
-coroutines = "1.3.9"
-gson = "2.8.8"
-room = "2.4.2"
-junit = "4.12"
-androidxTestCore = "1.4.0"
-androidxTestExtJunit = "1.1.3"
-espresso = "3.4.0"
-mockitoAndroid = "4.8.0"
-objenesis = "2.6"
+coroutines = "1.11.0"
+gson = "2.14.0"
+room = "2.8.5"
+ksp = "2.3.12"
+junit = "4.13.2"
+junitPlatform = "5.14.4"
+androidxTestCore = "1.7.0"
+androidxTestRunner = "1.7.0"
+androidxTestRules = "1.7.0"
+androidxTestExtJunit = "1.3.0"
+espresso = "3.7.0"
+mockito = "5.24.0"
+objenesis = "3.3"
+# okhttp 5.4+ requires compileSdk 36+ (5.5.0: 37); stay on 5.3.2 until compileSdk is raised
+#noinspection GradleDependency
+mockwebserver3 = "5.3.2"
+# Newer Compose BOM (2026.08.00+), activity-compose (1.11.0+) and lifecycle (2.11.0+) releases require
+# AGP 9.1 and/or compileSdk 36+, which the AGP 8.x / compileSdk 35 foundation cannot consume.
+#noinspection GradleDependency
+composeBom = "2026.06.01"
+#noinspection GradleDependency
+activityCompose = "1.10.1"
+#noinspection GradleDependency
+lifecycleCompose = "2.10.0"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
 junit = { module = "junit:junit", version.ref = "junit" }
 androidx-test-core = { module = "androidx.test:core", version.ref = "androidxTestCore" }
 androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "androidxTestExtJunit" }
 androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
-mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockitoAndroid" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
+androidx-test-rules = { module = "androidx.test:rules", version.ref = "androidxTestRules" }
+mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockito" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+junit-vintage-engine = { module = "org.junit.vintage:junit-vintage-engine", version.ref = "junitPlatform" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junitPlatform" }
 objenesis = { module = "org.objenesis:objenesis", version.ref = "objenesis" }
+okhttp-mockwebserver3 = { module = "com.squareup.okhttp3:mockwebserver3", version.ref = "mockwebserver3" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleCompose" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleCompose" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-room = { id = "androidx.room", version.ref = "room" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-grgit = { id = "org.ajoberstar.grgit", version.ref = "grgit" }
-git-publish = { id = "org.ajoberstar.git-publish", version.ref = "gitPublish" }
 binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "bcv" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

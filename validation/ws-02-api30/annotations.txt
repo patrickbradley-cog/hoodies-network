@@ -1,0 +1,1 @@
+[ws-02-api30] RESULT gradle_exit=1 tests=252 failed=2 skipped=0

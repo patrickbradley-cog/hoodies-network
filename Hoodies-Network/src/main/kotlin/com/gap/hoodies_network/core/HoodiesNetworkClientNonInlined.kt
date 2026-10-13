@@ -21,8 +21,11 @@ import com.gap.hoodies_network.request.query.UrlQueryParamEncodedRequest
 import com.gap.hoodies_network.request.query.UrlQueryParamRequest
 import com.gap.hoodies_network.request.CancellableMutableRequest
 import com.gap.hoodies_network.request.RetryableCancellableMutableRequest
+import com.gap.hoodies_network.serialization.GsonSerializer
+import com.gap.hoodies_network.serialization.SerializationException
+import com.gap.hoodies_network.serialization.Serializer
+import com.gap.hoodies_network.serialization.Serializers
 import com.google.gson.Gson
-import com.google.gson.JsonSyntaxException
 import kotlinx.coroutines.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -39,7 +42,10 @@ import kotlin.coroutines.resume
 class HoodiesNetworkClientNonInlined(
     builder: HoodiesNetworkClient.Builder
 ) {
-    private val requestQueue = RequestQueue.instance
+    private val requestQueue = builder.requestQueue ?: RequestQueue.instance
+    private val scope = CoroutineScope(
+        SupervisorJob() + builder.dispatchers.io + CoroutineName("HoodiesNetworkClient")
+    )
     private val retryRequests = LinkedHashMap<String, Request<Any>>()
     private val retryAttempts = LinkedHashMap<String, Int>()
 
@@ -66,6 +72,8 @@ class HoodiesNetworkClientNonInlined(
 
     @PublishedApi
     internal val gson = Gson()
+
+    private val serializer: Serializer = Serializers.default
 
     /**
      * GET method
@@ -705,7 +713,7 @@ class HoodiesNetworkClientNonInlined(
         if (request.requestIsCancelled && continuation != null) {
             continuation.resume(request.cancellationResult!!)
         } else {
-            CoroutineScope(Dispatchers.IO).launch {
+            val job = scope.launch {
                 //If cache is enabled, set up cache for this operation
                 request.cache = EncryptedCache(
                     if (cacheConfiguration is CacheEnabled) {
@@ -725,6 +733,11 @@ class HoodiesNetworkClientNonInlined(
                 //If we didn't get cached data and return, enqueue network request
                 requestQueue?.enqueue(request)
                 retryRequests[identifier] = request
+                if (continuation?.isCancelled == true) forgetRequest(identifier, request)
+            }
+            continuation?.invokeOnCancellation {
+                job.cancel()
+                forgetRequest(identifier, request)
             }
         }
     }
@@ -834,7 +847,7 @@ class HoodiesNetworkClientNonInlined(
             validateUrl(baseUrl).plus(api),
             method.value,
             body,
-            { successCallback(identifier, gson, continuation, resultType).invoke(it) },
+            { successCallback(identifier, serializer, continuation, resultType).invoke(it) },
             { failureCallback(identifier, continuation).invoke(it); },
             EncryptedCache(),
             cookieManager
@@ -897,7 +910,7 @@ class HoodiesNetworkClientNonInlined(
         continuation: CancellableContinuation<Result<*, HoodiesNetworkError>>,
         resultType: Type
     ): StringRequest {
-        val body: String = if (requestBody != null) gson.toJson(requestBody) else ""
+        val body: String = if (requestBody != null) serializer.toJson(requestBody) else ""
         Log.d("requestBody", body)
         Log.d("requestUrl", validateUrl(baseUrl).plus(api))
 
@@ -911,7 +924,7 @@ class HoodiesNetworkClientNonInlined(
             validateUrl(baseUrl).plus(api),
             method.value,
             body,
-            { successCallback(identifier, gson, continuation, resultType).invoke(it) },
+            { successCallback(identifier, serializer, continuation, resultType).invoke(it) },
             { failureCallback(identifier, continuation).invoke(it); },
             EncryptedCache(),
             cookieManager
@@ -1019,7 +1032,7 @@ class HoodiesNetworkClientNonInlined(
             files,
             multipartBoundary,
             HoodiesNetworkClient.HttpMethod.POST,
-            { successCallback(identifier, gson, continuation, resultType).invoke(it) },
+            { successCallback(identifier, serializer, continuation, resultType).invoke(it) },
             { failureCallback(identifier, continuation).invoke(it); },
             cookieManager
         )
@@ -1044,7 +1057,7 @@ class HoodiesNetworkClientNonInlined(
             validateUrl(baseUrl).plus(api),
             method.value,
             requestBody,
-            { successCallback(identifier, gson, continuation, resultType).invoke(it) },
+            { successCallback(identifier, serializer, continuation, resultType).invoke(it) },
             { failureCallback(identifier, continuation).invoke(it); },
             EncryptedCache(),
             cookieManager
@@ -1072,7 +1085,7 @@ class HoodiesNetworkClientNonInlined(
             validateUrl(baseUrl).plus(api),
             method.value,
             requestBody,
-            { successCallback(identifier, gson, continuation, resultType).invoke(it) },
+            { successCallback(identifier, serializer, continuation, resultType).invoke(it) },
             { failureCallback(identifier, continuation).invoke(it); },
             EncryptedCache(),
             cookieManager
@@ -1090,6 +1103,13 @@ class HoodiesNetworkClientNonInlined(
         gson: Gson,
         continuation: CancellableContinuation<Result<*, HoodiesNetworkError>>,
         resultType: Type
+    ): (Response<Any>?) -> Unit = successCallback(identifier, GsonSerializer(gson), continuation, resultType)
+
+    private fun successCallback(
+        identifier: String,
+        serializer: Serializer,
+        continuation: CancellableContinuation<Result<*, HoodiesNetworkError>>,
+        resultType: Type
     ): (Response<Any>?) -> Unit {
         return {
             try {
@@ -1099,14 +1119,14 @@ class HoodiesNetworkClientNonInlined(
                 } else if (resultType.typeName == "java.lang.Object" || resultType.typeName == "java.lang.String") {
                     deliverSuccess(identifier, it?.result.toString(), continuation, it)
                 } else {
-                    val objectType: Any = gson.fromJson(
+                    val objectType: Any = serializer.fromJson<Any>(
                         it?.result.toString(),
                         resultType
-                    )
+                    ) ?: throw NullPointerException("fromJson(...) must not be null")
 
                     deliverSuccess(identifier, objectType, continuation, it)
                 }
-            } catch (error: JsonSyntaxException) {
+            } catch (error: SerializationException) {
                 Log.d("error", it.toString())
                 safeResume(
                     identifier,
@@ -1270,7 +1290,7 @@ class HoodiesNetworkClientNonInlined(
             method.value,
             UrlResolver.getProtocol(baseUrl),
             queryParams,
-            { successCallback(identifier, gson, continuation, resultType).invoke(it) },
+            { successCallback(identifier, serializer, continuation, resultType).invoke(it) },
             { failureCallback(identifier, continuation).invoke(it); },
             EncryptedCache(),
             cookieManager
@@ -1299,7 +1319,7 @@ class HoodiesNetworkClientNonInlined(
             method.value,
             UrlResolver.getProtocol(baseUrl),
             queryParams,
-            { successCallback(identifier, gson, continuation, resultType).invoke(it) },
+            { successCallback(identifier, serializer, continuation, resultType).invoke(it) },
             { failureCallback(identifier, continuation).invoke(it); },
             EncryptedCache(),
             cookieManager
@@ -1318,6 +1338,12 @@ class HoodiesNetworkClientNonInlined(
     ): Boolean {
         return (retryOnConnectionFailure &&
                 (error.cause is SocketException || error.cause is SocketTimeoutException || error.cause is IOException))
+    }
+
+    private fun forgetRequest(identifier: String, request: Request<Any>) {
+        requestQueue?.cancel(request)
+        removeRequestFromQueue(identifier)
+        removeRequestFromRetry(identifier)
     }
 
     private fun removeRequestFromQueue(identifier: String) =

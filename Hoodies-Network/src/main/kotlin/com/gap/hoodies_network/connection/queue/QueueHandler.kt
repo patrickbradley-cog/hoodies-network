@@ -8,11 +8,14 @@ import java.util.concurrent.BlockingQueue
 /**
  * QueueHandler class processes Requests in queue
  *
+ * Kept for binary compatibility only: [RequestQueue] now runs its workers as coroutines.
+ *
  * @param queue
  * @param networkHandler
  * @param network
  *
  */
+@Deprecated("RequestQueue no longer uses QueueHandler threads; its workers are coroutines.")
 class QueueHandler internal constructor(
     queue: BlockingQueue<Request<Any>>,
     networkHandler: NetworkHandler,

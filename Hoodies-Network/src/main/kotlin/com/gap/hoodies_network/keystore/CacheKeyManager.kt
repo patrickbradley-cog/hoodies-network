@@ -2,69 +2,71 @@ package com.gap.hoodies_network.keystore
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
+import androidx.annotation.VisibleForTesting
 import java.security.KeyStore
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 
-
+/**
+ * Owns the AES key that encrypts the response cache and the persistent cookie store.
+ *
+ * The key lives in the AndroidKeyStore under a fixed alias, is non-exportable, and is created on first use.
+ * Changing the alias or deleting the key makes every previously encrypted row unreadable.
+ */
 class CacheKeyManager {
     companion object {
-        //This is our key alias
-        private const val keyAlias = "HoodiesNetworkCacheKey"
+        internal const val KEY_ALIAS = "HoodiesNetworkCacheKey"
+        internal const val KEY_SIZE_BITS = 256
+        private const val ANDROID_KEYSTORE = "AndroidKeyStore"
 
-        //This is our key
         private var key: SecretKey? = null
 
         /**
-         * If our key has been cached, returns it immediately
-         * Otherwise, checks if a key has been generated and generates new one if necessary
-         * Then, fetches key, caches, and returns it
+         * Returns the cache key, generating it in the AndroidKeyStore if it does not exist yet.
+         * The key is cached in memory after the first call.
          */
         @Synchronized
-        fun getKey() : SecretKey {
-            if (key != null)
-                return key!!
+        fun getKey(): SecretKey {
+            key?.let { return it }
 
-            if (!doesKeyExist())
+            val keystore = loadKeyStore()
+            if (!keystore.containsAlias(KEY_ALIAS))
                 generateNewKey()
 
-            //Create keystore instance
-            val keystore = KeyStore.getInstance("AndroidKeyStore")
-            keystore.load(null)
-
-            //Otherwise, let's fetch the existing key
-            println("HoodiesNetworkCache fetching existing key from KeyStore")
-            val secretKeyEntry = keystore.getEntry(keyAlias, null) as KeyStore.SecretKeyEntry
-            key = secretKeyEntry.secretKey
-            return key!!
+            val secretKey = keystore.getKey(KEY_ALIAS, null) as SecretKey
+            key = secretKey
+            return secretKey
         }
 
         /**
-         * Create keystore instance and check if key exists
+         * Drops the in-memory copy so the next [getKey] reads the AndroidKeyStore again.
          */
+        @VisibleForTesting
         @Synchronized
-        private fun doesKeyExist() : Boolean {
-            println("HoodiesNetworkCache checking if encryption key exists")
-            val keystore = KeyStore.getInstance("AndroidKeyStore")
-            keystore.load(null)
-            return keystore.containsAlias(keyAlias)
+        internal fun clearCachedKey() {
+            key = null
         }
 
+        private fun loadKeyStore(): KeyStore =
+            KeyStore.getInstance(ANDROID_KEYSTORE).apply { load(null) }
+
         /**
-         * Generate a new key and store in KeyStore
+         * Generates the AES-256-GCM key.
+         *
+         * Randomized encryption stays disabled because callers supply their own 12-byte IV
+         * (see [com.gap.hoodies_network.crypto.AesGcm.genIV]); keys created before the key size was set explicitly
+         * used the platform default and remain valid.
          */
-        @Synchronized
         private fun generateNewKey() {
-            println("HoodiesNetworkCache generating new encryption key and putting into KeyStore")
-            val keyGenerator = KeyGenerator
-                .getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
+            val keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, ANDROID_KEYSTORE)
             val keyGenParameterSpec = KeyGenParameterSpec.Builder(
-                keyAlias,
+                KEY_ALIAS,
                 KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
             )
+                .setKeySize(KEY_SIZE_BITS)
                 .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
                 .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-                .setRandomizedEncryptionRequired(false) //We need this so we can provide our own IV
+                .setRandomizedEncryptionRequired(false)
                 .build()
 
             keyGenerator.init(keyGenParameterSpec)

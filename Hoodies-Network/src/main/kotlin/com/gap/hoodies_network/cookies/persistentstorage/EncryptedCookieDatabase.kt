@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.gap.hoodies_network.utils.Generated
 
 @Generated
-@Database(entities = [EncryptedCookie::class], version = 1, exportSchema = false)
+@Database(entities = [EncryptedCookie::class], version = 1, exportSchema = true)
 abstract class EncryptedCookieDatabase : RoomDatabase() {
     abstract fun encryptedCookieDao(): EncryptedCookieDao
 }

@@ -24,7 +24,7 @@ interface EncryptedCookieDao {
     fun deleteByHash(hash: Int): Int
 
     @Query("SELECT DISTINCT host FROM encryptedcookie")
-    fun getAllHosts(): List<String>
+    fun getAllHosts(): List<String?>
 
     @Insert
     fun insert(vararg encryptedcookie: EncryptedCookie)

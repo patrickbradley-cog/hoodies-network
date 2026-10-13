@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.gap.hoodies_network.utils.Generated
 
 @Generated
-@Database(entities = [CachedData::class], version = 1, exportSchema = false)
+@Database(entities = [CachedData::class], version = 1, exportSchema = true)
 abstract class CacheDatabase : RoomDatabase() {
     abstract fun cacheDao(): CacheDao
 }

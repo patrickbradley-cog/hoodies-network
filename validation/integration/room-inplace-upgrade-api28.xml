@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" tests="4" failures="0" errors="0" skipped="0" time="0.979" timestamp="2026-10-13T13:47:19" hostname="localhost">
+  <properties>
+    <property name="device" value="api28(AVD) - 9" />
+    <property name="flavor" value="" />
+    <property name="project" value=":Hoodies-Network" />
+  </properties>
+  <testcase name="encryptedCacheRowWrittenByRoom242IsReadableAfterUpgrade" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.188" />
+  <testcase name="persistentCookiesWrittenByRoom242AreReadableAfterUpgrade" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.103" />
+  <testcase name="cookieJarUpgradedFromRoom242AcceptsAndReturnsNewCookies" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.102" />
+  <testcase name="plainCacheRowWrittenByRoom242IsReadableAfterUpgrade" classname="com.gap.hoodies_network.persistence.RoomInPlaceUpgradeTest" time="0.026" />
+</testsuite>

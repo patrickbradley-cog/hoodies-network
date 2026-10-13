@@ -8,25 +8,27 @@ import android.graphics.BitmapFactory
 import android.util.Log
 import android.widget.ImageView.ScaleType
 import com.gap.hoodies_network.cache.EncryptedCache
-import com.gap.hoodies_network.core.*
+import com.gap.hoodies_network.connection.queue.RequestQueue
 import com.gap.hoodies_network.core.HoodiesNetworkError
 import com.gap.hoodies_network.core.OUT_OF_MEMORY_ERROR_CODE
-import com.gap.hoodies_network.connection.queue.RequestQueue
+import com.gap.hoodies_network.core.Response
 import java.net.CookieManager
 import kotlin.math.min
 
 
 /**
- * ImageRequest class handles image request
+ * `GET` request whose response body is decoded into a [Bitmap], optionally down-sampled and scaled
+ * to fit [maxWidth] x [maxHeight].
  *
- * @param url can be null
- * @param maxWidth
- * @param maxHeight
- * @param scaleType
- * @param decodeConfig
- * @param listener
- * @param errorListener
- *
+ * @param url absolute URL of the image; must not be `null`.
+ * @param maxWidth maximum width of the decoded bitmap, or `0` for no limit.
+ * @param maxHeight maximum height of the decoded bitmap, or `0` for no limit.
+ * @param scaleType how the image is fitted into the maximum bounds.
+ * @param decodeConfig bitmap configuration used to decode the image.
+ * @param listener listener receiving the decoded bitmap.
+ * @param errorListener listener receiving errors, or `null`.
+ * @param encryptedCache cache used for this request.
+ * @param cookieManager cookie manager, or `null`.
  */
 class ImageRequest(
     url: String?,
@@ -52,6 +54,7 @@ class ImageRequest(
     private var cachingEnabled = false
     private lateinit var context: Context
 
+    /** Creates an image request that fits the image with [ScaleType.CENTER_INSIDE]. */
     constructor(
         url: String?,
         maxWidth: Int,
@@ -73,6 +76,12 @@ class ImageRequest(
         cookieManager
     )
 
+    /**
+     * Decodes the response body into a bitmap and stores it with [Response.setBitmap]. Decoding is
+     * serialized across all image requests to bound memory usage.
+     *
+     * @throws HoodiesNetworkError with [OUT_OF_MEMORY_ERROR_CODE] when the bitmap cannot be allocated.
+     */
     @Throws(HoodiesNetworkError::class)
     override fun parseNetworkResponse(response: Response<Any>?): Response<Any>? {
         synchronized(sDecodeLock) {
@@ -85,6 +94,7 @@ class ImageRequest(
         }
     }
 
+    /** Passes the decoded bitmap of a non-`null` [response] to the bitmap listener. */
     override fun deliverResponse(response: Response<Any>?) {
         if (response != null) {
             bitmapResponseListener.onResponse(response.getBitmap())
@@ -99,6 +109,16 @@ class ImageRequest(
         return response
     }
 
+    /**
+     * Computes one target dimension of the decoded bitmap.
+     *
+     * @param maxPrimary maximum size of the computed dimension, or `0` for no limit.
+     * @param maxSecondary maximum size of the other dimension, or `0` for no limit.
+     * @param actualPrimary actual size of the computed dimension.
+     * @param actualSecondary actual size of the other dimension.
+     * @param scaleType how the image is fitted into the maximum bounds.
+     * @return the target size of the primary dimension.
+     */
     fun getResizedDimension(
         maxPrimary: Int,
         maxSecondary: Int,
@@ -116,11 +136,10 @@ class ImageRequest(
     }
 
     /**
-     * process image request
+     * Enqueues [request] on [requestQueue].
      *
-     * @param requestQueue
-     * @param request
-     *
+     * @param requestQueue queue that executes the request.
+     * @param request the request to enqueue.
      */
     fun processRequest(requestQueue: RequestQueue, request: ImageRequest) {
         requestQueue.enqueue(request as Request<Any>)
@@ -179,6 +198,13 @@ class ImageRequest(
         return resizedBitmap
     }
 
+    /**
+     * Computes the target size of the primary dimension for scale types other than
+     * [ScaleType.FIT_XY], preserving the aspect ratio when only one bound is given.
+     *
+     * @return the target size of the primary dimension.
+     * @see getResizedDimension
+     */
     fun getResizedValue(
         maxPrimary: Int,
         maxSecondary: Int,
@@ -201,6 +227,13 @@ class ImageRequest(
         )
     }
 
+    /**
+     * Computes the target size of the primary dimension when both bounds are given, preserving the
+     * aspect ratio. [ScaleType.CENTER_CROP] fills the bounds; other scale types fit inside them.
+     *
+     * @return the target size of the primary dimension.
+     * @see getResizedDimension
+     */
     fun getResizeValueWithSpecifiedHW(
         maxPrimary: Int,
         maxSecondary: Int,
@@ -224,8 +257,16 @@ class ImageRequest(
         return resized
     }
 
+    /** Decoding helpers shared by all [ImageRequest]s. */
     companion object {
         private val sDecodeLock = Any()
+
+        /**
+         * Returns the largest power-of-two sample size that keeps the decoded image at least as
+         * large as the desired size.
+         *
+         * @return a value suitable for [BitmapFactory.Options.inSampleSize].
+         */
         fun findBestSampleSize(
             actualWidth: Int, actualHeight: Int, desiredWidth: Int, desiredHeight: Int
         ): Int {

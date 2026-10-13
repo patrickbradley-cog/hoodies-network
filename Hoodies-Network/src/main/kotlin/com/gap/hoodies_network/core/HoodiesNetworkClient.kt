@@ -7,6 +7,7 @@ import android.widget.ImageView
 import com.gap.hoodies_network.cache.configuration.CacheConfiguration
 import com.gap.hoodies_network.cache.configuration.CacheDisabled
 import com.gap.hoodies_network.config.*
+import com.gap.hoodies_network.connection.queue.RequestQueue
 import com.gap.hoodies_network.cookies.CookieJar
 import com.gap.hoodies_network.interceptor.EncryptionDecryptionInterceptor
 import com.gap.hoodies_network.interceptor.Interceptor
@@ -448,6 +449,16 @@ class HoodiesNetworkClient(
         internal var retryOnConnectionFailure: Boolean = false
         internal var maxRetryAttempts: RetryCount = RetryCount.RETRY_NEVER
         internal var cookieManager: CookieManager? = null
+        internal var dispatchers: HoodiesDispatchers = HoodiesDispatchers()
+        internal var requestQueue: RequestQueue? = null
+
+        internal fun dispatchers(dispatchers: HoodiesDispatchers) = apply {
+            this.dispatchers = dispatchers
+        }
+
+        internal fun requestQueue(requestQueue: RequestQueue) = apply {
+            this.requestQueue = requestQueue
+        }
 
         fun baseUrl(baseUrl: String) = apply {
             this.baseUrl = baseUrl
