@@ -1,6 +1,8 @@
 package com.gap.hoodies_network.cookies.persistentstorage
 
+import android.content.ContentValues
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import androidx.room.Room
 import com.gap.hoodies_network.cache.EncryptedCache
 import com.gap.hoodies_network.keystore.CacheKeyManager
@@ -50,6 +52,8 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
     }
 
     fun getAllHosts() : List<URI> {
+        //Purge expired cookies first so hosts without live cookies aren't listed
+        getAll()
         return db.getAllHosts().map{ URI(it) }.toList()
     }
 
@@ -63,12 +67,7 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
             if (cookie.maxAge == 0L || cookie.hasExpired())
                 return@Runnable
 
-            var iv = EncryptedCache.genIV()
-
-            //Make sure the IV is unique
-            while (db.getByIv(Base64.getEncoder().encodeToString(iv)).isNotEmpty())
-                iv = EncryptedCache.genIV()
-
+            val iv = uniqueIv()
             val cookieJson = toJson(cookie, System.currentTimeMillis()).toString().encodeToByteArray()
             val encryptedCookieJson = Base64.getEncoder().encodeToString(runAES(cookieJson, iv, Cipher.ENCRYPT_MODE, hostKey))
 
@@ -106,17 +105,42 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
         rows.forEach { writableDb.delete("encryptedcookie", "id = ?", arrayOf(it.id)) }
     }
 
+    private fun uniqueIv() : ByteArray {
+        var iv = EncryptedCache.genIV()
+
+        //Make sure the IV is unique
+        while (db.getByIv(Base64.getEncoder().encodeToString(iv)).isNotEmpty())
+            iv = EncryptedCache.genIV()
+
+        return iv
+    }
+
+    /** Re-encrypts a legacy row in place, bound to its current host and in the current format */
+    private fun bindLegacyRow(row: EncryptedCookie, host: String, legacy: JSONObject) {
+        val expiresAt = legacy.expiresAt()
+        legacy.put(FORMAT, FORMAT_VERSION).put("expiresAt", expiresAt)
+
+        val iv = uniqueIv()
+        val values = ContentValues().apply {
+            put("cookie", Base64.getEncoder().encodeToString(runAES(legacy.toString().encodeToByteArray(), iv, Cipher.ENCRYPT_MODE, host)))
+            put("iv", Base64.getEncoder().encodeToString(iv))
+        }
+        database.openHelper.writableDatabase.update("encryptedcookie", SQLiteDatabase.CONFLICT_NONE, values, "id = ?", arrayOf(row.id))
+    }
+
     private fun readRow(row: EncryptedCookie) : JSONObject? {
         return try {
             val iv = Base64.getDecoder().decode(row.iv ?: return null)
             val encrypted = Base64.getDecoder().decode(row.cookie ?: return null)
+            val host = row.host ?: return null
             try {
-                JSONObject(runAES(encrypted, iv, Cipher.DECRYPT_MODE, row.host ?: return null).decodeToString())
+                JSONObject(runAES(encrypted, iv, Cipher.DECRYPT_MODE, host).decodeToString()).takeIf { it.has("name") }
             } catch (e: AEADBadTagException) {
-                //Rows written before host binding was added: no AAD and no format marker
+                //Rows written before host binding was added (no AAD, no format marker) are bound to their host on first read
                 JSONObject(EncryptedCache.runAES(encrypted, iv, Cipher.DECRYPT_MODE).decodeToString())
-                    .takeUnless { it.has(FORMAT) }
-            }?.takeIf { it.has("name") }
+                    .takeIf { !it.has(FORMAT) && it.has("name") }
+                    ?.also { bindLegacyRow(row, host, it) }
+            }
         } catch (e: AEADBadTagException) {
             null
         } catch (e: JSONException) {
@@ -139,18 +163,18 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
 
     data class CookieAndId(val cookie: HttpCookie, val id: Int)
 
-    private data class CookieIdentity(val name: String, val domain: String, val path: String) {
+    private data class CookieIdentity(val name: String, val domain: String?, val path: String?) {
         companion object {
             fun of(cookie: HttpCookie) = CookieIdentity(
                 cookie.name.lowercase(Locale.ROOT),
-                cookie.domain?.lowercase(Locale.ROOT) ?: "",
-                cookie.path ?: ""
+                cookie.domain?.lowercase(Locale.ROOT),
+                cookie.path
             )
 
             fun of(json: JSONObject) = CookieIdentity(
                 json.getString("name").lowercase(Locale.ROOT),
-                json.stringOrNull("domain")?.lowercase(Locale.ROOT) ?: "",
-                json.stringOrNull("path") ?: ""
+                json.stringOrNull("domain")?.lowercase(Locale.ROOT),
+                json.stringOrNull("path")
             )
         }
     }
@@ -170,14 +194,18 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
             .put("secure", cookie.secure)
             .put("httpOnly", cookie.isHttpOnly)
             .put("version", cookie.version)
-            .put("expiresAt", if (cookie.maxAge < 0) null else now + cookie.maxAge * 1000)
+            .put("expiresAt", if (cookie.maxAge < 0) null else expiry(now, cookie.maxAge))
 
         /** Absolute expiry in epoch millis, or null for a session cookie */
         fun JSONObject.expiresAt() : Long? = when {
             has("expiresAt") -> getLong("expiresAt")
             has(FORMAT) || optLong("maxAge", -1) < 0 -> null
-            else -> optLong("whenCreated") + optLong("maxAge") * 1000
+            else -> expiry(optLong("whenCreated"), optLong("maxAge"))
         }
+
+        /** [from] + [maxAgeSeconds], saturating instead of overflowing */
+        fun expiry(from: Long, maxAgeSeconds: Long) : Long =
+            if (maxAgeSeconds >= (Long.MAX_VALUE - from) / 1000) Long.MAX_VALUE else from + maxAgeSeconds * 1000
 
         fun JSONObject.hasExpired(now: Long) : Boolean = expiresAt()?.let { it <= now } ?: false
 
@@ -194,7 +222,7 @@ class EncryptedDaoWrapperForCookies(instanceName: String, context: Context) {
                     secure = optBoolean("secure")
                     isHttpOnly = optBoolean("httpOnly")
                     version = optInt("version", 1)
-                    maxAge = if (expiresAt == null) -1 else (expiresAt - now + 999) / 1000
+                    maxAge = if (expiresAt == null) -1 else (expiresAt - now - 1) / 1000 + 1
                 }
             } catch (e: IllegalArgumentException) {
                 null

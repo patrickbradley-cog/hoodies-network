@@ -30,22 +30,20 @@
 > Task :Hoodies-Network:prepareLintJarForPublish UP-TO-DATE
 > Task :Hoodies-Network:processDebugManifest UP-TO-DATE
 > Task :Hoodies-Network:processDebugJavaRes UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugJavaResource UP-TO-DATE
+> Task :Hoodies-Network:syncDebugLibJars
 > Task :Hoodies-Network:writeDebugAarMetadata UP-TO-DATE
+> Task :Hoodies-Network:bundleDebugAar
+> Task :Hoodies-Network:assembleDebug
+> Task :Hoodies-Network:bundleDebugLocalLintAar
 > Task :Hoodies-Network:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :Hoodies-Network:createFullJarDebug
 > Task :Hoodies-Network:preDebugAndroidTestBuild UP-TO-DATE
 > Task :Hoodies-Network:generateDebugAndroidTestResValues UP-TO-DATE
-> Task :Hoodies-Network:writeDebugLintModelMetadata
-> Task :Hoodies-Network:mergeDebugJavaResource
-> Task :Hoodies-Network:extractProguardFiles
-> Task :Hoodies-Network:syncDebugLibJars
-> Task :Hoodies-Network:bundleDebugAar
-> Task :Hoodies-Network:assembleDebug
-> Task :Hoodies-Network:bundleDebugLocalLintAar
+> Task :Hoodies-Network:writeDebugLintModelMetadata UP-TO-DATE
+> Task :Hoodies-Network:extractProguardFiles UP-TO-DATE
 > Task :Hoodies-Network:generateDebugLintReportModel
-> Task :Hoodies-Network:generateDebugAndroidTestLintModel
 > Task :Hoodies-Network:preDebugUnitTestBuild UP-TO-DATE
-> Task :Hoodies-Network:generateDebugUnitTestLintModel
 > Task :Hoodies-Network:preReleaseBuild UP-TO-DATE
 > Task :Hoodies-Network:generateReleaseBuildConfig UP-TO-DATE
 > Task :Hoodies-Network:generateReleaseResValues UP-TO-DATE
@@ -54,6 +52,8 @@
 > Task :Hoodies-Network:processReleaseNavigationResources UP-TO-DATE
 > Task :Hoodies-Network:parseReleaseLocalResources UP-TO-DATE
 > Task :Hoodies-Network:generateReleaseRFile UP-TO-DATE
+> Task :Hoodies-Network:generateDebugAndroidTestLintModel
+> Task :Hoodies-Network:generateDebugUnitTestLintModel
 > Task :Hoodies-Network:kaptGenerateStubsReleaseKotlin UP-TO-DATE
 > Task :Hoodies-Network:kaptReleaseKotlin UP-TO-DATE
 > Task :Hoodies-Network:compileReleaseKotlin UP-TO-DATE
@@ -94,29 +94,29 @@
 > Task :Hoodies-Network:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :Hoodies-Network:mergeProjectDexDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :Hoodies-Network:mergeLibDexDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
 > Task :Hoodies-Network:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :Hoodies-Network:mergeLibDexDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:stripDebugAndroidTestDebugSymbols NO-SOURCE
 > Task :Hoodies-Network:validateSigningDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
 > Task :Hoodies-Network:packageDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 > Task :Hoodies-Network:lintAnalyzeDebugUnitTest
-
-> Task :Hoodies-Network:connectedDebugAndroidTest
-Starting 131 tests on api35(AVD) - 15
-
 > Task :Hoodies-Network:lintAnalyzeDebugAndroidTest
 > Task :Hoodies-Network:lintAnalyzeDebug
-api35(AVD) - 15 Tests 91/131 completed. (0 skipped) (0 failed)
-api35(AVD) - 15 Tests 92/131 completed. (0 skipped) (0 failed)
-api35(AVD) - 15 Tests 94/131 completed. (0 skipped) (0 failed)
-api35(AVD) - 15 Tests 95/131 completed. (0 skipped) (0 failed)
-api35(AVD) - 15 Tests 96/131 completed. (0 skipped) (0 failed)
-api35(AVD) - 15 Tests 98/131 completed. (0 skipped) (0 failed)
-api35(AVD) - 15 Tests 99/131 completed. (0 skipped) (0 failed)
-api35(AVD) - 15 Tests 111/131 completed. (0 skipped) (0 failed)
+
+> Task :Hoodies-Network:connectedDebugAndroidTest
+Starting 134 tests on api35(AVD) - 15
+
+api35(AVD) - 15 Tests 91/134 completed. (0 skipped) (0 failed)
+api35(AVD) - 15 Tests 92/134 completed. (0 skipped) (0 failed)
+api35(AVD) - 15 Tests 94/134 completed. (0 skipped) (0 failed)
+api35(AVD) - 15 Tests 95/134 completed. (0 skipped) (0 failed)
+api35(AVD) - 15 Tests 96/134 completed. (0 skipped) (0 failed)
+api35(AVD) - 15 Tests 98/134 completed. (0 skipped) (0 failed)
+api35(AVD) - 15 Tests 99/134 completed. (0 skipped) (0 failed)
+api35(AVD) - 15 Tests 114/134 completed. (0 skipped) (0 failed)
 
 > Task :Hoodies-Network:connectedDebugAndroidTest
 
@@ -128,11 +128,11 @@ com.gap.hoodies_network.SocketTimeOutTest > socketReadTimeOutTest[api35(AVD) - 1
 	java.lang.NoClassDefFoundError: org.mockito.internal.exceptions.stacktrace.StackTraceFilter
 	at org.mockito.internal.exceptions.stacktrace.ConditionalStackTraceFilter.<init>(ConditionalStackTraceFilter.java:16)
 
-api35(AVD) - 15 Tests 116/131 completed. (0 skipped) (2 failed)
-api35(AVD) - 15 Tests 119/131 completed. (0 skipped) (2 failed)
-api35(AVD) - 15 Tests 120/131 completed. (0 skipped) (2 failed)
-api35(AVD) - 15 Tests 121/131 completed. (0 skipped) (2 failed)
-Finished 131 tests on api35(AVD) - 15
+api35(AVD) - 15 Tests 119/134 completed. (0 skipped) (2 failed)
+api35(AVD) - 15 Tests 122/134 completed. (0 skipped) (2 failed)
+api35(AVD) - 15 Tests 123/134 completed. (0 skipped) (2 failed)
+api35(AVD) - 15 Tests 124/134 completed. (0 skipped) (2 failed)
+Finished 134 tests on api35(AVD) - 15
 
 > Task :Hoodies-Network:connectedDebugAndroidTest
 Tests on api35(AVD) - 15 failed: There was 2 failure(s).
@@ -151,5 +151,5 @@ Execution failed for task ':Hoodies-Network:connectedDebugAndroidTest'.
 > Run with --scan to get full insights.
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 2m 12s
-93 actionable tasks: 16 executed, 77 up-to-date
+BUILD FAILED in 2m 9s
+93 actionable tasks: 13 executed, 80 up-to-date

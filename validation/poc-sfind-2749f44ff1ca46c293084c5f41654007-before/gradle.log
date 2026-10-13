@@ -50,28 +50,25 @@
 > Task :Hoodies-Network:kaptDebugKotlin
 > Task :Hoodies-Network:compileDebugKotlin
 > Task :Hoodies-Network:compileDebugJavaWithJavac UP-TO-DATE
-> Task :Hoodies-Network:bundleLibCompileToJarDebug
 > Task :Hoodies-Network:bundleLibRuntimeToJarDebug
+> Task :Hoodies-Network:bundleLibCompileToJarDebug
 > Task :Hoodies-Network:processDebugJavaRes
 > Task :Hoodies-Network:bundleLibRuntimeToDirDebug
 > Task :Hoodies-Network:kaptGenerateStubsDebugAndroidTestKotlin
-> Task :Hoodies-Network:mergeLibDexDebugAndroidTest
 > Task :Hoodies-Network:kaptDebugAndroidTestKotlin
-
 > Task :Hoodies-Network:compileDebugAndroidTestKotlin
-w: file:///home/ubuntu/repos/hoodies-network/Hoodies-Network/src/androidTest/kotlin/com/gap/hoodies_network/PersistentCookieStoreTest.kt:94:40 Elvis operator (?:) always returns the left operand of non-nullable type 'String'.
-
 > Task :Hoodies-Network:compileDebugAndroidTestJavaWithJavac UP-TO-DATE
-> Task :Hoodies-Network:dexBuilderDebugAndroidTest
-> Task :Hoodies-Network:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE
+> Task :Hoodies-Network:dexBuilderDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:processDebugAndroidTestJavaRes UP-TO-DATE
-> Task :Hoodies-Network:mergeProjectDexDebugAndroidTest
+> Task :Hoodies-Network:mergeProjectDexDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:mergeDebugAndroidTestJavaResource
+> Task :Hoodies-Network:mergeLibDexDebugAndroidTest
+> Task :Hoodies-Network:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE
 > Task :Hoodies-Network:packageDebugAndroidTest
 > Task :Hoodies-Network:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 
 > Task :Hoodies-Network:connectedDebugAndroidTest
-Starting 7 tests on api30(AVD) - 11
+Starting 10 tests on api30(AVD) - 11
 
 com.gap.hoodies_network.PersistentCookieStoreTest > removeOnlyDeletesMatchingCookieIdentity[api30(AVD) - 11] [31mFAILED [0m
 	java.lang.AssertionError: expected:<[y=second]> but was:<[]>
@@ -93,6 +90,10 @@ com.gap.hoodies_network.PersistentCookieStoreTest > rotatedSessionReplacesPrevio
 	java.lang.AssertionError: old session still sent: session=ROTATED-SESSION-TOKEN; session=ALICE-SESSION-TOKEN
 	at org.junit.Assert.fail(Assert.java:88)
 
+com.gap.hoodies_network.PersistentCookieStoreTest > legacyRowIsReadThenBoundToItsHost[api30(AVD) - 11] [31mFAILED [0m
+	java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+
 com.gap.hoodies_network.PersistentCookieStoreTest > expiredCookieIsNotSentAndIsPurged[api30(AVD) - 11] [31mFAILED [0m
 	java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
@@ -100,13 +101,11 @@ com.gap.hoodies_network.PersistentCookieStoreTest > expiredCookieIsNotSentAndIsP
 com.gap.hoodies_network.PersistentCookieStoreTest > alreadyExpiredCookieIsNotStored[api30(AVD) - 11] [31mFAILED [0m
 	java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
-Tests on api30(AVD) - 11 failed: There was 7 failure(s).
+Tests on api30(AVD) - 11 failed: There was 8 failure(s).
 
-Finished 7 tests on api30(AVD) - 11
+Finished 10 tests on api30(AVD) - 11
 
 > Task :Hoodies-Network:connectedDebugAndroidTest FAILED
-
-[Incubating] Problems report is available at: file:///home/ubuntu/repos/hoodies-network/build/reports/problems/problems-report.html
 
 FAILURE: Build failed with an exception.
 
@@ -120,5 +119,5 @@ Execution failed for task ':Hoodies-Network:connectedDebugAndroidTest'.
 > Run with --scan to get full insights.
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 16s
-58 actionable tasks: 16 executed, 42 up-to-date
+BUILD FAILED in 17s
+58 actionable tasks: 14 executed, 44 up-to-date

@@ -3,6 +3,7 @@ package com.gap.hoodies_network
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import androidx.test.platform.app.InstrumentationRegistry
+import com.gap.hoodies_network.cache.EncryptedCache
 import com.gap.hoodies_network.cookies.CookieJar
 import com.gap.hoodies_network.cookies.PersistentCookieJar
 import com.gap.hoodies_network.core.Failure
@@ -22,6 +23,8 @@ import org.junit.Before
 import org.junit.Test
 import java.net.HttpCookie
 import java.net.URI
+import java.util.Base64
+import javax.crypto.Cipher
 
 /**
  * Regression tests for sfind-2749f44ff1ca46c293084c5f41654007: the persistent cookie store must honour the
@@ -152,6 +155,7 @@ class PersistentCookieStoreTest {
         Thread.sleep(3500)
 
         val restartedJar = PersistentCookieJar(jarName, ctx)
+        assertTrue(restartedJar.getAllHosts().isEmpty())
         assertFalse(cookieHeaderSent(client(restartedJar)).contains("SHORT-LIVED"))
         assertTrue(restartedJar.getAllCookies().isEmpty())
         assertEquals(0L, rowCount())
@@ -193,5 +197,44 @@ class PersistentCookieStoreTest {
         }
 
         assertTrue(PersistentCookieJar(jarName, ctx).getCookiesForHost(URI(baseUrl)).isEmpty())
+    }
+
+    @Test
+    fun nullAndEmptyPathAreDistinctCookies() {
+        val jar = PersistentCookieJar(jarName, ctx)
+        jar.addCookieForHost(URI(baseUrl), HttpCookie("p", "nullPath"))
+        jar.addCookieForHost(URI(baseUrl), HttpCookie("p", "emptyPath").apply { path = "" })
+
+        assertEquals(setOf("nullPath", "emptyPath"), jar.getCookiesForHost(URI(baseUrl)).map { it.value }.toSet())
+    }
+
+    @Test
+    fun hugeMaxAgeDoesNotOverflowIntoExpiry() {
+        val jar = PersistentCookieJar(jarName, ctx)
+        jar.addCookieForHost(URI(baseUrl), HttpCookie("forever", "value").apply { maxAge = Long.MAX_VALUE / 10 })
+
+        assertEquals(listOf("forever=value"), PersistentCookieJar(jarName, ctx).getCookiesForHost(URI(baseUrl)).map { "${it.name}=${it.value}" })
+    }
+
+    @Test
+    fun legacyRowIsReadThenBoundToItsHost() {
+        // Format written before host binding: Gson-style HttpCookie JSON encrypted without AAD
+        val legacyJson = JSONObject().put("name", "legacy").put("value", "LEGACY-VALUE").put("path", "/")
+            .put("maxAge", -1L).put("version", 0).put("whenCreated", System.currentTimeMillis()).toString()
+        val iv = EncryptedCache.genIV()
+        val encrypted = EncryptedCache.runAES(legacyJson.encodeToByteArray(), iv, Cipher.ENCRYPT_MODE)
+        SQLiteDatabase.openDatabase(ctx.getDatabasePath(jarName).path, null, SQLiteDatabase.OPEN_READWRITE).use {
+            it.execSQL(
+                "INSERT INTO encryptedcookie (host, cookie, iv, hash) VALUES (?, ?, ?, 0)",
+                arrayOf("http://localhost", Base64.getEncoder().encodeToString(encrypted), Base64.getEncoder().encodeToString(iv))
+            )
+        }
+
+        assertEquals(listOf("legacy=LEGACY-VALUE"), PersistentCookieJar(jarName, ctx).getCookiesForHost(URI(baseUrl)).map { "${it.name}=${it.value}" })
+
+        SQLiteDatabase.openDatabase(ctx.getDatabasePath(jarName).path, null, SQLiteDatabase.OPEN_READWRITE).use {
+            it.execSQL("UPDATE encryptedcookie SET host = 'http://attacker.example'")
+        }
+        assertTrue(PersistentCookieJar(jarName, ctx).getCookiesForHost(URI("http://attacker.example")).isEmpty())
     }
 }

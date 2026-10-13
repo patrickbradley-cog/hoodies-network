@@ -50,27 +50,27 @@
 > Task :Hoodies-Network:kaptDebugKotlin
 > Task :Hoodies-Network:compileDebugKotlin
 > Task :Hoodies-Network:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Hoodies-Network:processDebugJavaRes UP-TO-DATE
 > Task :Hoodies-Network:bundleLibCompileToJarDebug
-> Task :Hoodies-Network:processDebugJavaRes
-> Task :Hoodies-Network:bundleLibRuntimeToJarDebug
 > Task :Hoodies-Network:bundleLibRuntimeToDirDebug
+> Task :Hoodies-Network:bundleLibRuntimeToJarDebug
 > Task :Hoodies-Network:kaptGenerateStubsDebugAndroidTestKotlin
+> Task :Hoodies-Network:mergeLibDexDebugAndroidTest
 > Task :Hoodies-Network:kaptDebugAndroidTestKotlin
 > Task :Hoodies-Network:compileDebugAndroidTestKotlin
 > Task :Hoodies-Network:compileDebugAndroidTestJavaWithJavac UP-TO-DATE
 > Task :Hoodies-Network:dexBuilderDebugAndroidTest UP-TO-DATE
 > Task :Hoodies-Network:processDebugAndroidTestJavaRes UP-TO-DATE
+> Task :Hoodies-Network:mergeDebugAndroidTestJavaResource UP-TO-DATE
 > Task :Hoodies-Network:mergeProjectDexDebugAndroidTest UP-TO-DATE
-> Task :Hoodies-Network:mergeDebugAndroidTestJavaResource
-> Task :Hoodies-Network:mergeLibDexDebugAndroidTest
 > Task :Hoodies-Network:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE
 > Task :Hoodies-Network:packageDebugAndroidTest
 > Task :Hoodies-Network:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 
 > Task :Hoodies-Network:connectedDebugAndroidTest
-Starting 7 tests on api30(AVD) - 11
+Starting 10 tests on api30(AVD) - 11
 
-Finished 7 tests on api30(AVD) - 11
+Finished 10 tests on api30(AVD) - 11
 
 BUILD SUCCESSFUL in 14s
-58 actionable tasks: 14 executed, 44 up-to-date
+58 actionable tasks: 12 executed, 46 up-to-date

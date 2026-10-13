@@ -1,4 +1,4 @@
-Baseline: 121/124 passed, 3 failed, 0 skipped. Current: 129/131 passed, 2 failed, 0 skipped. Regressions: 0.
+Baseline: 121/124 passed, 3 failed, 0 skipped. Current: 132/134 passed, 2 failed, 0 skipped. Regressions: 0.
 
 | Test | Baseline | Current | Verdict |
 |---|---|---|---|
@@ -105,7 +105,10 @@ Baseline: 121/124 passed, 3 failed, 0 skipped. Current: 129/131 passed, 2 failed
 | `com.gap.hoodies_network.NetworkConnectionTest#isOnline` | passed | passed | same |
 | `com.gap.hoodies_network.PersistentCookieStoreTest#alreadyExpiredCookieIsNotStored` | absent | passed | new |
 | `com.gap.hoodies_network.PersistentCookieStoreTest#expiredCookieIsNotSentAndIsPurged` | absent | passed | new |
+| `com.gap.hoodies_network.PersistentCookieStoreTest#hugeMaxAgeDoesNotOverflowIntoExpiry` | absent | passed | new |
+| `com.gap.hoodies_network.PersistentCookieStoreTest#legacyRowIsReadThenBoundToItsHost` | absent | passed | new |
 | `com.gap.hoodies_network.PersistentCookieStoreTest#logoutWithMaxAgeZeroDeletesSessionAcrossRestarts` | absent | passed | new |
+| `com.gap.hoodies_network.PersistentCookieStoreTest#nullAndEmptyPathAreDistinctCookies` | absent | passed | new |
 | `com.gap.hoodies_network.PersistentCookieStoreTest#reissuedCookieDoesNotAccumulate` | absent | passed | new |
 | `com.gap.hoodies_network.PersistentCookieStoreTest#removeOnlyDeletesMatchingCookieIdentity` | absent | passed | new |
 | `com.gap.hoodies_network.PersistentCookieStoreTest#rotatedSessionReplacesPreviousValue` | absent | passed | new |
